@@ -1,4 +1,7 @@
 Hardclimbs::Application.routes.draw do
+  resources :styles
+
+
   authenticated :user do
       root :to => 'home#index'
   end
