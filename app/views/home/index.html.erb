@@ -1,4 +1,4 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%= user.name %> </p>
+<h3>Climbers</h3>
+<% @climbers.each do |climber| %>
+  <p><%= link_to climber.full_name, climber_path(climber) %> </p>
 <% end %>

@@ -1,0 +1,16 @@
+<%= simple_form_for @climber, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :sex, :collection => Climber::SEX %>
+  <%= f.input :dob, :as => :date, :start_year => Date.today.year - 60,
+                                :end_year => Date.today.year - 12,
+                                :start_daty => 1,
+                                :order => [:month, :day, :year],
+                                :include_blank => true %>
+  <%= f.input :height %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                climbers_path, :class => 'btn' %>
+  </div>
+<% end %>
