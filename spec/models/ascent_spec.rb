@@ -5,7 +5,6 @@
 #  id         :integer          not null, primary key
 #  date       :date
 #  climb_id   :integer
-#  media_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  climber_id :integer

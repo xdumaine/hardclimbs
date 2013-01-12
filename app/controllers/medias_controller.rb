@@ -1,25 +1,25 @@
 class MediasController < ApplicationController
   before_filter :authenticate_user!
   def new
-   @media = Medias.new
+   @media = Media.new
   end
   
   def index
     authorize! :index, @media, :message => 'Not authorized as an administrator.'
-    @medias = Medias.all
+    @media = Media.all
   end
   
   def edit
-    @media = Medias.find(params[:id])
+    @media = Media.find(params[:id])
   end
 
   def show
-    @media = Medias.find(params[:id])
+    @media = Media.find(params[:id])
   end
   
   def update
       authorize! :update, @media, :message => 'Not authorized as an administrator.'
-      @media = Medias.find(params[:id])
+      @media = Media.find(params[:id])
       if @media.update_attributes(params[:media], :as => :admin)
         redirect_to medias_path, :notice => "Media updated."
       else
@@ -29,7 +29,7 @@ class MediasController < ApplicationController
 
   def create
     authorize! :create, @media, :message => 'Not authorized as an administrator.'
-    @media = Medias.new(params[:media], :as => :admin)
+    @media = Media.new(params[:media], :as => :admin)
     if @media.save
       flash[:success] = "Thanks for adding media!"
       redirect_to @media
@@ -40,7 +40,7 @@ class MediasController < ApplicationController
     
   def destroy
     authorize! :destroy, @media, :message => 'Not authorized as an administrator.'
-    media = Medias.find(params[:id])
+    media = Media.find(params[:id])
     media.destroy
     redirect_to medias_path, :notice => "Media deleted."
   end

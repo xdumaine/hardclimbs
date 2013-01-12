@@ -14,8 +14,8 @@
     <% @climbs.each do |climb| %>
       <tr>
         <td><%= link_to climb.name, climb_path(climb) %></td>
-        <td><%= climb.style_id %></td>
-        <td><%= climb.media_id %></td>
+        <td><%= Style.find(climb.style_id).name %></td>
+        <td><%= climb.medias.count %></td>
         <td><%=l climb.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

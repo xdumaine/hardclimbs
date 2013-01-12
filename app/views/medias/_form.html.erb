@@ -1,7 +1,8 @@
 <%= simple_form_for @media, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :url %>
   <%= f.input :description %>
-  <%= f.input :media_types_id %>
+  <%= f.association :climb , prompt:  'Choose the climb' %>
+  <%= f.association :ascent , prompt:  'Choose the ascent to link', :label_method => :date %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

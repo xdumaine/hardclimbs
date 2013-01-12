@@ -10,5 +10,5 @@
 
 class MediaType < ActiveRecord::Base
   attr_accessible :name, :as => :admin
-  has_many :media
+  has_many :medias
 end

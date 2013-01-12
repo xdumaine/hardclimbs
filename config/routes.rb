@@ -2,7 +2,7 @@ Hardclimbs::Application.routes.draw do
   resources :climbs
   resources :media_types
   resources :styles
-  resources :media
+  resources :medias
   resources :ascents
   resources :climbers
 
