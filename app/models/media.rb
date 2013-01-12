@@ -13,4 +13,6 @@
 class Media < ActiveRecord::Base
   attr_accessible :url, :description
   belongs_to :media_type
+  belongs_to :ascent
+  belongs_to :climb
 end
