@@ -1,29 +1,29 @@
-<%- model_class = Climber.new.class -%>
+<%- model_class = Ascent.new.class -%>
 <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:full_name) %></th>
-      <th><%= model_class.human_attribute_name(:sex) %></th>
-      <th><%= model_class.human_attribute_name(:dob) %></th>
-      <th><%= model_class.human_attribute_name(:height) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:climb_id) %></th>
+      <th><%= model_class.human_attribute_name(:climber_id) %></th>
+      <th>Grade</th>
+      <th><%= model_class.human_attribute_name(:style_id) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @climbers.each do |climber| %>
+    <% @ascents.each do |ascent| %>
       <tr>
-        <td><%= link_to climber.full_name, climber_path(climber) %></td>
-        <td><%= climber.sex %></td>
-        <td><%= climber.dob %></td>
-        <td><%= climber.height %></td>
-        <td><%=l climber.created_at %></td>
+        <td><%= link_to ascent.date, ascent_path(ascent) %></td>
+        <td><%= link_to ascent.climb.name, climb_path(ascent.climb) %></td>
+        <td><%= link_to ascent.climber.full_name, climber_path(ascent.climber) %></td>
+        <td>Grade</td>
+        <td>Style</td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_climber_path(climber), :class => 'btn btn-mini' %>
+                      edit_ascent_path(ascent), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      climber_path(climber),
+                      ascent_path(ascent),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
                       :class => 'btn btn-mini btn-danger' %>
@@ -34,5 +34,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_climber_path,
+            new_ascent_path,
             :class => 'btn btn-primary' %>

@@ -1,26 +1,50 @@
+<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+</a>
 <%= link_to "Hard Climbs", root_path, :class => 'brand' %>
-<ul class="nav">
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
-    </li>
-  <% else %>
-    <li>
-    <%= link_to 'Login', new_user_session_path %>  
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Edit account', edit_user_registration_path %>
-    </li>
-    <% if current_user.has_role? :admin %>
-      <li>
-      <%= link_to 'Admin', users_path %>
-      </li>
-    <% end %>
-  <% else %>
-    <li>
-    <%= link_to 'Sign up', new_user_registration_path %>
-    </li>
-  <% end %>
-</ul>
+<div class="nav-collapse">
+  <ul class="nav" role="navigation">
+   <li class="dropdown">
+     <%= link_to raw("Ascents <b class='caret'></b>"), ascents_path, :role => "button", :class => 'dropdown-toggle', :id => 'drop1'%>
+     <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+       <li><a tabindex="-1" href="#">By Style</a></li>
+     </ul>
+   </li>
+   <li>
+    <%= link_to "Climbers", climbs_path, :role => "button"%>
+   </li>
+   <li id="fat-menu" class="dropdown">
+        <%= link_to raw("Climbs <b class='caret'></b>"), climbers_path, :role => "button", :class => 'dropdown-toggle', :data => {:toggle => 'dropdown' }, :id => 'drop3'%>
+     <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+       <li><a tabindex="-1" href="#">Action</a></li>
+     </ul>
+   </li>
+  </ul>
+  <ul class="nav pull-right">
+   <% if user_signed_in? %>
+     <% if current_user.has_role? :admin %>
+     <li class="dropdown">
+        <%= link_to raw("Admin <b class='caret'></b>"), users_path, :role => "button", :class => 'dropdown-toggle', :data => {:toggle => 'dropdown' }, :id => 'drop4'%>
+       <ul class="dropdown-menu" role="menu" aria-labelledby="drop4">
+         <li><%= link_to "Edit Styles", styles_path, :tabidex => "-1" %></li>
+         <li><%= link_to "Edit Media Types", media_types_path, :tabidex => "-1" %></li>
+         <li><%= link_to 'Edit Account', edit_user_registration_path, :tabidex => "-1" %></li>
+        </ul>
+     </li>
+     <% end %>
+   <% else %>
+   <% end %>
+   <% if user_signed_in? %>
+     <li>
+     <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
+     </li>
+   <% else %>
+     <li>
+     <%= link_to 'Login', new_user_session_path %>  
+     </li>
+   <% end %>
+  </ul>
+</div>

@@ -1,6 +1,10 @@
 Hardclimbs::Application.routes.draw do
+  resources :climbs
+  resources :media_types
   resources :styles
-
+  resources :media
+  resources :ascents
+  resources :climbers
 
   authenticated :user do
       root :to => 'home#index'
@@ -8,7 +12,6 @@ Hardclimbs::Application.routes.draw do
   root :to => "home#index"
   devise_for :users
   resources :users
-  resources :climbers
   
 
   # The priority is based upon order of creation:

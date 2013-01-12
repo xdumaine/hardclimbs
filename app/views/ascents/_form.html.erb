@@ -1,0 +1,14 @@
+<%= simple_form_for @ascent, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.association :climber, prompt:  'Choose the climber', :label_method => :first_name %>
+  <%= f.association :climb , prompt:  'Choose the climb' %>
+  <%= f.input :date, :as => :date, :start_year => Date.today.year - 20,
+                                  :end_year => Date.today.year,
+                                  :start_daty => 1,
+                                  :order => [:month, :day, :year],
+                                  :include_blank => true %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                ascents_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: styles
+# Table name: media_types
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,7 +8,8 @@
 #  updated_at :datetime         not null
 #
 
-class Style < ActiveRecord::Base
-  attr_accessible :name
-  belongs_to :climb
+require 'spec_helper'
+
+describe MediaType do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

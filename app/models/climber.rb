@@ -24,7 +24,6 @@ class Climber < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
-
-  #has_many :ascents
-  #has_many :media
+  has_many :climbs, :through => :ascents
+  has_many :ascents
 end

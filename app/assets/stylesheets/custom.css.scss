@@ -115,3 +115,9 @@ footer {
   margin-top: 45px;
   @include box_sizing;
 }
+.main-features {
+  margin-top: 10px;      
+}
+ul.nav li.dropdown:hover ul.dropdown-menu{
+    display: block;    
+}

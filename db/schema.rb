@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130111010257) do
+ActiveRecord::Schema.define(:version => 20130111021703) do
+
+  create_table "ascents", :force => true do |t|
+    t.date     "date"
+    t.integer  "climb_id"
+    t.integer  "media_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "climber_id"
+  end
 
   create_table "climbers", :force => true do |t|
     t.string   "first_name"
@@ -19,6 +28,28 @@ ActiveRecord::Schema.define(:version => 20130111010257) do
     t.string   "sex"
     t.date     "dob"
     t.integer  "height"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "climbs", :force => true do |t|
+    t.string   "name"
+    t.integer  "style_id"
+    t.integer  "media_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "media", :force => true do |t|
+    t.string   "url"
+    t.string   "description"
+    t.integer  "media_types_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "media_types", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

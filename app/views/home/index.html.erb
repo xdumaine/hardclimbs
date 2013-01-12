@@ -1,4 +1,42 @@
-<h3>Climbers</h3>
-<% @climbers.each do |climber| %>
-  <p><%= link_to climber.full_name, climber_path(climber) %> </p>
-<% end %>
+<div class="hero-unit">
+  <h1>Welcome to HardClimbs.info</h1>
+  <p>A semi-comprehensive list of the hardest rock climbs in the world...</p>
+  <p></p>
+</div>
+
+<div class="row main-features">
+  <div class="span3">
+    <div class="well">
+      <h3>Climbers</h3>
+      <p>Enter a brief description of why it's so awesome here. Then move on to
+        the next feature.</p>
+      <%= link_to "Climbers", climbers_path, :class => 'btn btn-info' %>  
+    </div>
+  </div>
+  <div class="span3">
+    <div class="well">
+      <h3>Climbs</h3>
+      <p>Enter a brief description of why it's so awesome here. Then move on to
+        the next feature.</p>
+      <%= link_to "Climbs", climbs_path, :class => 'btn btn-info' %> 
+    </div>
+  </div>
+  <div class="span3">
+    <div class="well">
+      <h3>Sends</h3>
+      <p>Enter a brief description of why it's so awesome here. Then move on to
+        the next feature.</p>
+      <%= link_to "Sends", ascents_path, :class => 'btn btn-info' %> 
+    </div>
+  </div>
+  <div class="span3">
+    <div class="well">
+      <h3>Areas</h3>
+      <p>Browse a list of areas with hard climbs</p>
+      <%= link_to "Sends", ascents_path, :class => 'btn btn-info' %> 
+      <ul class="nav nav-tabs"></ul>
+    </div>
+  </div>
+
+<div class="btn-group"></div>
+</div>
