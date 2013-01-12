@@ -59,4 +59,4 @@ gem "twitter-bootstrap-rails"
 gem 'debugger', :group => [:development]
 gem "faker", "~> 1.1.2", :group => [:development]
 gem 'pg', :group => [:production]
-gem 'sqllite3', :group => [:development, :test]
+gem 'sqlite3', :group => [:development, :test]
