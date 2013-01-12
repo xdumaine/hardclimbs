@@ -57,6 +57,6 @@ gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 gem 'debugger', :group => [:development]
-gem "faker", "~> 1.1.2", :group => [:development]
+gem "faker", "~> 1.1.2", :group => [:development, :test]
 gem 'pg', :group => [:production]
 gem 'sqlite3', :group => [:development, :test]
