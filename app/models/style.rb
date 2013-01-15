@@ -10,5 +10,5 @@
 
 class Style < ActiveRecord::Base
   attr_accessible :name
-  belongs_to :climb
+  has_one :climb
 end

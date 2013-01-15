@@ -14,5 +14,6 @@ class Climb < ActiveRecord::Base
   has_many :climbers, :through => :ascents
   has_many :ascents
   has_many :medias
-  has_one :style
+  #has_one :style
+  belongs_to :style
 end

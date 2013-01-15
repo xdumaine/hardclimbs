@@ -6,7 +6,13 @@ class AscentsController < ApplicationController
   
   def index
     authorize! :index, @ascent, :message => 'Not authorized as an administrator.'
-    @ascents = Ascent.all
+    if params[:climb_id]
+      @ascents = Ascent.find_all_by_climb_id(params[:climb_id])
+    elseif params[:climber_id]
+      @ascents = Ascent.find_all_by_climber_id(params[:climber_id])
+    else
+      @ascents = Ascent.all
+    end
   end
   
   def edit

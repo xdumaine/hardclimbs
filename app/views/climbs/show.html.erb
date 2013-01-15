@@ -1,11 +1,11 @@
 <%- model_class = @climb.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+<h1><%=t '.title', :default => @climb.name %></h1>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @climb.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:style_id) %>:</strong></dt>
-  <dd><%= @climb.style_id %></dd>
+  <dd><%= @climb.style.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ascents) %>:</strong></dt>
+  <dd><%= link_to @climb.ascents.count, climb_ascents_path(@climb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:media_id) %>:</strong></dt>
   <dd><%= @climb.medias.count %></dd>
 </dl>

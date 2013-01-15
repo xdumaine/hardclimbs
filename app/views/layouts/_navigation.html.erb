@@ -8,18 +8,27 @@
 <div class="nav-collapse">
   <ul class="nav" role="navigation">
    <li class="dropdown">
-     <%= link_to raw("Ascents <b class='caret'></b>"), ascents_path, :role => "button", :class => 'dropdown-toggle', :id => 'drop1'%>
+     <%= link_to "Sends", ascents_path, :role => "button"%>
+     <!--<%= link_to raw("Ascents <b class='caret'></b>"), ascents_path, :role => "button", :class => 'dropdown-toggle', :data => {:toggle => 'dropdown' }, :id => 'drop1'%>
      <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
        <li><a tabindex="-1" href="#">By Style</a></li>
-     </ul>
+     </ul>-->
    </li>
    <li>
-    <%= link_to "Climbers", climbs_path, :role => "button"%>
+    <%= link_to "Climbers", climbers_path, :role => "button"%>
    </li>
-   <li id="fat-menu" class="dropdown">
-        <%= link_to raw("Climbs <b class='caret'></b>"), climbers_path, :role => "button", :class => 'dropdown-toggle', :data => {:toggle => 'dropdown' }, :id => 'drop3'%>
+   <li class="dropdown">
+     <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Climbs <b class='caret'></b></a>
      <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-       <li><a tabindex="-1" href="#">Action</a></li>
+       <li>
+         <%= link_to "All Styles", climbs_path, :tabindex => '-1' %>
+       </li>
+       <% Style.all.each do |s| %>
+        <li>
+          <%= link_to s.name, climbs_path(:styles => s.id) %>
+        </li>
+      <% end %>
+       
      </ul>
    </li>
   </ul>

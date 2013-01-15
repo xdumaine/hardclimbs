@@ -6,7 +6,14 @@ class ClimbsController < ApplicationController
   
   def index
     authorize! :index, @climb, :message => 'Not authorized as an administrator.'
-    @climbs = Climb.all
+    @selected_styles = params[:styles] || session[:styles] || {}
+    if @selected_styles.count > 0
+      @climbs = Climb.find_all_by_style_id(@selected_styles)
+    else
+      @climbs = Climb.all
+    end
+    
+    #@climbs = Climb.all
   end
   
   def edit

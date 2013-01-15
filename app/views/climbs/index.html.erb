@@ -5,6 +5,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:style_id) %></th>
+      <th><%= model_class.human_attribute_name(:send_count) %></th>
       <th><%= model_class.human_attribute_name(:media_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -14,7 +15,8 @@
     <% @climbs.each do |climb| %>
       <tr>
         <td><%= link_to climb.name, climb_path(climb) %></td>
-        <td><%= Style.find(climb.style_id).name %></td>
+        <td><%= climb.style.name %></td>
+        <td><%= link_to climb.ascents.count, ascents_path(climb) %></td>
         <td><%= climb.medias.count %></td>
         <td><%=l climb.created_at %></td>
         <td>
