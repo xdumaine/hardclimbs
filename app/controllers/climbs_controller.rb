@@ -1,12 +1,13 @@
 class ClimbsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index, :show]
+  load_and_authorize_resource
   def new
    @climb = Climb.new
   end
   
   def index
-    authorize! :index, @climb, :message => 'Not authorized as an administrator.'
-    @selected_styles = params[:styles] || session[:styles] || {}
+    #authorize! :index, @climb, :message => 'Not authorized as an administrator.'
+    @selected_styles = params[:style] || session[:style] || {}
     if @selected_styles.count > 0
       @climbs = Climb.find_all_by_style_id(@selected_styles)
     else
@@ -25,7 +26,7 @@ class ClimbsController < ApplicationController
   end
   
   def update
-      authorize! :update, @climb, :message => 'Not authorized as an administrator.'
+      #authorize! :update, @climb, :message => 'Not authorized as an administrator.'
       @climb = Climb.find(params[:id])
       if @climb.update_attributes(params[:climb], :as => :admin)
         redirect_to climbs_path, :notice => "Climb updated."
@@ -35,7 +36,7 @@ class ClimbsController < ApplicationController
     end
 
   def create
-    authorize! :create, @climb, :message => 'Not authorized as an administrator.'
+    #authorize! :create, @climb, :message => 'Not authorized as an administrator.'
     @climb = Climb.new(params[:climb], :as => :admin)
     if @climb.save
       flash[:success] = "Thanks for adding a climb!"
@@ -46,7 +47,7 @@ class ClimbsController < ApplicationController
   end
     
   def destroy
-    authorize! :destroy, @climb, :message => 'Not authorized as an administrator.'
+    #authorize! :destroy, @climb, :message => 'Not authorized as an administrator.'
     climb = Climb.find(params[:id])
     climb.destroy
     redirect_to climbs_path, :notice => "Climb deleted."

@@ -1,18 +1,24 @@
 class AscentsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index, :show]
+  load_and_authorize_resource
   def new
    @ascent = Ascent.new
   end
   
   def index
-    authorize! :index, @ascent, :message => 'Not authorized as an administrator.'
+    #authorize! :index, @ascent, :message => 'Not authorized as an administrator.'
     if params[:climb_id]
-      @ascents = Ascent.find_all_by_climb_id(params[:climb_id])
-    elseif params[:climber_id]
-      @ascents = Ascent.find_all_by_climber_id(params[:climber_id])
+      @climb = Climb.find(params[:climb_id])
+      @ascents = @climb.ascents.all
+      #@ascents = Ascent.find_all_by_climb_id(params[:climb_id])
+    elsif params[:climber_id]
+      @climber = Climber.find(params[:climber_id])
+      @ascents = @climber.ascents.all
+      #@ascents = Ascent.find_all_by_climber_id(params[:climber_id])
     else
       @ascents = Ascent.all
     end
+ 
   end
   
   def edit
@@ -20,11 +26,19 @@ class AscentsController < ApplicationController
   end
 
   def show
-    @ascent = Ascent.find(params[:id])
+    if params[:climb_id]
+      @climb = Climb.find(params[:climb_id])
+      @ascent = @climb.ascents.find(params[:id])
+    elsif params[:id]
+      @ascent = Ascent.find(params[:id])
+    end
+    #@city = City.find(params[:city_id])
+    #@restaurant = @city.restaurants.find(params[:id])
+    #@ascent = Ascent.find(params[:id])
   end
   
   def update
-      authorize! :update, @ascent, :message => 'Not authorized as an administrator.'
+      #authorize! :update, @ascent, :message => 'Not authorized as an administrator.'
       @ascent = Ascent.find(params[:id])
       if @ascent.update_attributes(params[:ascent], :as => :admin)
         redirect_to ascents_path, :notice => "Ascent updated."
@@ -34,7 +48,7 @@ class AscentsController < ApplicationController
     end
 
   def create
-    authorize! :create, @ascent, :message => 'Not authorized as an administrator.'
+    #authorize! :create, @ascent, :message => 'Not authorized as an administrator.'
     @ascent = Ascent.new(params[:ascent], :as => :admin)
     if @ascent.save
       flash[:success] = "Thanks for adding an ascent!"
@@ -45,7 +59,7 @@ class AscentsController < ApplicationController
   end
     
   def destroy
-    authorize! :destroy, @ascent, :message => 'Not authorized as an administrator.'
+    #authorize! :destroy, @ascent, :message => 'Not authorized as an administrator.'
     ascent = Ascent.find(params[:id])
     ascent.destroy
     redirect_to ascents_path, :notice => "Ascent deleted."

@@ -1,11 +1,12 @@
 class ClimbersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index, :show]
+  load_and_authorize_resource
   def new
     @climber = Climber.new
   end
   
   def index
-    authorize! :index, @climber, :message => 'Not authorized as an administrator.'
+    #authorize! :index, @climber, :message => 'Not authorized as an administrator.'
     @climbers = Climber.all
   end
   
@@ -18,7 +19,7 @@ class ClimbersController < ApplicationController
   end
   
   def update
-      authorize! :update, @climber, :message => 'Not authorized as an administrator.'
+      #authorize! :update, @climber, :message => 'Not authorized as an administrator.'
       @climber = Climber.find(params[:id])
       if @climber.update_attributes(params[:climber], :as => :admin)
         redirect_to climbers_path, :notice => "Climber updated."
@@ -28,7 +29,7 @@ class ClimbersController < ApplicationController
     end
 
   def create
-    authorize! :create, @climber, :message => 'Not authorized as an administrator.'
+    #authorize! :create, @climber, :message => 'Not authorized as an administrator.'
     @climber = Climber.new(params[:climber], :as => :admin)
     if @climber.save
       flash[:success] = "Thanks for adding a climber!"
@@ -39,7 +40,7 @@ class ClimbersController < ApplicationController
   end
     
   def destroy
-    authorize! :destroy, @climber, :message => 'Not authorized as an administrator.'
+    #authorize! :destroy, @climber, :message => 'Not authorized as an administrator.'
     climber = Climber.find(params[:id])
     climber.destroy
     redirect_to climbers_path, :notice => "Climber deleted."

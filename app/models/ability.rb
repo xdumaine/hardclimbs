@@ -3,8 +3,15 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
+ 
+        if user.has_role? :editor
+          can :manage, [Ascent, Climber, Climb, Media]
+          can :read, [MediaType, Style]
+        end
         if user.has_role? :admin
-          can :manage, :all
+           can :manage, :all
+        else
+          can :read, [Ascent, Climber, Climb, Media]
         end
     # Define abilities for the passed in user here. For example:
     #

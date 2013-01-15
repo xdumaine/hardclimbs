@@ -36,11 +36,11 @@
    <% if user_signed_in? %>
      <% if current_user.has_role? :admin %>
      <li class="dropdown">
-        <%= link_to raw("Admin <b class='caret'></b>"), users_path, :role => "button", :class => 'dropdown-toggle', :data => {:toggle => 'dropdown' }, :id => 'drop4'%>
+       <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Admin <b class='caret'></b></a>
        <ul class="dropdown-menu" role="menu" aria-labelledby="drop4">
          <li><%= link_to "Edit Styles", styles_path, :tabidex => "-1" %></li>
          <li><%= link_to "Edit Media Types", media_types_path, :tabidex => "-1" %></li>
-         <li><%= link_to 'Edit Account', edit_user_registration_path, :tabidex => "-1" %></li>
+         <li><%= link_to 'Edit Account', users_path, :tabidex => "-1" %></li>
         </ul>
      </li>
      <% end %>
