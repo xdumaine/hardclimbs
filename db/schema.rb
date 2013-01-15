@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130112201425) do
+ActiveRecord::Schema.define(:version => 20130115015211) do
 
   create_table "ascents", :force => true do |t|
     t.date     "date"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(:version => 20130112201425) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "climber_id"
+    t.string   "slug"
   end
+
+  add_index "ascents", ["slug"], :name => "index_ascents_on_slug", :unique => true
 
   create_table "climbers", :force => true do |t|
     t.string   "first_name"
@@ -29,14 +32,31 @@ ActiveRecord::Schema.define(:version => 20130112201425) do
     t.integer  "height"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "climbers", ["slug"], :name => "index_climbers_on_slug", :unique => true
 
   create_table "climbs", :force => true do |t|
     t.string   "name"
     t.integer  "style_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "climbs", ["slug"], :name => "index_climbs_on_slug", :unique => true
+
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "media_types", :force => true do |t|
     t.string   "name"

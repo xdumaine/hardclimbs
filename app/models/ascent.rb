@@ -11,8 +11,13 @@
 #
 
 class Ascent < ActiveRecord::Base
+  #extend FriendlyId
+  #  friendly_id :climber_name, :use => :slugged
+ # validates_presence_of :slug
+  
   attr_accessible :date, :climber_id, :climb_id, :media_id, :as => :admin
   belongs_to :climber
   belongs_to :climb
   has_many :media
+  
 end

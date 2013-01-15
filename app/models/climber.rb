@@ -10,10 +10,13 @@
 #  height     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  slug       :string(255)
 #
 
 class Climber < ActiveRecord::Base
-  
+  extend FriendlyId
+    friendly_id :full_name, :use => :slugged
+  validates_presence_of :slug
   SEX = ['M', 'F']
   
   attr_accessible :first_name, :last_name, :dob, :height, :sex, :as => :admin

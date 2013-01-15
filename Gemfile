@@ -59,3 +59,4 @@ gem 'debugger', :group => [:development]
 gem "faker", "~> 1.1.2", :group => [:development, :test]
 gem 'pg', :group => [:production]
 gem 'sqlite3', :group => [:development, :test]
+gem "friendly_id", "~> 4.0.9"

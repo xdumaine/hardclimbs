@@ -10,6 +10,10 @@
 #
 
 class Climb < ActiveRecord::Base
+  extend FriendlyId
+    friendly_id :name, :use => :slugged
+  validates_presence_of :slug
+  
   attr_accessible :name, :style, :media_id, :style_id, :as => :admin
   has_many :climbers, :through => :ascents
   has_many :ascents
