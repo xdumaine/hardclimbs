@@ -2,7 +2,7 @@
 body {
         padding-top: 80px;
         padding-bottom: 40px;
- }
+}
 
 
 @mixin box_sizing {
@@ -15,6 +15,9 @@ body {
 	padding-bottom: 20px;
 }
 
+h1.title {
+	text-align: center;
+}
 .navbar a > i {
 	opacity: 0.5;
 }
