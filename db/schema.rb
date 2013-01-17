@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115015211) do
+ActiveRecord::Schema.define(:version => 20130115232431) do
 
   create_table "ascents", :force => true do |t|
     t.date     "date"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130115015211) do
     t.datetime "updated_at", :null => false
     t.integer  "climber_id"
     t.string   "slug"
+    t.integer  "grade_id"
   end
 
   add_index "ascents", ["slug"], :name => "index_ascents_on_slug", :unique => true
@@ -57,6 +58,17 @@ ActiveRecord::Schema.define(:version => 20130115015211) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "grades", :force => true do |t|
+    t.string   "name"
+    t.integer  "rank"
+    t.integer  "style_id"
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "grades", ["slug"], :name => "index_grades_on_slug", :unique => true
 
   create_table "media_types", :force => true do |t|
     t.string   "name"

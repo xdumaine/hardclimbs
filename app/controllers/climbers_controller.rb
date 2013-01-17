@@ -21,7 +21,7 @@ class ClimbersController < ApplicationController
   def update
       #authorize! :update, @climber, :message => 'Not authorized as an administrator.'
       @climber = Climber.find(params[:id])
-      if @climber.update_attributes(params[:climber], :as => :admin)
+      if @climber.update_attributes(params[:climber])
         redirect_to climbers_path, :notice => "Climber updated."
       else
         redirect_to climbers_path, :alert => "Unable to update climber."
@@ -30,7 +30,7 @@ class ClimbersController < ApplicationController
 
   def create
     #authorize! :create, @climber, :message => 'Not authorized as an administrator.'
-    @climber = Climber.new(params[:climber], :as => :admin)
+    @climber = Climber.new(params[:climber])
     if @climber.save
       flash[:success] = "Thanks for adding a climber!"
       redirect_to @climber

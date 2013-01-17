@@ -7,9 +7,9 @@ class ClimbsController < ApplicationController
   
   def index
     #authorize! :index, @climb, :message => 'Not authorized as an administrator.'
-    @selected_styles = params[:style] || session[:style] || {}
-    if @selected_styles.count > 0
-      @climbs = Climb.find_all_by_style_id(@selected_styles)
+    #@selected_styles = params[:styles] || session[:styles] || {}
+    if params[:styles]
+      @climbs = Climb.find_all_by_style_id(params[:styles])
     else
       @climbs = Climb.all
     end
@@ -28,7 +28,7 @@ class ClimbsController < ApplicationController
   def update
       #authorize! :update, @climb, :message => 'Not authorized as an administrator.'
       @climb = Climb.find(params[:id])
-      if @climb.update_attributes(params[:climb], :as => :admin)
+      if @climb.update_attributes(params[:climb])
         redirect_to climbs_path, :notice => "Climb updated."
       else
         redirect_to climbs_path, :alert => "Unable to update climb."
@@ -37,7 +37,7 @@ class ClimbsController < ApplicationController
 
   def create
     #authorize! :create, @climb, :message => 'Not authorized as an administrator.'
-    @climb = Climb.new(params[:climb], :as => :admin)
+    @climb = Climb.new(params[:climb])
     if @climb.save
       flash[:success] = "Thanks for adding a climb!"
       redirect_to @climb

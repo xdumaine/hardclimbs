@@ -6,7 +6,7 @@
       <th><%= model_class.human_attribute_name(:date) %></th>
       <th><%= model_class.human_attribute_name(:climb_id) %></th>
       <th><%= model_class.human_attribute_name(:climber_id) %></th>
-      <th>Grade</th>
+      <th><%= model_class.human_attribute_name(:grade_id) %></th>
       <th><%= model_class.human_attribute_name(:style_id) %></th>
       <% if can? :edit, Ascent or can? :destroy, Ascent %>
         <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -19,7 +19,7 @@
         <td><%= link_to ascent.date, ascent_path(ascent) %></td>
         <td><%= link_to ascent.climb.name, climb_path(ascent.climb) %></td>
         <td><%= link_to ascent.climber.full_name, climber_path(ascent.climber) %></td>
-        <td>Grade</td>
+        <td><%= ascent.grade.name %></td>
         <td><%= ascent.climb.style.name %></td>
         <% if can? :edit, Ascent %>
           <td>
@@ -38,7 +38,8 @@
     <% end %>
   </tbody>
 </table>
-
+<% if can? :create, Ascent %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_ascent_path,
             :class => 'btn btn-primary' %>
+<% end %>

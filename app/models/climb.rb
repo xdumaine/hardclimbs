@@ -7,6 +7,7 @@
 #  style_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  slug       :string(255)
 #
 
 class Climb < ActiveRecord::Base
@@ -14,10 +15,10 @@ class Climb < ActiveRecord::Base
     friendly_id :name, :use => :slugged
   validates_presence_of :slug
   
-  attr_accessible :name, :style, :media_id, :style_id, :as => :admin
+  attr_accessible :name, :media_id, :style_id#, :as => :admin
   has_many :climbers, :through => :ascents
   has_many :ascents
   has_many :medias
-  #has_one :style
   belongs_to :style
+  validates_presence_of :style
 end

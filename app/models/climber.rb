@@ -19,7 +19,7 @@ class Climber < ActiveRecord::Base
   validates_presence_of :slug
   SEX = ['M', 'F']
   
-  attr_accessible :first_name, :last_name, :dob, :height, :sex, :as => :admin
+  attr_accessible :first_name, :last_name, :dob, :height, :sex, :slug#, :as => :admin
   
   validates :first_name, presence: true
   validates :last_name, presence: true

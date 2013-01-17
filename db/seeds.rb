@@ -14,3 +14,32 @@ puts 'DEFAULT USERS'
 user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 puts 'user: ' << user.name
 user.add_role :admin
+
+puts 'Styles'
+YAML.load(ENV['STYLES']).each do |style|
+  Style.create(:name => style)
+end
+
+puts 'Media'
+YAML.load(ENV['MEDIA']).each do |media|
+  @media = MediaType.new
+  @media.name = media
+  @media.save
+end
+
+puts 'Grades'
+YAML.load(ENV['BGRADES']).each do |grade|
+  @grade = Grade.new
+  @grade.name = grade
+  @grade.style_id=2
+  @grade.save
+end
+
+puts 'Grades'
+YAML.load(ENV['RGRADES']).each do |grade|
+  @grade = Grade.new
+  @grade.name = grade
+  @grade.style_id=3
+  @grade.rank
+  @grade.save
+end

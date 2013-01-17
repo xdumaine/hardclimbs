@@ -40,7 +40,7 @@ class AscentsController < ApplicationController
   def update
       #authorize! :update, @ascent, :message => 'Not authorized as an administrator.'
       @ascent = Ascent.find(params[:id])
-      if @ascent.update_attributes(params[:ascent], :as => :admin)
+      if @ascent.update_attributes(params[:ascent])
         redirect_to ascents_path, :notice => "Ascent updated."
       else
         redirect_to ascents_path, :alert => "Unable to update ascent."
@@ -49,7 +49,7 @@ class AscentsController < ApplicationController
 
   def create
     #authorize! :create, @ascent, :message => 'Not authorized as an administrator.'
-    @ascent = Ascent.new(params[:ascent], :as => :admin)
+    @ascent = Ascent.new(params[:ascent])
     if @ascent.save
       flash[:success] = "Thanks for adding an ascent!"
       redirect_to @ascent

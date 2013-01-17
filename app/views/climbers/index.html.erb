@@ -38,7 +38,8 @@
     <% end %>
   </tbody>
 </table>
-
+<% if can? :create, Climber %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_climber_path,
             :class => 'btn btn-primary' %>
+<% end %>

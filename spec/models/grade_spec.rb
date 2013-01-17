@@ -1,19 +1,18 @@
 # == Schema Information
 #
-# Table name: ascents
+# Table name: grades
 #
 #  id         :integer          not null, primary key
-#  date       :date
-#  climb_id   :integer
+#  name       :string(255)
+#  rank       :integer
+#  style_id   :integer
+#  slug       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  climber_id :integer
-#  slug       :string(255)
-#  grade_id   :integer
 #
 
 require 'spec_helper'
 
-describe Ascent do
+describe Grade do
   pending "add some examples to (or delete) #{__FILE__}"
 end

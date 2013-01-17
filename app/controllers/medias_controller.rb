@@ -20,7 +20,7 @@ class MediasController < ApplicationController
   def update
       authorize! :update, @media, :message => 'Not authorized as an administrator.'
       @media = Media.find(params[:id])
-      if @media.update_attributes(params[:media], :as => :admin)
+      if @media.update_attributes(params[:media])
         redirect_to medias_path, :notice => "Media updated."
       else
         redirect_to medias_path, :alert => "Unable to update media."
@@ -29,7 +29,7 @@ class MediasController < ApplicationController
 
   def create
     authorize! :create, @media, :message => 'Not authorized as an administrator.'
-    @media = Media.new(params[:media], :as => :admin)
+    @media = Media.new(params[:media])
     if @media.save
       flash[:success] = "Thanks for adding media!"
       redirect_to @media

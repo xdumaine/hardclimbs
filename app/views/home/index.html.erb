@@ -5,38 +5,25 @@
 </div>
 
 <div class="row main-features">
-  <div class="span3">
+  <div class="span4">
     <div class="well">
       <h3>Climbers</h3>
-      <p>Enter a brief description of why it's so awesome here. Then move on to
-        the next feature.</p>
+      <p>Explore <%= Climber.count %> climbers </p>
       <%= link_to "Climbers", climbers_path, :class => 'btn btn-info' %>  
     </div>
   </div>
-  <div class="span3">
+  <div class="span4">
     <div class="well">
       <h3>Climbs</h3>
-      <p>Enter a brief description of why it's so awesome here. Then move on to
-        the next feature.</p>
+      <p>Explore <%= Climb.count %> climbs </p>
       <%= link_to "Climbs", climbs_path, :class => 'btn btn-info' %> 
     </div>
   </div>
-  <div class="span3">
+  <div class="span4">
     <div class="well">
       <h3>Sends</h3>
-      <p>Enter a brief description of why it's so awesome here. Then move on to
-        the next feature.</p>
+      <p><p>Explore <%= Ascent.count %> sends </p></p>
       <%= link_to "Sends", ascents_path, :class => 'btn btn-info' %> 
     </div>
   </div>
-  <div class="span3">
-    <div class="well">
-      <h3>Areas</h3>
-      <p>Browse a list of areas with hard climbs</p>
-      <%= link_to "Sends", ascents_path, :class => 'btn btn-info' %> 
-      <ul class="nav nav-tabs"></ul>
-    </div>
-  </div>
-
-<div class="btn-group"></div>
 </div>

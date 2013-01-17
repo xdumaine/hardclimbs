@@ -20,7 +20,7 @@ class MediaTypesController < ApplicationController
   def update
       authorize! :update, @media_type, :message => 'Not authorized as an administrator.'
       @media_type = MediaType.find(params[:id])
-      if @media_type.update_attributes(params[:media_type], :as => :admin)
+      if @media_type.update_attributes(params[:media_type])
         redirect_to media_types_path, :notice => "MediaType updated."
       else
         redirect_to media_types_path, :alert => "Unable to update media type."
@@ -29,7 +29,7 @@ class MediaTypesController < ApplicationController
 
   def create
     authorize! :create, @media_type, :message => 'Not authorized as an administrator.'
-    @media_type = MediaType.new(params[:media_type], :as => :admin)
+    @media_type = MediaType.new(params[:media_type])
     if @media_type.save
       flash[:success] = "Thanks for adding a media type!"
       redirect_to @media_type

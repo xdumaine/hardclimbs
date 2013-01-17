@@ -6,6 +6,8 @@
   <dd><%= @ascent.climb.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:climber_id) %>:</strong></dt>
   <dd><%= @ascent.climber.full_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:grade_id) %>:</strong></dt>
+  <dd><%= @ascent.grade.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
   <dd><%= @ascent.date %></dd>
 </dl>

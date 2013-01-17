@@ -9,6 +9,7 @@
 #
 
 class Style < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :style_id
   has_one :climb
+  has_many :grades
 end
