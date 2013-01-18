@@ -18,6 +18,7 @@ class AscentsController < ApplicationController
       @title = "Ascents by #{@climber.full_name}"
       #@ascents = Ascent.find_all_by_climber_id(params[:climber_id])
     else
+      @title = "All Ascents"
       @ascents = Ascent.all
     end
  
