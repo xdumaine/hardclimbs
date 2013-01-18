@@ -5,7 +5,6 @@ class GradesController < ApplicationController
   end
   
   def index
-    authorize! :index, @grade, :message => 'Not authorized as an administrator.'
     @grades = Grade.all
   end
   
@@ -18,7 +17,6 @@ class GradesController < ApplicationController
   end
   
   def update
-      authorize! :update, @grade, :message => 'Not authorized as an administrator.'
       @grade = Grade.find(params[:id])
       if @grade.update_attributes(params[:grade])
         redirect_to grades_path, :notice => "Grade updated."
@@ -28,7 +26,6 @@ class GradesController < ApplicationController
     end
 
   def create
-    authorize! :create, @grade, :message => 'Not authorized as an administrator.'
     @grade = Grade.new(params[:grade])
     if @grade.save
       flash[:success] = "Thanks for adding a grade!"
@@ -39,7 +36,6 @@ class GradesController < ApplicationController
   end
     
   def destroy
-    authorize! :destroy, @grade, :message => 'Not authorized as an administrator.'
     grade = Grade.find(params[:id])
     grade.destroy
     redirect_to grades_path, :notice => "Grade deleted."
