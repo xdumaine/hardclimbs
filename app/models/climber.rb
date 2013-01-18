@@ -27,6 +27,14 @@ class Climber < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+  def friendly_dob
+    if dob == nil
+      "Unknown"
+    else
+      "#{dob}"
+    end
+  end
+  
   has_many :climbs, :through => :ascents
   has_many :ascents
 end

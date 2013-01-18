@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  slug       :string(255)
+#  still_hard :boolean
 #
 
 require 'spec_helper'

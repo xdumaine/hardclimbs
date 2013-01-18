@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115232431) do
+ActiveRecord::Schema.define(:version => 20130117231353) do
 
   create_table "ascents", :force => true do |t|
     t.date     "date"
     t.integer  "climb_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "climber_id"
     t.string   "slug"
     t.integer  "grade_id"
+    t.integer  "ascent_number"
   end
 
   add_index "ascents", ["slug"], :name => "index_ascents_on_slug", :unique => true
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130115232431) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "slug"
+    t.boolean  "still_hard"
   end
 
   add_index "climbs", ["slug"], :name => "index_climbs_on_slug", :unique => true

@@ -5,13 +5,11 @@
   <dt><strong><%= model_class.human_attribute_name(:sex) %>:</strong></dt>
   <dd><%= @climber.sex %></dd>
   <dt><strong><%= model_class.human_attribute_name(:dob) %>:</strong></dt>
-  <dd><%= if @climber.dob == nil
-            "None provided"
-          else
-            @climber.dob
-          end %></dd>
+  <dd><%= @climber.friendly_dob %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ascents) %>:</strong></dt>
   <dd><%= link_to @climber.ascents.count, climber_ascents_path(@climber) %></dd>
+  <dt><strong>FAs</strong></dt>
+  <dd><%= link_to @climber.ascents.where(:ascent_number => 1).count, climber_ascents_path(@climber) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:height) %>:</strong></dt>
   <dd><%= @climber.height %></dd>
 </dl>

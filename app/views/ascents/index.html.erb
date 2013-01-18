@@ -1,11 +1,13 @@
 <%- model_class = Ascent.new.class -%>
-<h1 class="title"><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<h1 class="title"><%=t '.title', :default => @title %></h1>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th></th>
       <th><%= model_class.human_attribute_name(:climb_id) %></th>
       <th><%= model_class.human_attribute_name(:climber_id) %></th>
+      <th><%= model_class.human_attribute_name(:ascent_number) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
       <th><%= model_class.human_attribute_name(:grade_id) %></th>
       <th><%= model_class.human_attribute_name(:style_id) %></th>
       <% if can? :edit, Ascent or can? :destroy, Ascent %>
@@ -16,9 +18,11 @@
   <tbody>
     <% @ascents.each do |ascent| %>
       <tr>
-        <td><%= link_to ascent.date, ascent_path(ascent) %></td>
+        <td><%= link_to "View Details", ascent_path(ascent) %></td>
         <td><%= link_to ascent.climb.name, climb_path(ascent.climb) %></td>
         <td><%= link_to ascent.climber.full_name, climber_path(ascent.climber) %></td>
+        <td><%= ascent.ascent_number_format %></td>
+        <td><%= ascent.ascent_date %></td>
         <td><%= ascent.grade.name %></td>
         <td><%= ascent.climb.style.name %></td>
         <% if can? :edit, Ascent %>

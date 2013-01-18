@@ -1,6 +1,7 @@
 <%= simple_form_for @climb, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= f.input :style_id, :collection => Style.all, prompt:  'Choose the style' %>
+  <%= f.input :still_hard %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

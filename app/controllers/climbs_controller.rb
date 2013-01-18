@@ -23,6 +23,7 @@ class ClimbsController < ApplicationController
 
   def show
     @climb = Climb.find(params[:id])
+    @first_ascent = @climb.ascents.where(:ascent_number => 1).first
   end
   
   def update

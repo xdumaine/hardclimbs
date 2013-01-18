@@ -1,7 +1,8 @@
 <%= simple_form_for @ascent, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.association :climber, prompt:  'Choose the climber', :label_method => :first_name %>
+  <%= f.association :climber, prompt:  'Choose the climber', :label_method => :full_name %>
   <%= f.association :climb , prompt:  'Choose the climb' %>
   <%= f.association :grade, prompt: 'Choose the grade' %>
+  <%= f.input :ascent_number, :collection => Ascent::ASCENT_NUMBER %>
   <%= f.input :date, :as => :date, :start_year => Date.today.year - 20,
                                   :end_year => Date.today.year,
                                   :start_daty => 1,

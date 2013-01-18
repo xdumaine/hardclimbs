@@ -3,7 +3,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:full_name) %></th>
+      <th>Climber</th>
+      <th>Sends</th>
       <th><%= model_class.human_attribute_name(:sex) %></th>
       <th><%= model_class.human_attribute_name(:dob) %></th>
       <th><%= model_class.human_attribute_name(:height) %></th>
@@ -16,6 +17,7 @@
     <% @climbers.each do |climber| %>
       <tr>
         <td><%= link_to climber.full_name, climber_path(climber) %></td>
+        <td><%= link_to climber.ascents.count, climber_ascents_path(climber) %></td>
         <td><%= climber.sex %></td>
         <td><%= climber.dob %></td>
         <td><%= climber.height %></td>
