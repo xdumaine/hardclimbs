@@ -48,7 +48,9 @@ class Ascent < ActiveRecord::Base
   end
   
   def ascent_number_format
-    if ascent_number == 1
+    if ascent_number == nil
+      ""
+    elsif ascent_number == 1
       "FA"
     else
       "#{ascent_number.ordinalize}"
