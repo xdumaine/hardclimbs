@@ -1,0 +1,40 @@
+<%- model_class = Area.new.class -%>
+<h1 class="title"><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:country) %></th>
+      <th>Climbs</th>
+      <th>Ascents</th>
+      <% if can? :edit, Area or can? :destroy, Area %>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @areas.each do |area| %>
+      <tr>
+        <td><%= link_to area.name, area_path(area) %></td>
+        <td><%= area.country %></td>
+        <td><%= link_to area.climbs.count, area_climbs_path(area) %>
+        <td><%= link_to area.ascents.count, area_ascents_path(area) %>
+        <% if can? :edit, Ascent or can? :destroy, Ascent %>
+          <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_area_path(area), :class => 'btn btn-mini' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        area_path(area),
+                        :method => :delete,
+                        :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                        :class => 'btn btn-mini btn-danger' %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_area_path,
+            :class => 'btn btn-primary' %>

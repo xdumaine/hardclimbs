@@ -9,6 +9,7 @@
 #  updated_at :datetime         not null
 #  slug       :string(255)
 #  still_hard :boolean
+#  area_id    :integer
 #
 
 class Climb < ActiveRecord::Base
@@ -16,11 +17,15 @@ class Climb < ActiveRecord::Base
     friendly_id :name, :use => :slugged
   validates_presence_of :slug
   
-  attr_accessible :name, :media_id, :style_id, :still_hard#, :as => :admin
+  attr_accessible :name, :media_id, :style_id, :still_hard, :area_id
   has_many :climbers, :through => :ascents
   has_many :ascents
   has_many :medias
   belongs_to :style
-  validates_presence_of :style
+  belongs_to :area
+  validates_presence_of :style, :area
   
+  def climb_area_name
+    "#{name} (#{area.name})"
+  end
 end

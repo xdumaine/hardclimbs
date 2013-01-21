@@ -1,5 +1,6 @@
 <%= simple_form_for @climb, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
+  <%= f.input :area_id, :collection => Area.all, prompt: 'Choose the area' %>
   <%= f.input :style_id, :collection => Style.all, prompt:  'Choose the style' %>
   <%= f.input :still_hard %>
   <div class="form-actions">

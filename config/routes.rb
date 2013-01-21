@@ -10,6 +10,10 @@ Hardclimbs::Application.routes.draw do
     resources :ascents
   end
   resources :grades
+  resources :areas do
+    resources :climbs
+    resources :ascents
+  end
 
   authenticated :user do
       root :to => 'home#index'

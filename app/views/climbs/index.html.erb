@@ -1,12 +1,13 @@
 <%- model_class = Climb.new.class -%>
-<h1 class="title"><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<h1 class="title"><%=t '.title', :default =>  @title %></h1>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:area_id) %></th>
       <th><%= model_class.human_attribute_name(:style_id) %></th>
       <th><%= model_class.human_attribute_name(:grade_id) %></th>
-      <th><%= model_class.human_attribute_name(:sends) %></th>
+      <th><%= model_class.human_attribute_name(:ascents) %></th>
       <th><%= model_class.human_attribute_name(:media_id) %></th>
       <% if can? :edit, Climb or can? :destroy, Climb %>
         <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -17,6 +18,7 @@
     <% @climbs.each do |climb| %>
       <tr>
         <td><%= link_to climb.name, climb_path(climb) %></td>
+        <td><%= link_to climb.area.name, area_path(climb.area) %></td>
         <td><%= climb.style.name %></td>
         <td>Grade</td>
         <td><%= link_to climb.ascents.count, climb_ascents_path(climb) %></td>

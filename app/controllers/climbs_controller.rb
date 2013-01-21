@@ -8,8 +8,13 @@ class ClimbsController < ApplicationController
   def index
     #authorize! :index, @climb, :message => 'Not authorized as an administrator.'
     #@selected_styles = params[:styles] || session[:styles] || {}
-    if params[:styles]
-      @climbs = Climb.find_all_by_style_id(params[:styles])
+    if params[:style]
+      @climbs = Climb.find_all_by_style_id(params[:style])
+      @title = "Climbs for style #{Style.find(params[:style]).name}"
+    elsif params[:area_id]
+      @area = Area.find(params[:area_id])
+      @climbs = @area.climbs.all
+      @title = "Climbs @ #{@area.name}"
     else
       @climbs = Climb.all
     end

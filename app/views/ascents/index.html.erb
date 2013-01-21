@@ -5,6 +5,7 @@
     <tr>
       <th></th>
       <th><%= model_class.human_attribute_name(:climb_id) %></th>
+      <th><%= model_class.human_attribute_name(:area_id) %></th>
       <th><%= model_class.human_attribute_name(:climber_id) %></th>
       <th><%= model_class.human_attribute_name(:ascent_number) %></th>
       <th><%= model_class.human_attribute_name(:date) %></th>
@@ -20,6 +21,7 @@
       <tr>
         <td><%= link_to "View Details", ascent_path(ascent) %></td>
         <td><%= link_to ascent.climb.name, climb_path(ascent.climb) %></td>
+        <td><%= link_to ascent.climb.area.name, area_path(ascent.climb.area) %></td>
         <td><%= link_to ascent.climber.full_name, climber_path(ascent.climber) %></td>
         <td><%= ascent.ascent_number_format %></td>
         <td><%= ascent.ascent_date %></td>

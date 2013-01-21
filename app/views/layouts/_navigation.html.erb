@@ -28,9 +28,11 @@
           <%= link_to s.name, climbs_path(:styles => s.id) %>
         </li>
       <% end %>
-       
      </ul>
    </li>
+   <li>
+     <%= link_to "Areas", areas_path, :role => "button" %>
+  </li>
   </ul>
   <ul class="nav pull-right">
    <% if user_signed_in? %>

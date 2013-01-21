@@ -11,12 +11,14 @@ class AscentsController < ApplicationController
       @climb = Climb.find(params[:climb_id])
       @ascents = @climb.ascents.all
       @title = "Ascents for #{@climb.name}"
-      #@ascents = Ascent.find_all_by_climb_id(params[:climb_id])
     elsif params[:climber_id]
       @climber = Climber.find(params[:climber_id])
       @ascents = @climber.ascents.all
       @title = "Ascents by #{@climber.full_name}"
-      #@ascents = Ascent.find_all_by_climber_id(params[:climber_id])
+    elsif params[:area_id]
+      @area = Area.find(params[:area_id])
+      @ascents = @area.ascents.all
+      @title = "Ascents @ #{@area.name}"
     else
       @title = "All Ascents"
       @ascents = Ascent.all
