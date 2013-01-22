@@ -5,7 +5,8 @@ FactoryGirl.define do
   factory :climber do
     first_name Faker::Name.first_name
     last_name Faker::Name.first_name
-    height = 100
-    dob = '01-01-1990'
+    height  100
+    sex 'M'
+    dob '01-01-1990'
   end
 end

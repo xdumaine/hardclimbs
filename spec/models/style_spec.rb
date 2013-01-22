@@ -11,5 +11,11 @@
 require 'spec_helper'
 
 describe Style do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has a valid factory" do
+    FactoryGirl.create(:style).should be_valid
+  end
+  
+  it "is invalid without a name" do
+    FactoryGirl.build(:style, name: nil).should_not be_valid
+  end
 end

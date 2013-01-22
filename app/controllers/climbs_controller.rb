@@ -17,6 +17,7 @@ class ClimbsController < ApplicationController
       @title = "Climbs @ #{@area.name}"
     else
       @climbs = Climb.all
+      @title = "All Climbs"
     end
     
     #@climbs = Climb.all

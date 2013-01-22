@@ -3,6 +3,8 @@
 FactoryGirl.define do
   factory :climb do
     name "MyString"
-    style ""
+    still_hard true
+    style
+    area
   end
 end

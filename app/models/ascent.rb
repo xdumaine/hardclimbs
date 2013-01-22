@@ -40,7 +40,7 @@ class Ascent < ActiveRecord::Base
   end
   
   def ascent_name_climber_climb
-    if climber
+    if climber and climb
       "#{climber.full_name} #{climb.name}"
     else
       ""

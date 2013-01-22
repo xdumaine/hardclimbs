@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :style do
-    name "MyString"
+    name "My Style"
   end
 end

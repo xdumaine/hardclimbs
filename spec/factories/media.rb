@@ -2,7 +2,10 @@
 
 FactoryGirl.define do
   factory :media, :class => 'Media' do
-    type ""
     url "MyString"
+    description "Lorem ipsum"
+    media_type
+    #climb
+    ascent
   end
 end

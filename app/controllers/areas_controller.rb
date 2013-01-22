@@ -1,5 +1,5 @@
 class AreasController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index, :show]
   def new
    @area = Area.new
   end

@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :media_type do
-    type ""
+    name "Media Type"
   end
 end

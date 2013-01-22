@@ -13,5 +13,24 @@
 require 'spec_helper'
 
 describe Area do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do @area = Area.new(name:"Area", country:"United States")
+  end
+  
+  subject { @area }
+  
+  it { should respond_to(:name) }
+  it { should respond_to(:country) }
+  
+  it { should be_valid }
+  
+  describe "when name is not present" do
+    before { @area.name = " " }
+    it { should_not be_valid }
+  end
+  
+  describe "when country is not present" do
+    before { @area.country = " " }
+    it { should_not be_valid }
+  end
+  
 end

@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :area do
+    name "Climbing Area"
+    country "United States"
   end
 end

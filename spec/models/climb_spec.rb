@@ -15,5 +15,20 @@
 require 'spec_helper'
 
 describe Climb do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has a valid factory" do
+    FactoryGirl.create(:climb).should be_valid
+  end
+  
+  it "is invalid without a name" do
+    FactoryGirl.build(:climb, name: nil).should_not be_valid
+  end
+  
+  it "is invalid without a style" do
+    FactoryGirl.build(:climb, style: nil).should_not be_valid
+  end
+  
+  it "is invalid without an area" do
+    FactoryGirl.build(:climb, area: nil).should_not be_valid
+  end
+  
 end

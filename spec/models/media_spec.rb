@@ -15,5 +15,17 @@
 require 'spec_helper'
 
 describe Media do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  it "has a valid factory" do
+    FactoryGirl.create(:media).should be_valid
+  end
+  
+  it "is invalid without a url" do
+    FactoryGirl.build(:media, url: nil).should_not be_valid
+  end
+  
+  it "is invalid without a climb or an ascent" do
+    FactoryGirl.build(:media, ascent: nil, climb: nil).should_not be_valid
+  end 
+  
 end
