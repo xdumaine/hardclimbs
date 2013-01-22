@@ -61,3 +61,4 @@ gem 'pg', :group => [:production]
 gem 'sqlite3', :group => [:development, :test]
 gem "friendly_id", "~> 4.0.9"
 gem 'country-select'
+gem 'newrelic_rpm', :group => [:production]
