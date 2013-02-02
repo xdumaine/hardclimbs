@@ -17,8 +17,8 @@
       <tr>
         <td><%= link_to area.name, area_path(area) %></td>
         <td><%= area.country %></td>
-        <td><span class="badge"><%= link_to area.climbs_count, area_climbs_path(area) %></span></td>
-        <td><span class="badge"><%= link_to area.ascents_count, area_ascents_path(area) %></span></td>
+        <td><span class="badge"><%= area.climbs_count %></span></td>
+        <td><span class="badge"><%=  area.ascents_count %></span></td>
         <% if can? :edit, Ascent or can? :destroy, Ascent %>
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
