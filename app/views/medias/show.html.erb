@@ -6,12 +6,12 @@
   <dd><%= @media.url %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @media.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:media_types_id) %>:</strong></dt>
-  <dd><%= @media.media_types_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:media_type_id) %>:</strong></dt>
+  <dd><%= @media.media_type.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:climb_id) %>:</strong></dt>
-  <dd><%= @media.climb.name %></dd>
+  <dd><%= @media.climb ? (@media.climb.name) : (puts '&nbsp;') %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ascent_id) %>:</strong></dt>
-  <dd><%= %></dd>
+  <dd><%= @media.ascent.ascent_name_climber_climb if @media.ascent %></dd>
 </dl>
 
 <div class="form-actions">

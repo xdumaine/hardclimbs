@@ -11,14 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119214628) do
+ActiveRecord::Schema.define(:version => 20130202143419) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
     t.string   "country"
     t.string   "slug"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "climbs_count",  :default => 0
+    t.integer  "ascents_count", :default => 0
   end
 
   add_index "areas", ["slug"], :name => "index_areas_on_slug", :unique => true
@@ -26,12 +28,13 @@ ActiveRecord::Schema.define(:version => 20130119214628) do
   create_table "ascents", :force => true do |t|
     t.date     "date"
     t.integer  "climb_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "climber_id"
     t.string   "slug"
     t.integer  "grade_id"
     t.integer  "ascent_number"
+    t.integer  "medias_count",  :default => 0
   end
 
   add_index "ascents", ["slug"], :name => "index_ascents_on_slug", :unique => true
@@ -42,9 +45,11 @@ ActiveRecord::Schema.define(:version => 20130119214628) do
     t.string   "sex"
     t.date     "dob"
     t.integer  "height"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.string   "slug"
+    t.integer  "climbs_count",  :default => 0
+    t.integer  "ascents_count", :default => 0
   end
 
   add_index "climbers", ["slug"], :name => "index_climbers_on_slug", :unique => true
@@ -52,11 +57,14 @@ ActiveRecord::Schema.define(:version => 20130119214628) do
   create_table "climbs", :force => true do |t|
     t.string   "name"
     t.integer  "style_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "slug"
     t.boolean  "still_hard"
     t.integer  "area_id"
+    t.integer  "climbers_count", :default => 0
+    t.integer  "ascents_count",  :default => 0
+    t.integer  "medias_count",   :default => 0
   end
 
   add_index "climbs", ["slug"], :name => "index_climbs_on_slug", :unique => true
@@ -77,8 +85,9 @@ ActiveRecord::Schema.define(:version => 20130119214628) do
     t.integer  "rank"
     t.integer  "style_id"
     t.string   "slug"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "ascents_count", :default => 0
   end
 
   add_index "grades", ["slug"], :name => "index_grades_on_slug", :unique => true
@@ -97,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20130119214628) do
     t.datetime "updated_at",    :null => false
     t.integer  "climb_id"
     t.integer  "ascent_id"
+    t.text     "pull_quote"
   end
 
   create_table "roles", :force => true do |t|

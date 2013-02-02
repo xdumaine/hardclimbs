@@ -2,13 +2,14 @@
 #
 # Table name: grades
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  rank       :integer
-#  style_id   :integer
-#  slug       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  name          :string(255)
+#  rank          :integer
+#  style_id      :integer
+#  slug          :string(255)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  ascents_count :integer          default(0)
 #
 
 require 'spec_helper'

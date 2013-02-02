@@ -1,20 +1,6 @@
 <%- model_class = @ascent.class -%>
-<h1 class="title"><%=t '.title', :default => @title %></h1>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:climb_id) %>:</strong></dt>
-  <dd><%= @ascent.climb.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:area_id) %>:</strong></dt>
-  <dd><%= @ascent.climb.area.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:climber_id) %>:</strong></dt>
-  <dd><%= @ascent.climber.full_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:grade_id) %>:</strong></dt>
-  <dd><%= @ascent.grade.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
-  <dd><%= @ascent.ascent_date %></dd>
-  <dt><strong>Ascent:</strong></dt>
-  <dd><%= @ascent.ascent_number_format %></dd>
-</dl>
+<%= render 'ascents/ascent_detail', :ascent => @ascent %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

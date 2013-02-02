@@ -1,29 +1,29 @@
 class AscentsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  helper_method :join_on, :sort_column, :sort_direction  
   load_and_authorize_resource
+
   def new
    @ascent = Ascent.new
   end
   
   def index
-    #authorize! :index, @ascent, :message => 'Not authorized as an administrator.'
     if params[:climb_id]
       @climb = Climb.find(params[:climb_id])
-      @ascents = @climb.ascents.all
+      @ascents = @climb.ascents.order_by_join(params[:join_model], sort_column, sort_direction) 
       @title = "Ascents for #{@climb.name}"
     elsif params[:climber_id]
       @climber = Climber.find(params[:climber_id])
-      @ascents = @climber.ascents.all
+      @ascents = @climber.ascents.order_by_join(params[:join_model], sort_column, sort_direction) 
       @title = "Ascents by #{@climber.full_name}"
     elsif params[:area_id]
       @area = Area.find(params[:area_id])
-      @ascents = @area.ascents.all
+      @ascents = @area.ascents.order_by_join(params[:join_model], sort_column, sort_direction) 
       @title = "Ascents @ #{@area.name}"
     else
       @title = "All Ascents"
-      @ascents = Ascent.all
-    end
- 
+      @ascents = Ascent.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
+    end 
   end
   
   def edit
@@ -42,9 +42,7 @@ class AscentsController < ApplicationController
   end
   
   def update
-      #authorize! :update, @ascent, :message => 'Not authorized as an administrator.'
       ascent_number = params[:ascent][:ascent_number]
-      #debugger
       @ascent = Ascent.find(params[:id])
       if @ascent.update_attributes(params[:ascent])
         if (@ascent.ascent_number != nil) && (ascent_number != @ascent.ascent_number.to_s)
@@ -57,7 +55,6 @@ class AscentsController < ApplicationController
     end
 
   def create
-    #authorize! :create, @ascent, :message => 'Not authorized as an administrator.'
     @ascent = Ascent.new(params[:ascent])
     if @ascent.save
       #re-number ascents around the one we are entering if an ascent number is given 
@@ -72,9 +69,21 @@ class AscentsController < ApplicationController
   end
     
   def destroy
-    #authorize! :destroy, @ascent, :message => 'Not authorized as an administrator.'
     ascent = Ascent.find(params[:id])
     ascent.destroy
     redirect_to ascents_path, :notice => "Ascent deleted."
   end
+  
+  private  
+    def sort_column  
+      params[:sort_column] || "id"  
+    end  
+
+    def sort_direction  
+       %w[asc desc].include?(params[:sort_direction]) ?  params[:sort_direction] : "asc"  
+    end
+    
+    def join_on
+      params[:join_on] || nil
+    end
 end

@@ -1,0 +1,30 @@
+<div class="row" id="<%= ascent.id %>">
+    <div class="span12">
+    <h2 class="title">Ascent <%= ascent.ascent_number %> of <%= ascent.climb.name %> by <%= ascent.climber.full_name %> on <%= ascent.ascent_date %></h2>
+</div>
+</div>
+<div class="row">
+    <div class="span12">
+        <h4 class="title">Suggested Grade: <%= ascent.ascent_grade %></h4>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">
+        <p class="pull-right hidden-phone">
+        <a href="#top">Back to top</a> 
+        </p>
+    </div>
+</div>
+<% ascent.media.each do |media| %>
+    <div class="row">
+        <div class="span2">
+            <p class="lead pull-right hidden-phone"><%= media.media_type.name %>:</p>
+        </div>
+        <div class="span10">
+            <%= link_to media.url, media.description %>
+            <% if media.pull_quote %>
+              <blockquote><%= media.pull_quote %></blockquote>
+            <% end %>
+        </div>
+    </div>
+<% end %>

@@ -2,12 +2,14 @@
 #
 # Table name: areas
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  country    :string(255)
-#  slug       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  name          :string(255)
+#  country       :string(255)
+#  slug          :string(255)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  climbs_count  :integer          default(0)
+#  ascents_count :integer          default(0)
 #
 
 class Area < ActiveRecord::Base
@@ -18,14 +20,17 @@ class Area < ActiveRecord::Base
    attr_accessible :name, :country
    has_many :climbs
    has_many :ascents, :through => :climbs
-   #validates_inclusion_of :country, :in => Carmen::country_codes, :message => "must select a country"
+   
    def area_country
      "#{country} #{name}"
    end
    
-   # use find_by_sql until I can figure out how to do this a better way
-   #def ascent_count
-   #  return Ascent.find_by_sql("SELECT AR.* FROM Ascents A INNER JOIN Climbs C on A.climb_id = C.id 
-   #  INNER JOIN Areas AR on C.area_id = AR.id Where AR.id = #{self.id}").count.to_s
-   #end
+   def self.order_by_join(join_model, sort_column, sort_direction = 'asc')
+       if join_model == nil
+         order("#{sort_column} #{sort_direction}")
+       else
+         joins(join_model.parameterize.underscore.to_sym).order("#{sort_column} #{sort_direction}")
+       end
+   end
+   
 end

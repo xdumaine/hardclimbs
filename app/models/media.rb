@@ -10,15 +10,17 @@
 #  updated_at    :datetime         not null
 #  climb_id      :integer
 #  ascent_id     :integer
+#  pull_quote    :text
 #
 
 class Media < ActiveRecord::Base
-  attr_accessible :url, :description, :media_types_id, :climb_id, :ascent_id, :as => :admin
+  attr_accessible :url, :description, :media_type_id, :climb_id, :ascent_id, :pull_quote
   belongs_to :media_type
   belongs_to :ascent
   belongs_to :climb
   
   validates_presence_of :url
+  validates_presence_of :media_type
   validates_presence_of :climb, :unless => proc{|obj| obj.climb.blank?}
   validates_presence_of :ascent, :unless => proc{|obj| obj.ascent.blank?}
   validate :ascent_xor_climb

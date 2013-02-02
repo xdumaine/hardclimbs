@@ -37,6 +37,9 @@
   <ul class="nav pull-right">
    <% if user_signed_in? %>
      <% if current_user.has_role? :admin %>
+      <li>
+        <%= link_to "Media", medias_path, :role => "button" %>
+     </li>
      <li class="dropdown">
        <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Admin <b class='caret'></b></a>
        <ul class="dropdown-menu" role="menu" aria-labelledby="drop4">

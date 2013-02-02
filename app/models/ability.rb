@@ -11,7 +11,7 @@ class Ability
         if user.has_role? :admin
            can :manage, :all
         else
-          can :read, [Ascent, Climber, Climb, Media, Area]
+          can :read, [Ascent, Climber, Climb, Area]
         end
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
   end

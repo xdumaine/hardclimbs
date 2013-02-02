@@ -2,15 +2,17 @@
 #
 # Table name: climbers
 #
-#  id         :integer          not null, primary key
-#  first_name :string(255)
-#  last_name  :string(255)
-#  sex        :string(255)
-#  dob        :date
-#  height     :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  slug       :string(255)
+#  id            :integer          not null, primary key
+#  first_name    :string(255)
+#  last_name     :string(255)
+#  sex           :string(255)
+#  dob           :date
+#  height        :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  slug          :string(255)
+#  climbs_count  :integer          default(0)
+#  ascents_count :integer          default(0)
 #
 
 require 'spec_helper'

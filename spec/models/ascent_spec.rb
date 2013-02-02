@@ -11,6 +11,22 @@
 #  slug          :string(255)
 #  grade_id      :integer
 #  ascent_number :integer
+#  medias_count  :integer          default(0)
+#
+
+# == Schema Information
+#
+# Table name: ascents
+#
+#  id            :integer          not null, primary key
+#  date          :date
+#  climb_id      :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  climber_id    :integer
+#  slug          :string(255)
+#  grade_id      :integer
+#  ascent_number :integer
 #
 
 # == Schema Information

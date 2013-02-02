@@ -11,6 +11,7 @@
 #  slug          :string(255)
 #  grade_id      :integer
 #  ascent_number :integer
+#  medias_count  :integer          default(0)
 #
 
 class Ascent < ActiveRecord::Base
@@ -23,13 +24,40 @@ class Ascent < ActiveRecord::Base
   ASCENT_NUMBER = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
   
   attr_accessible :date, :climber_id, :climb_id, :media_id, :grade_id, :ascent_number
-  belongs_to :climber
-  belongs_to :climb
-  has_many :media
-  belongs_to :grade
+  belongs_to :climber, :counter_cache => true
+  belongs_to :climb, :counter_cache => true
+  has_many :media, :class_name => 'Media'
+  belongs_to :grade, :counter_cache => true
   
   validates :climber_id, :uniqueness => {:scope => :climb_id, :message => "That climber already sent that climb!"}
   validates_presence_of :climber_id, :climb_id;
+    
+  scope :by_area_order_asc, joins(:climb => :area).order("areas.name asc")
+  scope :by_area_order_desc, joins(:climb => :area).order("areas.name desc")
+  scope :by_style_order_asc, joins(:climb => :style).order("styles.name asc")
+  scope :by_style_order_desc, joins(:climb => :style).order("styles.name desc")
+  
+  def self.order_by_join(join_model, sort_column, sort_direction = 'asc')
+      if join_model == nil
+          order("#{sort_column} #{sort_direction}")
+      else
+        if sort_column == 'areas.name'
+          if sort_direction == 'asc'
+            self.by_area_order_asc
+          else
+            self.by_area_order_desc
+          end
+        elsif sort_column == 'styles.name'
+          if sort_direction == 'asc'
+            self.by_style_order_asc
+          else
+            self.by_style_order_desc
+          end
+        else
+          joins(join_model.parameterize.underscore.to_sym).order("#{sort_column} #{sort_direction}")
+        end
+      end
+  end
     
   def ascent_date
     if date == nil
@@ -54,6 +82,14 @@ class Ascent < ActiveRecord::Base
       "FA"
     else
       "#{ascent_number.ordinalize}"
+    end
+  end
+  
+  def ascent_grade
+    if !grade
+      "Unknown"
+    else
+      grade.name
     end
   end
   

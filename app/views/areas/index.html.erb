@@ -3,10 +3,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:country) %></th>
-      <th>Climbs</th>
-      <th>Ascents</th>
+      <th><%= sortable "name", "Name" %></th>
+      <th><%= sortable "country", "Country" %></th>
+      <th><%= sortable "climbs_count", "Climbs" %></th>
+      <th><%= sortable "ascents_count", "Ascents" %></th>
       <% if can? :edit, Area or can? :destroy, Area %>
         <th><%=t '.actions', :default => t("helpers.actions") %></th>
       <% end %>
@@ -17,8 +17,8 @@
       <tr>
         <td><%= link_to area.name, area_path(area) %></td>
         <td><%= area.country %></td>
-        <td><%= link_to area.climbs.count, area_climbs_path(area) %>
-        <td><%= link_to area.ascents.count, area_ascents_path(area) %>
+        <td><span class="badge"><%= link_to area.climbs_count, area_climbs_path(area) %></span></td>
+        <td><span class="badge"><%= link_to area.ascents_count, area_ascents_path(area) %></span></td>
         <% if can? :edit, Ascent or can? :destroy, Ascent %>
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -34,7 +34,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= paginate @areas %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_area_path,
             :class => 'btn btn-primary' %>

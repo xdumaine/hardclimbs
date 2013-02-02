@@ -1,13 +1,13 @@
 class ClimbersController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  helper_method :join_on, :sort_column, :sort_direction  
   load_and_authorize_resource
   def new
     @climber = Climber.new
   end
   
   def index
-    #authorize! :index, @climber, :message => 'Not authorized as an administrator.'
-    @climbers = Climber.all
+    @climbers = Climber.order(sort_column + " " + sort_direction).page(params[:page])
   end
   
   def edit
@@ -19,7 +19,6 @@ class ClimbersController < ApplicationController
   end
   
   def update
-      #authorize! :update, @climber, :message => 'Not authorized as an administrator.'
       @climber = Climber.find(params[:id])
       if @climber.update_attributes(params[:climber])
         redirect_to climbers_path, :notice => "Climber updated."
@@ -29,7 +28,6 @@ class ClimbersController < ApplicationController
     end
 
   def create
-    #authorize! :create, @climber, :message => 'Not authorized as an administrator.'
     @climber = Climber.new(params[:climber])
     if @climber.save
       flash[:success] = "Thanks for adding a climber!"
@@ -40,9 +38,21 @@ class ClimbersController < ApplicationController
   end
     
   def destroy
-    #authorize! :destroy, @climber, :message => 'Not authorized as an administrator.'
     climber = Climber.find(params[:id])
     climber.destroy
     redirect_to climbers_path, :notice => "Climber deleted."
   end
+  
+  private  
+    def sort_column  
+      params[:sort_column] || "id"  
+    end  
+
+    def sort_direction 
+       %w[asc desc].include?(params[:sort_direction]) ?  params[:sort_direction] : "asc"  
+    end
+    
+    def join_on
+      params[:join_on] || nil
+    end
 end

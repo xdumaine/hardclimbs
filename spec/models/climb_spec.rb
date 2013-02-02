@@ -2,14 +2,17 @@
 #
 # Table name: climbs
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  style_id   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  slug       :string(255)
-#  still_hard :boolean
-#  area_id    :integer
+#  id             :integer          not null, primary key
+#  name           :string(255)
+#  style_id       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  slug           :string(255)
+#  still_hard     :boolean
+#  area_id        :integer
+#  climbers_count :integer          default(0)
+#  ascents_count  :integer          default(0)
+#  medias_count   :integer          default(0)
 #
 
 require 'spec_helper'

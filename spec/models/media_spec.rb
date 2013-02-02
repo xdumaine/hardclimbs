@@ -10,6 +10,7 @@
 #  updated_at    :datetime         not null
 #  climb_id      :integer
 #  ascent_id     :integer
+#  pull_quote    :text
 #
 
 require 'spec_helper'
@@ -27,5 +28,9 @@ describe Media do
   it "is invalid without a climb or an ascent" do
     FactoryGirl.build(:media, ascent: nil, climb: nil).should_not be_valid
   end 
+  
+  it "is invalid without a media type" do
+    FactoryGirl.build(:media, media_type: nil).should_not be_valid
+  end
   
 end
