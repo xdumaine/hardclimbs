@@ -7,7 +7,7 @@
     <%= javascript_include_tag "application" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
-    <%= analytics_init if Rails.env.production? %>
+    <%= analytics_init if Rails.env.production? && !user_signed_in? %>
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
