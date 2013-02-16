@@ -34,4 +34,16 @@ describe Climb do
     FactoryGirl.build(:climb, area: nil).should_not be_valid
   end
   
+  it "returns a climbs's climb_area_name as a string" do
+    climb = FactoryGirl.build(:climb)
+    climb.climb_area_name.should == "#{climb.name} (#{climb.area.name})"
+  end
+  
+  it "is invalid if a climb with the same name already exists in an area" do
+    area = FactoryGirl.create(:area)
+    climb = FactoryGirl.create(:climb)
+    FactoryGirl.create(:climb, area: area)
+    FactoryGirl.build(:climb, area: area).should_not be_valid
+  end
+  
 end

@@ -6,9 +6,9 @@
       <th><%= sortable "name", "Climb" %></th>
       <th><%= sortable "areas.name", "Area", "area" %></th>
       <th><%= sortable "styles.name", "Style", "style" %></th>
-      <th><%= model_class.human_attribute_name(:grade_id) %></th>
+      <th>Grade</th>
       <th><%= sortable "ascents_count", "Ascents" %></th>
-      <th><%= model_class.human_attribute_name(:media_id) %></th>
+      <th>Media</th>
       <% if can? :edit, Climb or can? :destroy, Climb %>
         <th><%=t '.actions', :default => t("helpers.actions") %></th>
       <% end %>

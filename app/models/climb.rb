@@ -24,9 +24,11 @@ class Climb < ActiveRecord::Base
   has_many :climbers, :through => :ascents
   has_many :ascents
   has_many :medias
-  belongs_to :style, :counter_cache => true
+  belongs_to :style
   belongs_to :area, :counter_cache => true
   validates_presence_of :style, :area
+  
+  validates :name, :uniqueness => {:scope => :area_id, :message => "That climb already exists in this area!"}
   
   def climb_area_name
     "#{name} (#{area.name})"

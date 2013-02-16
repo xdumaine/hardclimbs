@@ -15,24 +15,22 @@
 require 'spec_helper'
 
 describe Area do
-  before do @area = Area.new(name:"Area", country:"United States")
+  
+  it "has a valid factory" do
+    FactoryGirl.create(:area).should be_valid
   end
   
-  subject { @area }
-  
-  it { should respond_to(:name) }
-  it { should respond_to(:country) }
-  
-  it { should be_valid }
-  
-  describe "when name is not present" do
-    before { @area.name = " " }
-    it { should_not be_valid }
+  it "is invalid without a name" do
+    FactoryGirl.build(:area, name: nil).should_not be_valid
   end
   
-  describe "when country is not present" do
-    before { @area.country = " " }
-    it { should_not be_valid }
+  it "is invalid without a country" do
+    FactoryGirl.build(:area, country: nil).should_not be_valid
+  end
+  
+  it "returns a areas's area_country as a string" do
+    area = FactoryGirl.build(:area)
+    area.area_country.should == "#{area.country} #{area.name}"
   end
   
 end
