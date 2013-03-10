@@ -2,7 +2,8 @@
   <%= f.input :name %>
   <%= f.label :country %> 
   <%= f.country_select :country, [ "United States", "Switzerland", "Japan", "France", "Germany" ], 
-                      prompt: 'Choose the country'%>
+                      prompt: 'Choose the country', 
+					  input_html: { :multiple => false, :class => 'chzn-select', :'data-placeholder' => 'Select Country'} %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
