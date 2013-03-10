@@ -17,7 +17,7 @@
     <% @media.each do |media| %>
       <tr>
         <td><%= link_to media.id, media_path(media) %></td>
-        <td><%= media.url %></td>
+        <td><%= link_to media.url, media.url %></td>
         <td><%= media.description %></td>
         <td><%= media.media_type.name %></td>
         <td><%=l media.created_at %></td>

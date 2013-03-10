@@ -1,6 +1,7 @@
 <%= simple_form_for @ascent, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.association :climber, collection: Climber.order('first_name ASC'), prompt:  'Choose the climber', :label_method => :full_name %>
-  <%= f.association :climb, collection: Climb.order('name ASC'), :order => :name, prompt:  'Choose the climb', :label_method => :climb_area_name %>
+  
+  <%= render "climbers/climber_form", :f => f, :multi => false %>
+  <%= render "climbs/climb_form", :f => f, :multi => false %>
   <%= f.association :grade, prompt: 'Choose the grade' %>
   <%= f.input :ascent_number, :collection => Ascent::ASCENT_NUMBER %>
   <%= f.input :date, :as => :date, :start_year => Date.today.year - 20,
@@ -8,6 +9,8 @@
                                   :start_daty => 1,
                                   :order => [:month, :day, :year],
                                   :include_blank => true %>
+  <%= render "medias/media_form", :f => f, :multi => true %>
+  
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

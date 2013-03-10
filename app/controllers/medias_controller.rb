@@ -15,6 +15,8 @@ class MediasController < ApplicationController
 
   def show
     @media = Media.find(params[:id])
+    @ascent = @media.ascent
+    @climb = @media.climb
   end
   
   def update

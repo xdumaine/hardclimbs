@@ -8,8 +8,6 @@
 #  media_type_id :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  climb_id      :integer
-#  ascent_id     :integer
 #  pull_quote    :text
 #
 
@@ -31,6 +29,10 @@ describe Media do
   
   it "is invalid without a media type" do
     FactoryGirl.build(:media, media_type: nil).should_not be_valid
+  end
+  
+  it "is invalid without a description" do
+    FactoryGirl.build(:media, description: nil).should_not be_valid
   end
   
 end

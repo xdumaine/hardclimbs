@@ -1,0 +1,3 @@
+<%= f.association :climber, collection: Climber.order('first_name ASC'), 
+	prompt: 'Choose the climber', :label_method => :full_name, 
+	input_html: { :multiple => multi, :class => 'chzn-select', :'data-placeholder' => 'Select Climber'} %>

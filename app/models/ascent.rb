@@ -23,10 +23,10 @@ class Ascent < ActiveRecord::Base
   
   ASCENT_NUMBER = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
   
-  attr_accessible :date, :climber_id, :climb_id, :media_id, :grade_id, :ascent_number
+  attr_accessible :date, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number
   belongs_to :climber, :counter_cache => true
   belongs_to :climb, :counter_cache => true
-  has_many :media, :class_name => 'Media'
+  has_and_belongs_to_many :medias, :class_name => 'Media'
   belongs_to :grade, :counter_cache => true
   
   validates :climber_id, :uniqueness => {:scope => :climb_id, :message => "That climber already sent that climb!"}

@@ -6,7 +6,7 @@
       <th><%= sortable "name", "Climb" %></th>
       <th><%= sortable "areas.name", "Area", "area" %></th>
       <th><%= sortable "styles.name", "Style", "style" %></th>
-      <th>Grade</th>
+      <th><%= sortable "grades.name", "Proposed Grade", "grade" %></th>
       <th><%= sortable "ascents_count", "Ascents" %></th>
       <th>Media</th>
       <% if can? :edit, Climb or can? :destroy, Climb %>
@@ -20,9 +20,13 @@
         <td><%= link_to climb.name, climb_path(climb) %></td>
         <td><%= link_to climb.area.name, area_path(climb.area) %></td>
         <td><%= climb.style.name %></td>
-        <td>Grade</td>
+		<td>
+			<% if climb.ascents.where(:ascent_number => 1).count != 0 %>
+        		<%= climb.ascents.where(:ascent_number => 1).first.ascent_grade %>
+			<% end %>
+		</td>
         <td><span class="badge"><%= climb.ascents_count %></span></td>
-        <td><%= climb.medias_count %></td>
+        <td><span class="badge"><%= climb.medias_count %></span></td>
         <% if can? :edit, Climb %>
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),

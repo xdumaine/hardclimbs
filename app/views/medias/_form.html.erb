@@ -2,8 +2,8 @@
   <%= f.input :url %>
   <%= f.input :description %>
   <%= f.input :pull_quote, :as => :text, :input_html => { :cols => 20, :rows => 5 } %>
-  <%= f.association :climb , prompt:  'Choose the climb' %>
-  <%= f.association :ascent , prompt:  'Choose the ascent to link', :label_method => :ascent_name_climber_climb %>
+  <%= render "climbs/climb_form", :f => f, :multi => true %>
+  <%= render "ascents/ascent_form", :f => f, :multi => true %>
   <%= f.association :media_type , prompt:  'Choose the media type' %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

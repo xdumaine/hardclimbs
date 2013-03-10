@@ -8,7 +8,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  slug           :string(255)
-#  still_hard     :boolean
+#  still_hard     :boolean          default(TRUE)
 #  area_id        :integer
 #  climbers_count :integer          default(0)
 #  ascents_count  :integer          default(0)

@@ -1,0 +1,3 @@
+<%= f.association :climb, collection: Climb.order(:name),
+		label_method: :climb_area_name, value_method: :id, label: 'Climb',
+		input_html: { :multiple => multi, :class => 'chzn-select', :'data-placeholder' => 'Select Climb'} %>

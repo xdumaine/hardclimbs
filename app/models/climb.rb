@@ -8,7 +8,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  slug           :string(255)
-#  still_hard     :boolean
+#  still_hard     :boolean          default(TRUE)
 #  area_id        :integer
 #  climbers_count :integer          default(0)
 #  ascents_count  :integer          default(0)
@@ -20,10 +20,11 @@ class Climb < ActiveRecord::Base
     friendly_id :name, :use => :slugged
   validates_presence_of :slug
   
-  attr_accessible :name, :media_id, :style_id, :still_hard, :area_id
+  attr_accessible :name, :media_ids, :style_id, :still_hard, :area_id
   has_many :climbers, :through => :ascents
   has_many :ascents
-  has_many :medias
+  has_and_belongs_to_many :medias, :class_name => 'Media'
+  accepts_nested_attributes_for :medias
   belongs_to :style
   belongs_to :area, :counter_cache => true
   validates_presence_of :style, :area

@@ -5,7 +5,7 @@ FactoryGirl.define do
     url "MyString"
     description "Lorem ipsum"
     media_type
-    #climb
-    ascent
+    climb {[FactoryGirl.create(:climb)]}
+    ascent {[FactoryGirl.create(:ascent)]}
   end
 end

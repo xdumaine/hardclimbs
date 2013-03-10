@@ -1,6 +1,5 @@
 <%- model_class = ascents.first.class -%>
 <h1 class="title"><%=t '.title', :default => "Ascents" %></h1>
-
   <table class="table table-striped">
     <thead>
       <tr>
@@ -12,6 +11,7 @@
         <th><%= sortable "date", "Date" %></th>
         <th><%= sortable "grades.name", "Grade", "grade" %></th>
         <th><%= sortable "styles.name", "Style", "style" %></th>
+		<th>Media</th>
         <% if can? :edit, Ascent or can? :destroy, Ascent %>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         <% end %>
@@ -28,6 +28,7 @@
           <td><%= ascent.ascent_date %></td>
           <td><%= ascent.ascent_grade %></td>
           <td><%= ascent.climb.style.name %></td>
+		  <td><span class="badge"><%= ascent.medias_count %></span></td>
           <% if can? :edit, Ascent %>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),

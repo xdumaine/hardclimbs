@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216163009) do
+ActiveRecord::Schema.define(:version => 20130216165732) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(:version => 20130216163009) do
   end
 
   add_index "ascents", ["slug"], :name => "index_ascents_on_slug", :unique => true
+
+  create_table "ascents_medias", :id => false, :force => true do |t|
+    t.integer "media_id"
+    t.integer "ascent_id"
+  end
+
+  add_index "ascents_medias", ["ascent_id", "media_id"], :name => "index_ascents_medias_on_ascent_id_and_media_id"
+  add_index "ascents_medias", ["media_id", "ascent_id"], :name => "index_ascents_medias_on_media_id_and_ascent_id"
 
   create_table "climbers", :force => true do |t|
     t.string   "first_name"
@@ -68,6 +76,14 @@ ActiveRecord::Schema.define(:version => 20130216163009) do
   end
 
   add_index "climbs", ["slug"], :name => "index_climbs_on_slug", :unique => true
+
+  create_table "climbs_medias", :id => false, :force => true do |t|
+    t.integer "media_id"
+    t.integer "climb_id"
+  end
+
+  add_index "climbs_medias", ["climb_id", "media_id"], :name => "index_climbs_medias_on_climb_id_and_media_id"
+  add_index "climbs_medias", ["media_id", "climb_id"], :name => "index_climbs_medias_on_media_id_and_climb_id"
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -104,8 +120,6 @@ ActiveRecord::Schema.define(:version => 20130216163009) do
     t.integer  "media_type_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "climb_id"
-    t.integer  "ascent_id"
     t.text     "pull_quote"
   end
 
