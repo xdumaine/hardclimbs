@@ -15,3 +15,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+jQuery ->
+	$('.chzn-select').chosen()
