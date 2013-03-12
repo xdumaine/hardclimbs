@@ -21,10 +21,16 @@
             <p class="lead pull-right hidden-phone"><%= media.media_type.name %>:</p>
         </div>
         <div class="span10">
-            <%= link_to media.url, media.description %>
-            <% if media.pull_quote %>
-              <blockquote><%= media.pull_quote %></blockquote>
-            <% end %>
+			<% if media.media_type.id == 2 %>
+			<div class="embed-container">
+	            <%= media.url_html %>
+			</div>
+			<% else %>
+	            <%= media.url_html %>
+	            <% if media.pull_quote %>
+	              <blockquote><%= media.pull_quote %></blockquote>
+	            <% end %>
+			<% end%>
         </div>
     </div>
 <% end %>

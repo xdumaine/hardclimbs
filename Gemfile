@@ -66,3 +66,6 @@ gem 'newrelic_rpm', :group => [:production]
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'google-analytics-rails'
+#gem 'vimeo'
+#gem 'youtube_it'
+gem 'auto_html'

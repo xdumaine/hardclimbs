@@ -23,4 +23,11 @@ class Media < ActiveRecord::Base
   validates_presence_of :climb, :unless => proc{|obj| obj.climb.blank?}
   validates_presence_of :ascent, :unless => proc{|obj| obj.ascent.blank?}
 
+  auto_html_for :url do
+    html_escape
+    vimeo(:width => 0, :height => 0)
+    youtube(:width => 0, :height => 0)
+    link :target => "_blank"
+    simple_format
+  end
 end

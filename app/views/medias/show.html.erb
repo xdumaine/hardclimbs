@@ -8,10 +8,20 @@
   <dd><%= @media.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:media_type_id) %>:</strong></dt>
   <dd><%= @media.media_type.name %></dd>
+  <% if @media.media_type.id == 2 %>
+  	<dt></dt>
+  	<dd>
+	  <div class="embed-container">
+	 	 <%= @media.url_html %>
+ 	 </div>
+  	</dd>
+  <% end %>
   <dt><strong><%= model_class.human_attribute_name(:climb_id) %>:</strong></dt>
   <dd><% if @climb %>
 	  <% @climb.each do |a| %> 
+	  	<span class="badge">
 			<%= link_to a.name, climb_path(a) %>
+		</span>
 		<% end %>
 		<% else %>
 			<%= puts ('$nbsp;') %>
@@ -20,7 +30,9 @@
   <dt><strong><%= model_class.human_attribute_name(:ascent_id) %>:</strong></dt>
   <dd><% if @ascent %>
 	  <% @ascent.each do |a| %> 
-			<%= link_to a.ascent_name_climber_climb, ascent_path(a) %>
+	  		<span class="badge">
+				<%= link_to a.ascent_name_climber_climb, ascent_path(a) %>
+			</span>
 		<% end %>
 		<% else %>
 			<%= puts ('$nbsp;') %>
