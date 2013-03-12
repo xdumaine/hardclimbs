@@ -36,7 +36,7 @@
   </ul>
   <ul class="nav pull-right">
    <% if user_signed_in? %>
-     <% if current_user.has_role? :admin %>
+     <% if current_user.has_role? :editor %>
       <li>
         <%= link_to "Media", medias_path, :role => "button" %>
      </li>

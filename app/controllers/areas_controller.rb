@@ -18,7 +18,6 @@ class AreasController < ApplicationController
   end
   
   def update
-      authorize! :update, @area, :message => 'Not authorized as an administrator.'
       @area = Area.find(params[:id])
       if @area.update_attributes(params[:area])
         redirect_to areas_path, :notice => "Area updated."
@@ -28,7 +27,6 @@ class AreasController < ApplicationController
     end
 
   def create
-    authorize! :create, @area, :message => 'Not authorized as an administrator.'
     @area = Area.new(params[:area])
     if @area.save
       flash[:success] = "Thanks for adding an area!"
@@ -39,7 +37,6 @@ class AreasController < ApplicationController
   end
     
   def destroy
-    authorize! :destroy, @area, :message => 'Not authorized as an administrator.'
     area = Area.find(params[:id])
     area.destroy
     redirect_to areas_path, :notice => "Area deleted."
