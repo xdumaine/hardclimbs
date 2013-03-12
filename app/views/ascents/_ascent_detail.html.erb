@@ -26,7 +26,7 @@
 	            <%= media.url_html %>
 			</div>
 			<% else %>
-	            <%= media.url_html %>
+	            <%= link_to media.description, media.url, target: "_blank" %>
 	            <% if media.pull_quote %>
 	              <blockquote><%= media.pull_quote %></blockquote>
 	            <% end %>

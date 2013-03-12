@@ -17,18 +17,19 @@
   	</dd>
   <% end %>
   <dt><strong><%= model_class.human_attribute_name(:climb_id) %>:</strong></dt>
-  <dd><% if @climb %>
-	  <% @climb.each do |a| %> 
-	  	<span class="badge">
-			<%= link_to a.name, climb_path(a) %>
-		</span>
+  <dd>
+	  <% if @climb.count > 0 %>
+	  	<% @climb.each do |a| %> 
+	  		<span class="badge">
+				<%= link_to a.name, climb_path(a) %>
+			</span>
 		<% end %>
-		<% else %>
-			<%= puts ('$nbsp;') %>
-		<% end%>
+	  <% else %>
+			&nbsp;
+	  <% end%>
 	</dd>
   <dt><strong><%= model_class.human_attribute_name(:ascent_id) %>:</strong></dt>
-  <dd><% if @ascent %>
+  <dd><% if @ascent.count > 0 %>
 	  <% @ascent.each do |a| %> 
 	  		<span class="badge">
 				<%= link_to a.ascent_name_climber_climb, ascent_path(a) %>
