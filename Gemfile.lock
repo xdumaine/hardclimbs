@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/Dhaulagiri/auto_html.git
+  revision: 619ce86982b8fa242398bf5fbd76d248f1bd93f5
+  specs:
+    auto_html (1.6.0)
+      redcarpet (~> 2.0)
+      rinku (~> 1.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -32,9 +40,6 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
-    auto_html (1.6.0)
-      redcarpet (~> 2.0)
-      rinku (~> 1.5.0)
     bcrypt-ruby (3.0.1)
     better_errors (0.3.2)
       coderay (>= 1.0.0)
@@ -241,7 +246,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (>= 2.5.0)
-  auto_html
+  auto_html!
   better_errors (>= 0.3.2)
   binding_of_caller (>= 0.6.8)
   bootstrap-sass (>= 2.2.2.0)
