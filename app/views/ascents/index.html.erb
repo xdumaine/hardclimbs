@@ -1,8 +1,7 @@
 <%- model_class = Ascent.new.class -%>
-<%= render 'ascents/ascent_list', :ascents => @ascents %>
-
 <% if can? :create, Ascent %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_ascent_path,
             :class => 'btn btn-primary' %>
 <% end %>
+<%= render 'ascents/ascent_list', :ascents => @ascents %>

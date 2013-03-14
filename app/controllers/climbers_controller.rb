@@ -2,6 +2,7 @@ class ClimbersController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   helper_method :join_on, :sort_column, :sort_direction  
   load_and_authorize_resource
+  
   def new
     @climber = Climber.new
   end
@@ -45,7 +46,7 @@ class ClimbersController < ApplicationController
   
   private  
     def sort_column  
-      params[:sort_column] || "id"  
+      params[:sort_column] || "last_name"  
     end  
 
     def sort_direction 

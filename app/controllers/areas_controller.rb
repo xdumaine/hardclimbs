@@ -44,7 +44,7 @@ class AreasController < ApplicationController
   
   private  
     def sort_column  
-      params[:sort_column] || "id"  
+      params[:sort_column] || "name"  
     end  
 
     def sort_direction  

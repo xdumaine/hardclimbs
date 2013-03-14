@@ -7,9 +7,9 @@ class ClimbsController < ApplicationController
   end
   
   def index
-    if params[:style]
-      @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]).find_all_by_style_id(params[:style])
-      @title = "Climbs for style #{Style.find(params[:style]).name}"
+    if params[:styles]
+      @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]).find_all_by_style_id(params[:styles])
+      @title = "Climbs for style #{Style.find(params[:styles]).name}"
     elsif params[:area_id]
       @area = Area.find(params[:area_id])
       @climbs = @area.climbs.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
@@ -56,7 +56,7 @@ class ClimbsController < ApplicationController
   
   private  
     def sort_column  
-      params[:sort_column] || "id"  
+      params[:sort_column] || "name"  
     end  
 
     def sort_direction  

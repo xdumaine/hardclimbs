@@ -1,4 +1,10 @@
 <%- model_class = Media.new.class -%>
+<% if can? :create, Media %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_media_path,
+            :class => 'btn btn-primary' %>
+<% end %>
+
 <h1 class="title"><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 <table class="table table-striped">
   <thead>
@@ -39,6 +45,3 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_media_path,
-            :class => 'btn btn-primary' %>
