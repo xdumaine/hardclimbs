@@ -15,3 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$('.chzn-select').chosen()
+$("a[rel=popover]").popover()
+$("a[rel=tooltip]").tooltip()

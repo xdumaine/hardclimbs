@@ -1,0 +1,43 @@
+<%- model_class = climbers.first.class -%>
+<div id="climber-list">
+	<h1 class="title"><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+	<table class="table table-striped" id="climber-list">
+	  <thead>
+	    <tr>
+	      <th><%= sortable "last_name", "Climber", "climber" %></th>
+	      <th><%= sortable "ascents_count", "Ascents" %></th>
+	      <th><%= model_class.human_attribute_name(:sex) %></th>
+	      <th><%= model_class.human_attribute_name(:dob) %></th>
+	      <th><%= model_class.human_attribute_name(:height) %></th>
+	      <% if can? :edit, Climber or can? :destroy, Climber %>
+	        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+	      <% end %>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @climbers.each do |climber| %>
+	      <tr>
+	        <td><%= link_to climber.full_name, climber_path(climber) %></td>
+	        <td><span class="badge"><%= climber.ascents_count %></span></td>
+	        <td><%= climber.sex %></td>
+	        <td><%= climber.dob %></td>
+	        <td><%= climber.height %></td>
+	        <% if can? :edit, Climber %>
+	          <td>
+	            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	                      edit_climber_path(climber), :class => 'btn btn-mini' %>
+	        <% end %>
+	        <% if can? :destroy, Climber %>
+	            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	                      climber_path(climber),
+	                      :method => :delete,
+	                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+	                      :class => 'btn btn-mini btn-danger' %>
+	            </td>
+	          <% end %>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+	<%= paginate @climbers %>
+</div>

@@ -1,46 +1,46 @@
 <%- model_class = climbs.first.class -%>
-<h1 class="title"><%= @title %></h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= sortable "name", "Climb" %></th>
-      <th><%= sortable "areas.name", "Area", "area" %></th>
-      <th><%= sortable "styles.name", "Style", "style" %></th>
-      <th><%= sortable "grades.name", "Proposed Grade", "grade" %></th>
-      <th><%= sortable "ascents_count", "Ascents" %></th>
-      <th>Media</th>
-      <% if can? :edit, Climb or can? :destroy, Climb %>
-        <th><%=t '.actions', :default => t("helpers.actions") %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% climbs.each do |climb| %>
-      <tr>
-        <td><%= link_to climb.name, climb_path(climb) %></td>
-        <td><%= link_to climb.area.name, area_path(climb.area) %></td>
-        <td><%= climb.style.name %></td>
-		<td>
-			<% if climb.ascents.where(:ascent_number => 1).count != 0 %>
-        		<%= climb.ascents.where(:ascent_number => 1).first.ascent_grade %>
-			<% end %>
-		</td>
-        <td><span class="badge"><%= climb.ascents_count %></span></td>
-        <td><span class="badge"><%= climb.medias_count %></span></td>
-        <% if can? :edit, Climb %>
-          <td>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_climb_path(climb), :class => 'btn btn-mini' %>
-        <% end %>
-        <% if can? :destroy, Climb %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      climb_path(climb),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
-            </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="climb-list">
+	<h1 class="title"><%= @title %></h1>
+	<table class="table table-striped" id="climb-list">
+	  <thead>
+	    <tr>
+	      <th><%= sortable "name", "Climb" %></th>
+	      <th><%= sortable "areas.name", "Area", "area" %></th>
+	      <th><%= sortable "styles.name", "Style", "style" %></th>
+	      <th><%= sortable "grades.name", "Proposed Grade", "grade" %></th>
+	      <th><%= sortable "ascents_count", "Ascents" %></th>
+	      <% if can? :edit, Climb or can? :destroy, Climb %>
+	        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+	      <% end %>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% climbs.each do |climb| %>
+	      <tr>
+	        <td><%= link_to climb.name, climb_path(climb) %></td>
+	        <td><%= link_to climb.area.name, area_path(climb.area) %></td>
+	        <td><%= link_to climb.style.name, style_path(climb.style) %></td>
+			<td>
+				<% if climb.ascents.where(:ascent_number => 1).count != 0 %>
+	        		<%= climb.ascents.where(:ascent_number => 1).first.ascent_grade %>
+				<% end %>
+			</td>
+	        <td><span class="badge"><%= climb.ascents_count %></span></td>
+	        <% if can? :edit, Climb %>
+	          <td>
+	            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	                      edit_climb_path(climb), :class => 'btn btn-mini' %>
+	        <% end %>
+	        <% if can? :destroy, Climb %>
+	            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	                      climb_path(climb),
+	                      :method => :delete,
+	                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+	                      :class => 'btn btn-mini btn-danger' %>
+	            </td>
+	        <% end %>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</div>

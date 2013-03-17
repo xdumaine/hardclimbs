@@ -17,6 +17,7 @@ class ClimbersController < ApplicationController
 
   def show
     @climber = Climber.find(params[:id])
+    @ascents = @climber.ascents.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
   end
   
   def update

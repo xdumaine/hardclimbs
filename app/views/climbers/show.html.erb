@@ -31,4 +31,5 @@
                 :class => 'btn btn-danger' %>
   <% end %>
 </div>
-<%= render 'ascents/ascent_list', :ascents => @climber.ascents.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]) %>
+
+<%= render 'ascents/ascent_list', :ascents => @climber.ascents.page(params[:page]) %>

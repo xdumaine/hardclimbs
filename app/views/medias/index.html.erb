@@ -4,44 +4,4 @@
             new_media_path,
             :class => 'btn btn-primary' %>
 <% end %>
-
-<h1 class="title"><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:url) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:media_types_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <% if can? :edit, Media or can? :destroy, Media %>
-        <th><%=t '.actions', :default => t("helpers.actions") %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @media.each do |media| %>
-      <tr>
-        <td><%= link_to media.id, media_path(media) %></td>
-        <td><%= link_to media.url, media.url %></td>
-        <td><%= media.description %></td>
-        <td><%= media.media_type.name %></td>
-        <td><%=l media.created_at.to_date %></td>
-        <% if can? :edit, Media %>
-          <td>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_media_path(media), :class => 'btn btn-mini' %>
-        <% end %>
-        <% if can? :destroy, Media %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      media_path(media),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
-            </td>
-          <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= render 'medias/media_list', :medias => @medias %>

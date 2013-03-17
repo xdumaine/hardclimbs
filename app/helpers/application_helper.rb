@@ -14,9 +14,12 @@ module ApplicationHelper
   def sortable(column, title = nil, join_model = nil)  
     title ||= column.titleize  
     css_class = (column == sort_column) ? "current #{sort_direction}" : nil 
+    
+    #css_class = (column == sort_column) ? content_tag(:i, title, :class => "icon-search") : nil
     direction = (column == sort_column && sort_direction == "asc") ? "desc" : "asc"  
-    link_to title, {:join_model => join_model, :sort_column => column, :sort_direction => direction,
-                   :class => css_class}, :rel => "tooltip", :title => "Sort by #{title}"
+    #title = (column == sort_column) ? css_class : title
+    link_to title, {:join_model => join_model, :sort_column => column, :sort_direction => direction},
+                    :rel => "tooltip", :title => "Sort by #{title}"
   end
   
 end
