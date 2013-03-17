@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216165732) do
+ActiveRecord::Schema.define(:version => 20130317032832) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130216165732) do
     t.integer  "climbers_count", :default => 0
     t.integer  "ascents_count",  :default => 0
     t.integer  "medias_count",   :default => 0
+    t.integer  "grade_id"
   end
 
   add_index "climbs", ["slug"], :name => "index_climbs_on_slug", :unique => true
@@ -104,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20130216165732) do
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
     t.integer  "ascents_count", :default => 0
+    t.integer  "climbs_count",  :default => 0
   end
 
   add_index "grades", ["slug"], :name => "index_grades_on_slug", :unique => true

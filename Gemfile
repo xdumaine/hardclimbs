@@ -10,30 +10,11 @@ gem 'rails', '3.2.11'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'twitter-bootstrap-rails'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
   gem "chosen-rails", "~> 0.9.12"
 end
 
 gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
-
 gem "thin", ">= 1.5.0", :group => :production
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
 gem "database_cleaner", ">= 0.9.1", :group => :test
@@ -65,6 +46,5 @@ gem 'newrelic_rpm', :group => [:production]
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'google-analytics-rails'
-#gem 'vimeo'
-#gem 'youtube_it'
 gem 'auto_html', :git => 'git://github.com/Dhaulagiri/auto_html.git'
+gem 'counter_culture', '~> 0.1.7'

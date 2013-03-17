@@ -29,6 +29,10 @@ describe Ascent do
     FactoryGirl.build(:ascent, climber: nil).should_not be_valid
   end
   
+  it "is invalide without a grade" do
+    FactoryGirl.build(:ascent, grade: nil).should_not be_valid
+  end
+  
   it "does not allow duplicate climbs per climber" do
     climber = FactoryGirl.create(:climber)
     climb = FactoryGirl.create(:climb)

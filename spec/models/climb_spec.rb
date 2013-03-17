@@ -13,6 +13,7 @@
 #  climbers_count :integer          default(0)
 #  ascents_count  :integer          default(0)
 #  medias_count   :integer          default(0)
+#  grade_id       :integer
 #
 
 require 'spec_helper'
@@ -32,6 +33,10 @@ describe Climb do
   
   it "is invalid without an area" do
     FactoryGirl.build(:climb, area: nil).should_not be_valid
+  end
+  
+  it "is invalid without a grade" do
+    FactoryGirl.build(:climb, grade: nil).should_not be_valid
   end
   
   it "returns a climbs's climb_area_name as a string" do

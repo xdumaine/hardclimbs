@@ -12,7 +12,7 @@
 #
 
 require 'spec_helper'
-
+require 'ruby-debug'
 describe Media do
   
   it "has a valid factory" do

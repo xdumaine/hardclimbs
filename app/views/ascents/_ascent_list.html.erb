@@ -10,7 +10,7 @@
 	        <th><%= sortable "climbers.last_name", "Climber", "climber" %></th>
 	        <th><%= sortable "ascent_number", "Ascent" %></th>
 	        <th><%= sortable "date", "Date" %></th>
-	        <th><%= sortable "grades.name", "Grade", "grade" %></th>
+	        <th><%= sortable "grades.rank", "Grade", "grade" %></th>
 	        <th><%= sortable "styles.name", "Style", "style" %></th>
 	        <% if can? :edit, Ascent or can? :destroy, Ascent %>
 	          <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -26,7 +26,7 @@
 	          <td><%= link_to ascent.climber.full_name, climber_path(ascent.climber) %></td>
 	          <td><%= ascent.ascent_number_format %></td>
 	          <td><%= ascent.ascent_date %></td>
-	          <td><%= ascent.ascent_grade %></td>
+	          <td><%= ascent.grade.name %></td>
 	          <td><%= ascent.climb.style.name %></td>
 	          <% if can? :edit, Ascent %>
 	            <td>

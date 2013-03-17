@@ -15,6 +15,7 @@
 class Grade < ActiveRecord::Base
   attr_accessible :name, :style_id, :rank#, :as => :admin
   has_many :ascents
+  has_many :climbs
   belongs_to :style
   validates_presence_of :name, :style_id, :rank
   validates :rank, :uniqueness => {:scope => :style_id, :message => "There is already a grade with that rank!"}

@@ -6,5 +6,6 @@ FactoryGirl.define do
     still_hard true
     style
     area
+    grade
   end
 end

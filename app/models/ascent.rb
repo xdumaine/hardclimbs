@@ -20,17 +20,23 @@ class Ascent < ActiveRecord::Base
   validates_presence_of :slug
   
   before_create :ascent_numbering
+  after_create :update_climb
+  after_update :update_climb
   
   ASCENT_NUMBER = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
   
   attr_accessible :date, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number
-  belongs_to :climber, :counter_cache => true
-  belongs_to :climb, :counter_cache => true
+  belongs_to :climber
+  belongs_to :climb
   has_and_belongs_to_many :medias, :class_name => 'Media'
-  belongs_to :grade, :counter_cache => true
+  belongs_to :grade
+  
+  counter_culture :grade
+  counter_culture :climb
+  counter_culture :climber
   
   validates :climber_id, :uniqueness => {:scope => :climb_id, :message => "That climber already sent that climb!"}
-  validates_presence_of :climber_id, :climb_id;
+  validates_presence_of :climber, :climb, :grade;
     
   scope :by_area_order_asc, joins(:climb => :area).order("areas.name asc")
   scope :by_area_order_desc, joins(:climb => :area).order("areas.name desc")
@@ -85,32 +91,30 @@ class Ascent < ActiveRecord::Base
     end
   end
   
-  def ascent_grade
-    if !grade
-      "Unknown"
-    else
-      grade.name
-    end
-  end
-  
   private
-      def ascent_numbering
-        current_ascent = Ascent.where(["climb_id=?", self.climb_id]).maximum("ascent_number")
-        if self.ascent_number == nil && current_ascent != nil
-          self.ascent_number = current_ascent + 1
-        else
-          #FA
-          self.ascent_number = 1
-        end
+    def ascent_numbering
+      current_ascent = Ascent.where(["climb_id=?", self.climb_id]).maximum("ascent_number")
+      if self.ascent_number == nil && current_ascent != nil
+        self.ascent_number = current_ascent + 1
+      else
+        #FA
+        self.ascent_number = 1
       end
-      
-  def self.increment(position_threshold, climb_id, climber_id)
-    Ascent.transaction do
-       Ascent.where(["ascent_number >= ?", position_threshold]).where(["climb_id=?", climb_id]).where(["climber_id!=?", climber_id]).order("ascent_number DESC").each do |ascent|
-          ascent.ascent_number += 1
-          ascent.save
-       end
     end
+      
+    def update_climb
+      if self.ascent_number == 1
+        Climb.find_by_id(self.climb).update_attributes(:grade_id => self.grade.id)
+      end
+    end
+    
+    def self.increment(position_threshold, climb_id, climber_id)
+      Ascent.transaction do
+         Ascent.where(["ascent_number >= ?", position_threshold]).where(["climb_id=?", climb_id]).where(["climber_id!=?", climber_id]).order("ascent_number DESC").each do |ascent|
+            ascent.ascent_number += 1
+            ascent.save
+         end
+      end
   end
   
 end

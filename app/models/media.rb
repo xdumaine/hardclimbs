@@ -20,8 +20,9 @@ class Media < ActiveRecord::Base
   validates_presence_of :url
   validates_presence_of :media_type
   validates_presence_of :description
-  validates_presence_of :climb, :unless => proc{|obj| obj.climb.blank?}
-  validates_presence_of :ascent, :unless => proc{|obj| obj.ascent.blank?}
+  #validates_presence_of :climb, :unless => proc{|obj| obj.climb.blank?}
+  #validates_presence_of :ascent, :unless => proc{|obj| obj.ascent.blank?}
+  validate :at_least_one_climb_ascent
 
   auto_html_for :url do
     html_escape
@@ -31,4 +32,11 @@ class Media < ActiveRecord::Base
     link :target => "_blank"
     simple_format
   end
+  
+  private
+    def at_least_one_climb_ascent
+      if self.climb.compact.size + self.ascent.compact.size == 0
+        errors[:base] << ("Please choose at least one climb or ascent")
+      end
+    end
 end

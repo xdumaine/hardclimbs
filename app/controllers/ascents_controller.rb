@@ -61,6 +61,7 @@ class AscentsController < ApplicationController
       if @ascent.ascent_number != nil
         Ascent.increment(@ascent.ascent_number, @ascent.climb_id, @ascent.climber_id)
       end
+
       flash[:success] = "Thanks for adding an ascent!"
       redirect_to @ascent
     else
