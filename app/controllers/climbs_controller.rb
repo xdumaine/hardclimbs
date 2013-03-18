@@ -9,15 +9,24 @@ class ClimbsController < ApplicationController
   def index
     if params[:styles]
       @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]).find_all_by_style_id(params[:styles])
-      @title = "Climbs for style #{Style.find(params[:styles]).name}"
+      @style = Style.find(params[:styles])
+      @title = "Climbs for style #{@style.name}"
+      @keywords = "#{style.name}"
+      @description = "List of Hard #{@style.name} Ascents"
     elsif params[:area_id]
       @area = Area.find(params[:area_id])
       @climbs = @area.climbs.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
       @title = "Climbs @ #{@area.name}"
+      @keywords = "#{@area.name}"
+      @description = "List of Hard Climbs in #{@area.name}"
     else
       @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
       @title = "All Climbs"
+      @description = "All Hard Climbs"
     end
+    set_meta_tags :description => @description
+    set_meta_tags :keywords => @keywords
+    set_meta_tags :title => @title
   end
   
   def edit
@@ -27,6 +36,12 @@ class ClimbsController < ApplicationController
   def show
     @climb = Climb.find(params[:id])
     @first_ascent = @climb.ascents.where(:ascent_number => 1).first
+    @title = "Ascents for #{@climb.name}"
+    @keywords = "#{@climb.name}, #{@first_ascent.climber.full_name}, #{@climb.grade.name}, #{@climb.area.name}"
+    @description = "List of Ascents of #{@climb.name}"
+    set_meta_tags :description => @description
+    set_meta_tags :keywords => @keywords
+    set_meta_tags :title => @title
   end
   
   def update

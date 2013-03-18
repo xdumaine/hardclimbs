@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Hard Climbs" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Hard Climbs" %>">
+	<%= display_meta_tags  :site => 'HardClimbs.info'%>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

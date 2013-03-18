@@ -7,6 +7,10 @@ class AreasController < ApplicationController
   
   def index
     @areas = Area.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
+    @title = "All Areas"
+    @description = "List of Areas"
+    set_meta_tags :description => @description
+    set_meta_tags :title => @title
   end
   
   def edit
@@ -15,6 +19,12 @@ class AreasController < ApplicationController
 
   def show
     @area = Area.find(params[:id])
+    @title = "Ascents for #{@area.name}"
+    @keywords = "#{@area.name}"
+    @description = "List of Ascents in #{@area.name}"
+    set_meta_tags :description => @description
+    set_meta_tags :keywords => @keywords
+    set_meta_tags :title => @title
   end
   
   def update

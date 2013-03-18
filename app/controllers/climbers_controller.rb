@@ -9,6 +9,7 @@ class ClimbersController < ApplicationController
   
   def index
     @climbers = Climber.order(sort_column + " " + sort_direction).page(params[:page])
+    set_meta_tags :title => 'All Climbers'
   end
   
   def edit
@@ -18,6 +19,9 @@ class ClimbersController < ApplicationController
   def show
     @climber = Climber.find(params[:id])
     @ascents = @climber.ascents.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
+    set_meta_tags :description => "List of Hard Ascents by #{@climber.full_name}"
+    set_meta_tags :keywords => "#{@climber.full_name}"
+    set_meta_tags :title => "#{@climber.full_name}"
   end
   
   def update

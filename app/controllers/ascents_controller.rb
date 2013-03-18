@@ -12,18 +12,28 @@ class AscentsController < ApplicationController
       @climb = Climb.find(params[:climb_id])
       @ascents = @climb.ascents.order_by_join(params[:join_model], sort_column, sort_direction) 
       @title = "Ascents for #{@climb.name}"
+      @keywords = "#{@climb.name}"
+      @description = "List of Hard Ascents of #{@climb.name}"
     elsif params[:climber_id]
       @climber = Climber.find(params[:climber_id])
       @ascents = @climber.ascents.order_by_join(params[:join_model], sort_column, sort_direction) 
       @title = "Ascents by #{@climber.full_name}"
+      @keywords = "#{@climber.full_name}"
+      @description = "List of Hard Ascents by #{@climber.full_name}"
     elsif params[:area_id]
       @area = Area.find(params[:area_id])
       @ascents = @area.ascents.order_by_join(params[:join_model], sort_column, sort_direction) 
       @title = "Ascents @ #{@area.name}"
+      @keywords = "#{@area.name}"
+      @description = "List of Hard Ascents in #{@area.name}"
     else
       @title = "All Ascents"
       @ascents = Ascent.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
+      @description = "List of Hard Ascents"
     end 
+    set_meta_tags :description => @description
+    set_meta_tags :keywords => @keywords
+    set_meta_tags :title => @title
   end
   
   def edit
@@ -34,11 +44,21 @@ class AscentsController < ApplicationController
     if params[:climb_id]
       @climb = Climb.find(params[:climb_id])
       @ascent = @climb.ascents.find(params[:id])
+      @area = @climb.area
+      @climber = @ascent.climber
       @title = "Ascent for #{@climb.name}"
     elsif params[:id]
       @ascent = Ascent.find(params[:id])
-      @title = "Ascent for #{@ascent.climb.name}"
+      @climb = @ascent.climb
+      @climber = @ascent.climber
+      @area = @climb.area
+      @title = "Ascent of #{@climb.name} by #{@climber.full_name}"
     end
+    
+    @keywords = "#{@climb.name}, #{@climber.full_name}, #{@ascent.grade.name}, #{@area.name}"
+    set_meta_tags :description => "Details on #{@climber.full_name}'s ascent of #{@climb.name} in #{@area.name} on #{@ascent.date}"
+    set_meta_tags :keywords => @keywords
+    set_meta_tags :title => @title
   end
   
   def update
