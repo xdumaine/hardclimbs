@@ -11,14 +11,14 @@ body {
 .embed-container {
     position: relative;
     padding-bottom: 56.25%; /* 16/9 ratio */
-    padding-top: 30px; /* IE6 workaround*/
     height: 0;
     overflow: hidden;
 }
 
 .embed-container iframe,
 .embed-container object,
-.embed-container embed {
+.embed-container embed,
+.embed-container .map {
     position: absolute;
     top: 0;
     left: 0;

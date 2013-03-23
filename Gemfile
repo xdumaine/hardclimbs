@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -49,3 +49,5 @@ gem 'google-analytics-rails'
 gem 'auto_html', :git => 'git://github.com/Dhaulagiri/auto_html.git'
 gem 'counter_culture', '~> 0.1.7'
 gem 'meta-tags', :require => 'meta_tags'
+gem 'countries'
+gem 'gon'

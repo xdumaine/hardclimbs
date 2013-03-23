@@ -8828,13 +8828,11 @@ body {
   position: relative;
   padding-bottom: 56.25%;
   /* 16/9 ratio */
-  padding-top: 30px;
-  /* IE6 workaround*/
   height: 0;
   overflow: hidden;
 }
 
-/* line 21, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 20, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .embed-container iframe,
 .embed-container object,
 .embed-container embed {
@@ -8845,59 +8843,59 @@ body {
   height: 100%;
 }
 
-/* line 34, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 33, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 body {
   padding-top: 80px;
   padding-bottom: 20px;
 }
 
-/* line 39, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 38, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 h1.title {
   text-align: center;
 }
 
-/* line 42, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 41, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 h2.title {
   text-align: center;
 }
 
-/* line 45, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 44, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 h3.title {
   text-align: center;
 }
 
-/* line 48, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 47, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 h4.title {
   text-align: center;
 }
 
-/* line 51, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 50, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .navbar a > i {
   opacity: 0.5;
 }
 
-/* line 55, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 54, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .navbar a:hover > i {
   opacity: 1;
 }
 
-/* line 59, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 58, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 section {
   margin-top: 100px;
 }
 
-/* line 63, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 62, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .subhead {
   padding-bottom: 0;
   margin-bottom: 9px;
 }
 
-/* line 68, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 67, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .subhead h1 {
   font-size: 54px;
 }
 
-/* line 72, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 71, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .subnav {
   margin-bottom: 60px;
   width: 100%;
@@ -8926,12 +8924,12 @@ section {
   border-radius: 4px;
 }
 
-/* line 91, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 90, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .subnav .nav {
   margin-bottom: 0;
 }
 
-/* line 95, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 94, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .subnav .nav > li > a {
   margin: 0;
   padding-top: 11px;
@@ -8943,7 +8941,7 @@ section {
   border-radius: 0;
 }
 
-/* line 107, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 106, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .subnav .nav > .active > a,
 .subnav .nav > .active > a:hover {
   padding-left: 13px;
@@ -8956,13 +8954,13 @@ section {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.05);
 }
 
-/* line 119, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 118, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .subnav .nav > .active > a .caret,
 .subnav .nav > .active > a:hover .caret {
   border-top-color: #777;
 }
 
-/* line 124, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 123, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .subnav .nav > li:first-child > a,
 .subnav .nav > li:first-child > a:hover {
   border-left: 0;
@@ -8972,58 +8970,58 @@ section {
   border-radius: 4px 0 0 4px;
 }
 
-/* line 132, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 131, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .subnav .nav > li:last-child > a {
   border-right: 0;
 }
 
-/* line 136, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 135, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .subnav .dropdown-menu {
   -webkit-border-radius: 0 0 4px 4px;
   -moz-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
 }
 
-/* line 142, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 141, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .tooltip-inner {
   max-width: 500px;
 }
 
-/* line 146, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 145, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .hero-unit {
   margin-bottom: 10px;
   text-align: center;
 }
 
-/* line 152, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 151, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .hero-unit h1,
 .hero-unit p {
   margin-bottom: 15px;
 }
 
-/* line 156, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 155, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 #social {
   display: inline-block;
   margin-top: 45px;
   text-align: center;
 }
 
-/* line 162, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 161, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 #gh-star {
   margin-right: 10px;
 }
 
-/* line 166, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 165, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .twitter-follow-button {
   width: 60px !important;
 }
 
-/* line 170, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 169, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .twitter-share-button {
   margin-right: 15px;
 }
 
-/* line 174, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 173, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .rss-button {
   width: 40px;
   height: 14px;
@@ -9034,54 +9032,54 @@ section {
   padding: 2px 5px 2px 4px;
 }
 
-/* line 184, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 183, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .icon-rss {
   background: url(../img/rss-icons.png) no-repeat 0 0;
   opacity: .65;
   width: 16px;
 }
 
-/* line 190, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 189, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 #ticker {
   margin-bottom: 40px;
 }
 
-/* line 194, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 193, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .about {
   margin-top: 20px;
 }
 
-/* line 198, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 197, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .about > div {
   margin-bottom: 20px;
 }
 
-/* line 202, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 201, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .about h3 {
   margin: 0 0 5px 35px;
 }
 
-/* line 206, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 205, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .about img {
   float: left;
   margin-top: 5px;
   opacity: 0.7;
 }
 
-/* line 212, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 211, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 #gallery {
   margin: 45px 0 30px 0;
   padding-right: 20px;
   text-align: center;
 }
 
-/* line 218, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 217, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .thumbnail {
   margin-bottom: 20px;
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* line 223, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 222, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .thumbnail img {
   width: 100%;
   -webkit-border-radius: 7px;
@@ -9089,50 +9087,50 @@ section {
   border-radius: 7px;
 }
 
-/* line 230, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 229, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .thumbnail .caption {
   color: inherit !important;
 }
 
-/* line 234, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 233, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .thumbnail h3 {
   margin-bottom: 0;
 }
 
-/* line 238, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 237, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .thumbnail .btn-toolbar {
   margin-top: 15px;
   text-align: right;
 }
 
-/* line 243, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 242, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .links {
   margin-bottom: 20px;
 }
 
-/* line 247, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 246, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .links > a {
   margin-right: 10px;
 }
 
-/* line 251, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 250, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 div.one .bsa_it_ad {
   padding: 25px 25px 15px 25px;
 }
 
-/* line 255, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 254, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 div.one .bsa_it_p {
   display: none;
 }
 
-/* line 259, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 258, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .bsa {
   float: right;
   max-width: 400px;
   padding: 0;
 }
 
-/* line 265, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 264, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 body .one .bsa_it_ad {
   margin-bottom: -10px;
   background: none;
@@ -9141,72 +9139,72 @@ body .one .bsa_it_ad {
   color: inherit;
 }
 
-/* line 274, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 273, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 body .one .bsa_it_ad .bsa_it_t,
 body .one .bsa_it_ad .bsa_it_d {
   color: inherit;
   font-size: inherit;
 }
 
-/* line 279, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 278, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 body .one .bsa_it_p {
   display: none;
 }
 
-/* line 283, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 282, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .links {
   margin-bottom: 20px;
 }
 
-/* line 287, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 286, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .links > a {
   margin-right: 10px;
 }
 
 @media (max-width: 480px) {
-  /* line 293, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 292, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .hero-unit {
     padding: 20px 20px 0;
     margin: 0 0 20px;
   }
 
-  /* line 298, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 297, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .hero-unit h1 {
     font-size: 36px;
   }
 
-  /* line 302, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 301, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .hero-unit iframe {
     margin-right: 0 !important;
   }
 
-  /* line 306, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 305, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   #social {
     margin-top: 0px;
     margin-bottom: 20px;
   }
 
-  /* line 311, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 310, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   #social > span {
     display: block;
   }
 
-  /* line 315, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 314, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .about {
     margin-top: 0;
   }
 
-  /* line 319, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 318, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .about h3 {
     margin-top: 20px;
   }
 
-  /* line 323, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 322, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .about p {
     margin-bottom: 0;
   }
 
-  /* line 327, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 326, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .modal {
     position: fixed !important;
     top: 25% !important;
@@ -9214,24 +9212,24 @@ body .one .bsa_it_p {
 }
 /* Landscape phone to portrait tablet */
 @media (min-width: 481px) and (max-width: 767px) {
-  /* line 336, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 335, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .hero-unit {
     margin-top: 0;
     padding: 30px;
   }
 
-  /* line 341, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 340, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .about {
     margin-top: 0;
   }
 }
 @media (max-width: 767px) {
-  /* line 348, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 347, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   body {
     padding-top: 0;
   }
 
-  /* line 352, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 351, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .subnav {
     position: static;
     top: auto;
@@ -9245,22 +9243,22 @@ body .one .bsa_it_p {
     box-shadow: none;
   }
 
-  /* line 364, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 363, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .subnav .nav > li {
     float: none;
   }
 
-  /* line 368, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 367, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .subnav .nav > li > a {
     border: 0;
   }
 
-  /* line 372, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 371, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .subnav .nav > li + li > a {
     border-top: 1px solid #e5e5e5;
   }
 
-  /* line 377, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 376, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .subnav .nav > li:first-child > a,
   .subnav .nav > li:first-child > a:hover {
     -webkit-border-radius: 4px 4px 0 0;
@@ -9268,24 +9266,24 @@ body .one .bsa_it_p {
     border-radius: 4px 4px 0 0;
   }
 
-  /* line 383, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 382, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .bsa {
     float: none;
   }
 }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
-  /* line 391, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 390, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .hero-unit {
     margin-top: 0;
   }
 
-  /* line 395, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 394, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .thumbnail p {
     font-size: 12px;
   }
 
-  /* line 399, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 398, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .thumbnail .btn {
     padding: 8px 12px;
     font-size: 12px;
@@ -9293,7 +9291,7 @@ body .one .bsa_it_p {
 }
 /* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
 @media (min-width: 980px) {
-  /* line 407, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 406, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .subnav-fixed {
     position: fixed;
     top: 40px;
@@ -9314,14 +9312,14 @@ body .one .bsa_it_p {
     /* IE6-9 */
   }
 
-  /* line 423, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 422, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .subnav-fixed .nav {
     width: 938px;
     margin: 0 auto;
     padding: 0 1px;
   }
 
-  /* line 429, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 428, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .subnav .nav > li:first-child > a,
   .subnav .nav > li:first-child > a:hover {
     -webkit-border-radius: 0;
@@ -9331,13 +9329,13 @@ body .one .bsa_it_p {
 }
 @media (min-width: 768px) and (max-width: 979px) {
   /* Remove any padding from the body */
-  /* line 439, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 438, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   body {
     padding-top: 0;
   }
 }
 @media (min-width: 1210px) {
-  /* line 446, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 445, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .subnav-fixed .nav {
     width: 1168px;
     /* 2px less to account for left/right borders being removed when in fixed mode */
@@ -9345,7 +9343,7 @@ body .one .bsa_it_p {
 }
 /* footer */
 /* miscellaneous */
-/* line 455, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 454, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .debug_dump {
   clear: both;
   float: left;
@@ -9356,7 +9354,7 @@ body .one .bsa_it_p {
   box-sizing: border-box;
 }
 
-/* line 462, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+/* line 461, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
 .main-features {
   margin-top: 10px;
 }

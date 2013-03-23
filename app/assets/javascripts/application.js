@@ -14,4 +14,6 @@
 //= require chosen-jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery-jvectormap-1.2.2.min.js
+//= require jquery-jvectormap-world-mill-en.js
 //= require_tree .
