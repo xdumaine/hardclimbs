@@ -33,7 +33,7 @@ class Climber < ActiveRecord::Base
     if dob == nil
       "Unknown"
     else
-      "#{dob}"
+      "#{dob.strftime("%B %d, %Y")}"
     end
   end
   

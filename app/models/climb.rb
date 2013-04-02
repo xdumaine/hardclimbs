@@ -28,7 +28,7 @@ class Climb < ActiveRecord::Base
   accepts_nested_attributes_for :medias
   belongs_to :style
   belongs_to :area
-  validates_presence_of :style, :area, :grade
+  validates_presence_of :style, :area#, :grade
   belongs_to :grade
   
   counter_culture :area

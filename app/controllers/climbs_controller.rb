@@ -37,7 +37,7 @@ class ClimbsController < ApplicationController
     @climb = Climb.find(params[:id])
     @first_ascent = @climb.ascents.where(:ascent_number => 1).first
     @title = "Ascents for #{@climb.name}"
-    @keywords = "#{@climb.name},#{@climb.grade.name}, #{@climb.area.name}"
+    @keywords = "#{@climb.name}, #{@climb.area.name}"
     @description = "List of Ascents of #{@climb.name}"
     set_meta_tags :description => @description
     set_meta_tags :keywords => @keywords
