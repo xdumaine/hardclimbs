@@ -8,7 +8,7 @@ class ClimbsController < ApplicationController
   
   def index
     if params[:styles]
-      @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]).find_all_by_style_id(params[:styles])
+      @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]).where(:style_id => params[:styles])
       @style = Style.find(params[:styles])
       @title = "Climbs for style #{@style.name}"
       @keywords = "#{@style.name}"
