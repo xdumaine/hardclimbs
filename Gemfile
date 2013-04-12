@@ -50,3 +50,4 @@ gem 'auto_html', :git => 'git://github.com/Dhaulagiri/auto_html.git'
 gem 'counter_culture', '~> 0.1.7'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'gon'
+gem "high_voltage"

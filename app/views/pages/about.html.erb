@@ -1,0 +1,18 @@
+<h1>About</h1>
+<div class="well">
+  <p><%= link_to "www.HardClimbs.info", "http://www.hardclimbs.info"%> is a collaborative effort to collect information about the world's hardest climbs all in one easy to navigate location.</p>
+  <h4>Current Stats:</h4>
+  <dl class="dl-horizontal">
+    <dt><strong>Climbers:</strong></dt>
+    <dd><%= Climber.count %></dd>
+    <dt><strong>Areas:</strong></dt>
+    <dd><%= Area.count %></dd>
+	<dt><strong>Climbs:</strong></dt>
+    <dd><%= Climb.count %></dd>
+    <dt><strong>Ascents:</strong></dt>
+    <dd><%= Ascent.count %></dd>
+	<dt><strong>Last Code Update:</strong></dt>
+	<dd><%= ENV['DEPLOY_TIMESTAMP'] %></dd>
+  </dl>
+  <p>If you have any feedback or corrections, please <%= link_to "Contact Us", page_path("contact")%></p>
+</div>

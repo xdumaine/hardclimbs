@@ -36,7 +36,7 @@ class Ascent < ActiveRecord::Base
   counter_culture :climber
   
   validates :climber_id, :uniqueness => {:scope => :climb_id, :message => "That climber already sent that climb!"}
-  validates_presence_of :climber, :climb, :grade;
+  validates_presence_of :climber, :climb;
     
   scope :by_area_order_asc, joins(:climb => :area).order("areas.name asc")
   scope :by_area_order_desc, joins(:climb => :area).order("areas.name desc")

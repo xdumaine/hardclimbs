@@ -126,6 +126,7 @@ GEM
       actionpack (>= 2.3.0)
       json
     google-analytics-rails (0.0.3)
+    high_voltage (1.2.2)
     hike (1.2.1)
     hub (1.10.4)
     i18n (0.6.1)
@@ -276,6 +277,7 @@ DEPENDENCIES
   friendly_id (~> 4.0.9)
   gon
   google-analytics-rails
+  high_voltage
   hub (>= 1.10.2)
   jquery-rails
   kaminari
