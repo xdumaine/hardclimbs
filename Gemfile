@@ -8,10 +8,11 @@ gem 'rails', '3.2.13'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'twitter-bootstrap-rails'
   gem 'uglifier', '>= 1.0.3'
   gem "chosen-rails", "~> 0.9.12"
+  gem 'less-rails'
+  gem 'less-rails-bootstrap'
+  gem 'less-rails-bootswatch'
 end
 
 gem 'jquery-rails'
@@ -23,7 +24,6 @@ gem "cucumber-rails", ">= 1.3.0", :group => :test, :require => false
 gem "launchy", ">= 2.1.2", :group => :test
 gem "capybara", ">= 2.0.1", :group => :test
 gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
-gem "bootstrap-sass", ">= 2.2.2.0"
 gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
@@ -35,7 +35,6 @@ gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem 'annotate', ">=2.5.0"
 gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'debugger', :group => [:development]
 gem "faker", "~> 1.1.2", :group => [:development, :test]
 gem 'pg', :group => [:production]

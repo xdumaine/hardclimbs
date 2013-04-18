@@ -1,4 +1,4 @@
-$(function(){
+/*$(function(){
 	
 	$('#world-map').vectorMap({
 	  map: 'world_mill_en',
@@ -14,4 +14,4 @@ $(function(){
 	    label.html(label.html()+' (Climbs - '+ gon.area_data[code]+')');
 	  }
 	});
-});
+});*/

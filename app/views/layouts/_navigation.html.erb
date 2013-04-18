@@ -1,11 +1,12 @@
 <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-<a class="btn btn-navbar" data-toggle="collapse" data-target="nav-collapse">
-  <span class="icon-bar"></span>
-  <span class="icon-bar"></span>
-  <span class="icon-bar"></span>
-</a>
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </a>
+
 <%= link_to "Hard Climbs", root_path, :class => 'brand' %>
-<div class="nav-collapse collapse">
+<div class="nav-collapse collapse" id="main-menu">
   <ul class="nav" role="navigation">
    <li class="dropdown">
      <%= link_to "Ascents", ascents_path, :role => "button"%>
