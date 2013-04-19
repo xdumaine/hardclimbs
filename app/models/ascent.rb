@@ -36,7 +36,7 @@ class Ascent < ActiveRecord::Base
   counter_culture :climber
   
   validates :climber_id, :uniqueness => {:scope => :climb_id, :message => "That climber already sent that climb!"}
-  validates_presence_of :climber, :climb;
+  validates_presence_of :climber, :climb, :grade;
     
   scope :by_area_order_asc, joins(:climb => :area).order("areas.name asc")
   scope :by_area_order_desc, joins(:climb => :area).order("areas.name desc")
@@ -103,7 +103,7 @@ class Ascent < ActiveRecord::Base
     end
       
     def update_climb
-      if self.ascent_number == 1
+      if self.ascent_number == 1 && self.grade_id != nil
         Climb.find_by_id(self.climb).update_attributes(:grade_id => self.grade.id)
       end
     end

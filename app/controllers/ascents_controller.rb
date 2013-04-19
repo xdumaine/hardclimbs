@@ -55,7 +55,7 @@ class AscentsController < ApplicationController
       @title = "Ascent of #{@climb.name} by #{@climber.full_name}"
     end
     
-    @keywords = "#{@climb.name}, #{@climber.full_name}, #{@ascent.grade.name}, #{@area.name}"
+    @keywords = "#{@climb.name}, #{@climber.full_name}, #{@area.name}"
     set_meta_tags :description => "Details on #{@climber.full_name}'s ascent of #{@climb.name} in #{@area.name} on #{@ascent.date}"
     set_meta_tags :keywords => @keywords
     set_meta_tags :title => @title
