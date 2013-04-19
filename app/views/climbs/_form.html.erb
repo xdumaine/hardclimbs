@@ -4,7 +4,7 @@
   	input_html: { :class => "chzn-select", :'data-placeholder' => "Select Area" } %>
 	
   <%= f.input :style_id, :collection => Style.all, prompt:  'Choose the style' %>
-  <%= f.input :grade_id, :collection => Grade.all, prompt:  'Choose the grade' %>
+  <%= f.association :grade, prompt: 'Choose the grade', collection: Grade.order(:rank) %>
   <%= f.input :still_hard %>
   
   <%= render "medias/media_form", :f => f %>

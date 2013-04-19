@@ -37,7 +37,7 @@ gem 'annotate', ">=2.5.0"
 gem "therubyracer"
 gem 'debugger', :group => [:development]
 gem "faker", "~> 1.1.2", :group => [:development, :test]
-gem 'pg', :group => [:production]
+gem 'pg'#, :group => [:production]
 gem 'sqlite3', :group => [:development, :test]
 gem "friendly_id", "~> 4.0.9"
 gem 'country-select'
@@ -50,3 +50,4 @@ gem 'counter_culture', '~> 0.1.7'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'gon'
 gem "high_voltage"
+gem 'pg_search'

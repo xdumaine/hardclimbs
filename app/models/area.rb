@@ -16,6 +16,9 @@ class Area < ActiveRecord::Base
   extend FriendlyId
     friendly_id :area_country, :use => :slugged
     
+    include PgSearch
+      multisearchable :against => [:name]
+      
    validates_presence_of :slug, :name, :country
    attr_accessible :name, :country
    has_many :climbs

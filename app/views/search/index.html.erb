@@ -1,0 +1,23 @@
+<h1 class="title">Search Results</h1>
+<div class="row main-features">
+  <div class="span6 offset3">
+<% if @pg_search_documents != nil %>
+
+<table class="table table-striped">
+    <% @pg_search_documents.each do |pg_search_document| %>
+      <tr>
+		 <td> 
+			 <%= link_to pg_search_document.content, "../#{(pg_search_document.searchable.class).to_s.downcase!.pluralize}/#{pg_search_document.searchable.slug}" %>
+		 </td>
+		 <td>
+			 <%= pg_search_document.searchable.class %>
+		 </td>
+	  </tr>
+    <% end %>
+</table>
+<% else %>
+<p>No results found or you haven't searched yet.</p>
+<p>Use the search box in the upper right corner to try again.</p>
+<% end %>
+	</div>
+</div>

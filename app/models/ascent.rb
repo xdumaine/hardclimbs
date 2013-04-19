@@ -18,7 +18,7 @@ class Ascent < ActiveRecord::Base
   extend FriendlyId
     friendly_id :ascent_name_climber_climb, :use => :slugged
   validates_presence_of :slug
-  
+    
   before_create :ascent_numbering
   after_create :update_climb
   after_update :update_climb

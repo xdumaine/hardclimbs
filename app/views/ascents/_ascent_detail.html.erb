@@ -12,6 +12,9 @@
     <div class="span12">
         <p class="pull-right hidden-phone">
         <a href="#top">Back to top</a> 
+		<% if can? :edit, Ascent %>
+			| <%= link_to "Edit", edit_ascent_path(ascent) %>
+		<% end %>
         </p>
     </div>
 </div>

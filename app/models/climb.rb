@@ -21,6 +21,9 @@ class Climb < ActiveRecord::Base
     friendly_id :name, :use => :slugged
   validates_presence_of :slug  
   
+  include PgSearch
+    multisearchable :against => [:name]
+  
   attr_accessible :name, :media_ids, :style_id, :still_hard, :area_id, :grade_id
   has_many :climbers, :through => :ascents
   has_many :ascents

@@ -15,6 +15,8 @@ Hardclimbs::Application.routes.draw do
     resources :ascents
   end
 
+  match 'search' => 'search#index'
+  
   authenticated :user do
       root :to => 'home#index'
   end

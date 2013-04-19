@@ -21,6 +21,9 @@ class Climber < ActiveRecord::Base
   validates_presence_of :slug
   SEX = ['M', 'F']
   
+  include PgSearch
+    multisearchable :against => [:first_name, :last_name]
+    
   attr_accessible :first_name, :last_name, :dob, :height, :sex, :slug#, :as => :admin
   
   validates :first_name, presence: true
