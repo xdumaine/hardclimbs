@@ -22,9 +22,12 @@ class ClimbsController < ApplicationController
       @keywords = "#{@area.name}"
       @description = "List of Hard Climbs in #{@area.name}"
     else
-      debugger
-      @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]).where(:style_id => session[:style_id])
-      debugger
+      if (session[:style_id] && params[:join_model])
+        @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]).where(:style_id => session[:style_id])
+      else
+        session[:style_id] = nil
+        @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
+      end
       @title = "All Climbs"
       @description = "All Hard Climbs"
     end

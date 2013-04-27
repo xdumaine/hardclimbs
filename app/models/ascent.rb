@@ -93,7 +93,6 @@ class Ascent < ActiveRecord::Base
   
   private
     def ascent_numbering
-      debugger
       current_ascent = Ascent.where(["climb_id=?", self.climb_id]).maximum("ascent_number")
       if self.ascent_number == nil && current_ascent != nil
         self.ascent_number = current_ascent + 1
@@ -112,7 +111,6 @@ class Ascent < ActiveRecord::Base
     end
     
     def self.increment(position_threshold, climb_id, climber_id)
-      debugger
       Ascent.transaction do
          Ascent.where(["ascent_number >= ?", position_threshold]).where(["climb_id=?", climb_id]).where(["climber_id!=?", climber_id]).order("ascent_number DESC").each do |ascent|
             ascent.ascent_number += 1

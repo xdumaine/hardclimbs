@@ -35,9 +35,9 @@ describe Climb do
     FactoryGirl.build(:climb, area: nil).should_not be_valid
   end
   
-  it "is invalid without a grade" do
-    FactoryGirl.build(:climb, grade: nil).should_not be_valid
-  end
+  #it "is invalid without a grade" do
+  #  FactoryGirl.build(:climb, grade: nil).should_not be_valid
+  #end
   
   it "returns a climbs's climb_area_name as a string" do
     climb = FactoryGirl.build(:climb)
