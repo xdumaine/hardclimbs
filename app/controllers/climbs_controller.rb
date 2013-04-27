@@ -7,8 +7,10 @@ class ClimbsController < ApplicationController
   end
   
   def index
+    debugger
     if params[:styles]
       @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]).where(:style_id => params[:styles])
+      session[:style_id] = params[:styles]
       @style = Style.find(params[:styles])
       @title = "Climbs for style #{@style.name}"
       @keywords = "#{@style.name}"
@@ -20,7 +22,9 @@ class ClimbsController < ApplicationController
       @keywords = "#{@area.name}"
       @description = "List of Hard Climbs in #{@area.name}"
     else
-      @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
+      debugger
+      @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]).where(:style_id => session[:style_id])
+      debugger
       @title = "All Climbs"
       @description = "All Hard Climbs"
     end

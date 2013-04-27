@@ -19,7 +19,7 @@
 	      <tr>
 	        <td><%= link_to climb.name, climb_path(climb) %></td>
 	        <td><%= link_to climb.area.name, area_path(climb.area) %></td>
-	        <td><%= link_to climb.style.name, style_path(climb.style) %></td>
+	        <td><%= link_to climb.style.name, climbs_path(:styles => climb.style.id) %></td>
 			<td><%= climb.proposed_grade %></td>
 	        <td><span class="badge"><%= climb.ascents_count %></span></td>
 	        <% if can? :edit, Climb %>

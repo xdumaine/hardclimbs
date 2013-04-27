@@ -17,7 +17,6 @@ class ClimbersController < ApplicationController
   end
 
   def show
-    debugger
     @climber = Climber.find(params[:id])
     if sort_column == "last_name"
       @ascents = @climber.ascents.order('date asc')
