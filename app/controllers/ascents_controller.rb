@@ -3,6 +3,8 @@ class AscentsController < ApplicationController
   helper_method :join_on, :sort_column, :sort_direction  
   load_and_authorize_resource
 
+  add_breadcrumb "Ascents", :ascents_path.to_s
+
   def new
    @ascent = Ascent.new
   end
@@ -54,6 +56,8 @@ class AscentsController < ApplicationController
       @area = @climb.area
       @title = "Ascent of #{@climb.name} by #{@climber.full_name}"
     end
+    
+    add_breadcrumb "#{@climber.full_name} - #{@climb.name}", ascent_path(@ascent).to_s
     
     @keywords = "#{@climb.name}, #{@climber.full_name}, #{@area.name}"
     set_meta_tags :description => "Details on #{@climber.full_name}'s ascent of #{@climb.name} in #{@area.name} on #{@ascent.date}"

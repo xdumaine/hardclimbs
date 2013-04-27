@@ -3,6 +3,8 @@ class ClimbersController < ApplicationController
   helper_method :join_on, :sort_column, :sort_direction  
   load_and_authorize_resource
   
+  add_breadcrumb "Climbers", :climbers_path.to_s
+  
   def new
     @climber = Climber.new
   end
@@ -17,6 +19,7 @@ class ClimbersController < ApplicationController
   end
 
   def show
+    add_breadcrumb @climber.full_name, climber_path(@climber).to_s
     @climber = Climber.find(params[:id])
     if sort_column == "last_name"
       @ascents = @climber.ascents.order('date asc')
@@ -31,9 +34,9 @@ class ClimbersController < ApplicationController
   def update
       @climber = Climber.find(params[:id])
       if @climber.update_attributes(params[:climber])
-        redirect_to climbers_path, :notice => "Climber updated."
+        redirect_to @climber, :notice => "Climber updated."
       else
-        redirect_to climbers_path, :alert => "Unable to update climber."
+        redirect_to @climber, :alert => "Unable to update climber."
       end
     end
 

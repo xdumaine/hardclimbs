@@ -1,7 +1,10 @@
 <%- model_class = Media.new.class -%>
 <% if can? :create, Media %>
+<p>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_media_path,
             :class => 'btn btn-primary' %>
+</p>
 <% end %>
+<%= render_breadcrumbs %>
 <%= render 'medias/media_list', :medias => @medias %>

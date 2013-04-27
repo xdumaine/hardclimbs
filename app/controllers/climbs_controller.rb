@@ -2,12 +2,14 @@ class ClimbsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   helper_method :join_on, :sort_column, :sort_direction 
   load_and_authorize_resource
+  
+  add_breadcrumb "Climbs", :climbs_path.to_s
+  
   def new
    @climb = Climb.new
   end
   
   def index
-    debugger
     if params[:styles]
       @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]).where(:style_id => params[:styles])
       session[:style_id] = params[:styles]
@@ -41,6 +43,7 @@ class ClimbsController < ApplicationController
   end
 
   def show
+    add_breadcrumb @climb.name, climb_path(@climb).to_s
     @climb = Climb.find(params[:id])
     @first_ascent = @climb.ascents.where(:ascent_number => 1).first
     @title = "Ascents for #{@climb.name}"
@@ -54,9 +57,9 @@ class ClimbsController < ApplicationController
   def update
       @climb = Climb.find(params[:id])
       if @climb.update_attributes(params[:climb])
-        redirect_to climbs_path, :notice => "Climb updated."
+        redirect_to @climb, :notice => "Climb updated."
       else
-        redirect_to climbs_path, :alert => "Unable to update climb."
+        redirect_to @climb, :alert => "Unable to update climb."
       end
     end
 

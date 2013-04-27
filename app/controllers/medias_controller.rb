@@ -2,6 +2,8 @@ class MediasController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   helper_method :join_on, :sort_column, :sort_direction
   
+  add_breadcrumb "Media", :medias_path.to_s
+  
   def new
    @media = Media.new
   end
@@ -16,6 +18,7 @@ class MediasController < ApplicationController
 
   def show
     @media = Media.find(params[:id])
+    add_breadcrumb @media.description, media_path(@media).to_s
     @ascent = @media.ascent
     @climb = @media.climb
   end
@@ -23,9 +26,9 @@ class MediasController < ApplicationController
   def update
       @media = Media.find(params[:id])
       if @media.update_attributes(params[:media])
-        redirect_to medias_path, :notice => "Media updated."
+        redirect_to @media, :notice => "Media updated."
       else
-        redirect_to medias_path, :alert => "Unable to update media."
+        redirect_to @media, :alert => "Unable to update media."
       end
     end
 

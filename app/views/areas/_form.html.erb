@@ -6,6 +6,6 @@
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                areas_path, :class => 'btn' %>
+                area_path(@area), :class => 'btn' %>
   </div>
 <% end %>

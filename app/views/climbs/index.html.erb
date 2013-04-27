@@ -1,8 +1,12 @@
 <%- model_class = Climb.new.class -%>
 <% if can? :create, Climb %>
+<p>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_climb_path,
             :class => 'btn btn-primary' %>
+		</p>
 <% end %>
+
+<%= render_breadcrumbs %>
 
 <%= render 'climbs/climb_list', :climbs => @climbs %>

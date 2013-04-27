@@ -1,5 +1,8 @@
 class GradesController < ApplicationController
   before_filter :authenticate_user!
+  
+  add_breadcrumb "Grades", :grades_path.to_s
+  
   def new
     @grade = Grade.new
   end

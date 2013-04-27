@@ -21,9 +21,9 @@ class MediaTypesController < ApplicationController
       authorize! :update, @media_type, :message => 'Not authorized as an administrator.'
       @media_type = MediaType.find(params[:id])
       if @media_type.update_attributes(params[:media_type])
-        redirect_to media_types_path, :notice => "MediaType updated."
+        redirect_to @media_type, :notice => "Media Type updated."
       else
-        redirect_to media_types_path, :alert => "Unable to update media type."
+        redirect_to @media_type, :alert => "Unable to update Media Type."
       end
     end
 

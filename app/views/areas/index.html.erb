@@ -1,7 +1,12 @@
 <%- model_class = Area.new.class -%>
 <% if can? :create, Area %>
+<p>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_area_path,
             :class => 'btn btn-primary' %>
+		</p>
 <% end %>
+
+<%= render_breadcrumbs %>
+
 <%= render 'areas/area_list', :areas => @areas %>

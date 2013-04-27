@@ -1,3 +1,4 @@
+<%= render_breadcrumbs %>
 <%- model_class = @area.class -%>
 <h1 class="title"><%=t '.title', :default => @area.name %></h1>
 <div class="well">
@@ -11,19 +12,20 @@
       <dd><%= Climb.where("area_id=?", @area.id).where("style_id=?", style.id).count %></dd>
     <% end %>
   </dl>
+ </div>
+  <% if can? :edit, Area or can? :destroy, Area %>
+	  <div class="form-actions">
+	    <% if can? :edit, Area or can? :destroy, Area %>
+	      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	                  edit_area_path(@area), :class => 'btn' %>
+	      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	                  area_path(@area),
+	                  :method => 'delete',
+	                  :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+	                  :class => 'btn btn-danger' %>
+	    <% end %>
+	  </div>
+  <% end %>
 
-  <div class="form-actions">
-    <%= link_to t('.back', :default => t("helpers.links.back")),
-                areas_path, :class => 'btn'  %>
-    <% if can? :edit, Area or can? :destroy, Area %>
-      <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                  edit_area_path(@area), :class => 'btn' %>
-      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                  area_path(@area),
-                  :method => 'delete',
-                  :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                  :class => 'btn btn-danger' %>
-    <% end %>
-  </div>
-</div>
+
 <%= render 'climbs/climb_list', :climbs => @climbs %>

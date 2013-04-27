@@ -1,3 +1,4 @@
+<%= render_breadcrumbs %>
 <%- model_class = @climb.class -%>
 <h1 class="title"><%=t '.title', :default => @climb.name %></h1>
 <div class="well">
@@ -22,24 +23,22 @@
               <% end %>
 
             </dl>
+			<% if can? :edit, Climb or can? :destroy, Climb %>
+	            <div class="form-actions">
+	            <% if can? :edit, Climb %>
+	              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	                          edit_climb_path(@climb), :class => 'btn' %>
+	            <% end %>
+	            <% if can? :destroy, Climb %>
+	              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	                          climb_path(@climb),
+	                          :method => 'delete',
+	                          :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+	                          :class => 'btn btn-danger' %>
+	            <% end %>
 
-            <div class="form-actions">
-              <%= link_to t('.back', :default => t("helpers.links.back")),
-                          climbs_path, :class => 'btn'  %>
-
-            <% if can? :edit, Climb %>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_climb_path(@climb), :class => 'btn' %>
-            <% end %>
-            <% if can? :destroy, Climb %>
-              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                          climb_path(@climb),
-                          :method => 'delete',
-                          :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                          :class => 'btn btn-danger' %>
-            <% end %>
-
-            </div>
+	            </div>
+			<% end %>
            </div>
            <div class="span3">
             

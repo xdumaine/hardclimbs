@@ -1,6 +1,9 @@
 class AreasController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   helper_method :join_on, :sort_column, :sort_direction 
+  
+  add_breadcrumb "Areas", :areas_path.to_s
+  
   def new
    @area = Area.new
   end
@@ -19,6 +22,7 @@ class AreasController < ApplicationController
 
   def show
     @area = Area.find(params[:id])
+    add_breadcrumb @area.name, area_path(@area).to_s
     @climbs = @area.climbs.order('name desc').page(params[:page])
     @title = "Ascents for #{@area.name}"
     @keywords = "#{@area.name}"
@@ -31,9 +35,9 @@ class AreasController < ApplicationController
   def update
       @area = Area.find(params[:id])
       if @area.update_attributes(params[:area])
-        redirect_to areas_path, :notice => "Area updated."
+        redirect_to @area, :notice => "Area updated."
       else
-        redirect_to areas_path, :alert => "Unable to update area."
+        redirect_to @area, :alert => "Unable to update area."
       end
     end
 
