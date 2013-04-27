@@ -19,6 +19,7 @@ class AreasController < ApplicationController
 
   def show
     @area = Area.find(params[:id])
+    @climbs = @area.climbs.order('name desc')
     @title = "Ascents for #{@area.name}"
     @keywords = "#{@area.name}"
     @description = "List of Ascents in #{@area.name}"

@@ -64,35 +64,37 @@ class AscentsController < ApplicationController
   def update
       ascent_number = params[:ascent][:ascent_number]
       @ascent = Ascent.find(params[:id])
-      if @ascent.update_attributes(params[:ascent])
-        if (@ascent.ascent_number != nil) && (ascent_number != @ascent.ascent_number.to_s)
-          Ascent.increment(@ascent.ascent_number, @ascent.climb_id, @ascent.climber_id)
+      respond_to do |format|
+        if @ascent.update_attributes(params[:ascent])
+          format.html { redirect_to @ascent, notice: 'Ascent was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @ascent.errors, status: :unprocessable_entity }
         end
-        redirect_to ascents_path, :notice => "Ascent updated."
-      else
-        redirect_to ascents_path, :alert => "Unable to update ascent."
       end
     end
 
   def create
     @ascent = Ascent.new(params[:ascent])
-    if @ascent.save
-      #re-number ascents around the one we are entering if an ascent number is given 
-      if @ascent.ascent_number != nil
-        Ascent.increment(@ascent.ascent_number, @ascent.climb_id, @ascent.climber_id)
+    respond_to do |format|
+      if @ascent.save
+        format.html { redirect_to @ascent, notice: 'Ascent was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @ascent }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @ascent.errors, status: :unprocessable_entity }
       end
-
-      flash[:success] = "Thanks for adding an ascent!"
-      redirect_to @ascent
-    else
-      render 'new'
     end
   end
     
   def destroy
     ascent = Ascent.find(params[:id])
     ascent.destroy
-    redirect_to ascents_path, :notice => "Ascent deleted."
+    respond_to do |format|
+      format.html { redirect_to ascents_url, :notice => "Ascent deleted." }
+      format.json { head :no_content }
+    end
   end
   
   private  

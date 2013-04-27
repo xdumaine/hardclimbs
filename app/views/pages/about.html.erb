@@ -1,16 +1,25 @@
-<h1>About</h1>
+<h1 class="title">About</h1>
 <div class="well">
   <p><%= link_to "www.HardClimbs.info", "http://www.hardclimbs.info"%> is a collaborative effort to collect information about the world's hardest climbs all in one easy to navigate location.</p>
+  <h4>Current critera for inclusion on this site:</h4>
+  <dl class="dl-horizontal">
+    <dt><strong>Bouldering:</strong></dt>
+    <dd>8C or harder</dd>
+    <dt><strong>Sport Climbing:</strong></dt>
+    <dd>9b or harder</dd>
+	<dt><strong>Traverses:</strong></dt>
+    <dd>8C or harder</dd>
+  </dl>
   <h4>Current Stats:</h4>
   <dl class="dl-horizontal">
     <dt><strong>Climbers:</strong></dt>
-    <dd><%= Climber.count %></dd>
+    <dd><span class="badge"><%= link_to Climber.count, climbers_path %></span></dd>
     <dt><strong>Areas:</strong></dt>
-    <dd><%= Area.count %></dd>
+    <dd><span class="badge"><%= link_to Area.count, areas_path %></span></dd>
 	<dt><strong>Climbs:</strong></dt>
-    <dd><%= Climb.count %></dd>
+    <dd><span class="badge"><%= link_to Climb.count, climbs_path %></span></dd>
     <dt><strong>Ascents:</strong></dt>
-    <dd><%= Ascent.count %></dd>
+    <dd><span class="badge"><%= link_to Ascent.count, ascents_path %></span></dd>
 	<dt><strong>Last Code Update:</strong></dt>
 	<dd><%= ENV['DEPLOY_TIMESTAMP'] %></dd>
   </dl>

@@ -16,4 +16,6 @@
 //= require twitter/bootstrap
 //= require jquery-jvectormap-1.2.2.min.js
 //= require jquery-jvectormap-world-mill-en.js
+//= require best_in_place
+//= require best_in_place.purr
 //= require_tree .

@@ -38,7 +38,7 @@ gem "therubyracer"
 gem 'debugger', :group => [:development]
 gem "faker", "~> 1.1.2", :group => [:development, :test]
 gem 'pg'#, :group => [:production]
-gem 'sqlite3', :group => [:development, :test]
+#gem 'sqlite3', :group => [:development, :test]
 gem "friendly_id", "~> 4.0.9"
 gem 'country-select'
 gem 'newrelic_rpm', :group => [:production]
@@ -51,3 +51,6 @@ gem 'meta-tags', :require => 'meta_tags'
 gem 'gon'
 gem "high_voltage"
 gem 'pg_search'
+gem 'best_in_place'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 1.0.1'

@@ -1,6 +1,6 @@
 <div class="row" id="<%= ascent.id %>">
     <div class="span12">
-    <h2 class="title">Ascent <%= ascent.ascent_number %> of <%= ascent.climb.name %> by <%= ascent.climber.full_name %> on <%= ascent.ascent_date %></h2>
+    <h2 class="title">Ascent <%= best_in_place_if (can? :edit, Ascent), ascent, :ascent_number, :type => :input %> of <%= ascent.climb.name %> by <%= ascent.climber.full_name %> on <%= best_in_place_if (can? :edit, Ascent), ascent, :ascent_date, :type => :date %></h2>
 </div>
 </div>
 <div class="row">
@@ -19,7 +19,7 @@
     </div>
 </div>
 <% ascent.medias.each do |media| %>
-    <div class="row">
+    <div class="row top-buffer">
         <div class="span2">
             <p class="lead pull-right hidden-phone"><%= media.media_type.name %>:</p>
         </div>

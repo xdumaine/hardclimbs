@@ -17,8 +17,13 @@ class ClimbersController < ApplicationController
   end
 
   def show
+    debugger
     @climber = Climber.find(params[:id])
-    @ascents = @climber.ascents.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
+    if sort_column == "last_name"
+      @ascents = @climber.ascents.order('date asc')
+    else
+      @ascents = @climber.ascents.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
+    end
     set_meta_tags :description => "List of Hard Ascents by #{@climber.full_name}"
     set_meta_tags :keywords => "#{@climber.full_name}"
     set_meta_tags :title => "#{@climber.full_name}"

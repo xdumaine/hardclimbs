@@ -6,4 +6,10 @@ $(function() {
 		$.getScript(this.href);
 		return false;
 	});
+	$('.best_in_place').best_in_place();
+	/*$.datepicker.setDefaults({
+	   showOn: 'both',
+	   buttonImageOnly: true,
+	   buttonImage: 'calendar.gif',
+	   buttonText: 'Calendar' });*/
 });

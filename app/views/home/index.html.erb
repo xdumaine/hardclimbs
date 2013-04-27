@@ -5,6 +5,13 @@
 </div>
 
 <div class="row main-features">
+	<div class="span3">
+	  <div class="well">
+	    <h3>Ascents</h3>
+	    <p><p>Explore <%= Ascent.count %> ascents </p></p>
+	    <%= link_to "Ascents", ascents_path, :class => 'btn btn-info' %> 
+	  </div>
+	</div>
   <div class="span3">
     <div class="well">
       <h3>Climbers</h3>
@@ -19,13 +26,7 @@
       <%= link_to "Climbs", climbs_path, :class => 'btn btn-info' %> 
     </div>
   </div>
-  <div class="span3">
-    <div class="well">
-      <h3>Ascents</h3>
-      <p><p>Explore <%= Ascent.count %> ascents </p></p>
-      <%= link_to "Sends", ascents_path, :class => 'btn btn-info' %> 
-    </div>
-  </div>
+
   <div class="span3">
     <div class="well">
       <h3>Areas</h3>
