@@ -2,7 +2,7 @@ class MediasController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   helper_method :join_on, :sort_column, :sort_direction
   
-  add_breadcrumb "Media", :medias_path.to_s
+  add_breadcrumb "Media", :medias_path
   
   def new
    @media = Media.new
@@ -18,7 +18,7 @@ class MediasController < ApplicationController
 
   def show
     @media = Media.find(params[:id])
-    add_breadcrumb @media.description, media_path(@media).to_s
+    add_breadcrumb @media.description, media_path(@media)
     @ascent = @media.ascent
     @climb = @media.climb
   end

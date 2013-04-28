@@ -3,7 +3,7 @@ class ClimbsController < ApplicationController
   helper_method :join_on, :sort_column, :sort_direction 
   load_and_authorize_resource
   
-  add_breadcrumb "Climbs", :climbs_path.to_s
+  add_breadcrumb "Climbs", :climbs_path
   
   def new
    @climb = Climb.new
@@ -43,7 +43,7 @@ class ClimbsController < ApplicationController
   end
 
   def show
-    add_breadcrumb @climb.name, climb_path(@climb).to_s
+    add_breadcrumb @climb.name, climb_path(@climb)
     @climb = Climb.find(params[:id])
     @first_ascent = @climb.ascents.where(:ascent_number => 1).first
     @title = "Ascents for #{@climb.name}"

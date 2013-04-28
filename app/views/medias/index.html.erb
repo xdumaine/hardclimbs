@@ -6,5 +6,5 @@
             :class => 'btn btn-primary' %>
 </p>
 <% end %>
-<%= render_breadcrumbs %>
+<%= render_breadcrumbs :builder => ::BootstrapBreadcrumbsBuilder, :separator => ">" %>
 <%= render 'medias/media_list', :medias => @medias %>

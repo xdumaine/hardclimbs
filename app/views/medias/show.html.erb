@@ -1,4 +1,4 @@
-<%= render_breadcrumbs %>
+<%= render_breadcrumbs :builder => ::BootstrapBreadcrumbsBuilder, :separator => ">" %>
 <%- model_class = @media.class -%>
 <h1 class="title"><%=t '.title', :default => model_class.model_name.human %></h1>
 

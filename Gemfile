@@ -11,7 +11,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem "chosen-rails", "~> 0.9.12"
   gem 'less-rails'
-  gem "twitter-bootstrap-rails"
   gem 'less-rails-bootstrap'
   gem 'less-rails-bootswatch'
 end
@@ -55,3 +54,4 @@ gem 'pg_search'
 gem 'best_in_place'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.0.1'
+gem 'breadcrumbs_on_rails'

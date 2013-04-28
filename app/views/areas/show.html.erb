@@ -1,4 +1,4 @@
-<%= render_breadcrumbs %>
+<%= render_breadcrumbs :builder => ::BootstrapBreadcrumbsBuilder, :separator => ">" %>
 <%- model_class = @area.class -%>
 <h1 class="title"><%=t '.title', :default => @area.name %></h1>
 <div class="well">

@@ -2,7 +2,7 @@ class AreasController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   helper_method :join_on, :sort_column, :sort_direction 
   
-  add_breadcrumb "Areas", :areas_path.to_s
+  add_breadcrumb "Areas", :areas_path
   
   def new
    @area = Area.new
@@ -22,7 +22,7 @@ class AreasController < ApplicationController
 
   def show
     @area = Area.find(params[:id])
-    add_breadcrumb @area.name, area_path(@area).to_s
+    add_breadcrumb @area.name, area_path(@area)
     @climbs = @area.climbs.order('name desc').page(params[:page])
     @title = "Ascents for #{@area.name}"
     @keywords = "#{@area.name}"

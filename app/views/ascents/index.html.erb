@@ -7,6 +7,6 @@
 </p>
 <% end %>
 
-<%= render_breadcrumbs %>
+<%= render_breadcrumbs :builder => ::BootstrapBreadcrumbsBuilder, :separator => ">" %>
 
 <%= render 'ascents/ascent_list', :ascents => @ascents %>
