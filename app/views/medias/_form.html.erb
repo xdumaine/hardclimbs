@@ -8,6 +8,6 @@
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                media_path(@media), :class => 'btn' %>
+                @media.id.nil? ? medias_path : media_path(@media), :class => 'btn' %>
   </div>
 <% end %>

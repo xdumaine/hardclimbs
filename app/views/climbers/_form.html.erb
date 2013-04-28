@@ -11,6 +11,6 @@
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                climber_path(@climber), :class => 'btn' %>
+                @climber.id.nil? ? climbers_path : climber_path(@climber), :class => 'btn' %>
   </div>
 <% end %>
