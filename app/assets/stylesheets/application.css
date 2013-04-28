@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require chosen
+ *= require jquery-jvectormap-1.2.2.css
  *= require_tree .
  */

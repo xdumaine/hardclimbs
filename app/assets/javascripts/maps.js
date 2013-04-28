@@ -24,13 +24,20 @@ $(function(){
 	      			},
 	  series: {
 	    regions: [{
-	      values: gon.area_data,
+	      values: gon.area_ascent_count,
 	      scale: ['#8EBBE8', '#376ea4'],
 	      normalizeFunction: 'polynomial'
 	    }]
 	  },
 	  onRegionLabelShow: function(event, label, code) {
-	    label.html(label.html()+': ('+ gon.area_data[code]+' Climbs)');
+		  if (typeof gon.area_climb_count[code] != "undefined") {
+	        label.html(
+				label.html()+
+				'<br>Climbs - '+ gon.area_climb_count[code] + 
+				'<br>Ascents - '+ gon.area_ascent_count[code] +
+				'<br>Click to explore'
+			);
+		  }
 	  },
 	  onRegionClick: function(event, code) {
 		  if (typeof gon.area_links[code] != "undefined") {
