@@ -9,9 +9,15 @@ class AreasController < ApplicationController
   end
   
   def index
-    @areas = Area.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
-    @title = "All Areas"
-    @description = "List of Areas"
+    if (params[:country])
+      @areas = Area.order_by_join(params[:join_model], sort_column, sort_direction).where(:country => params[:country]).page(params[:page])
+      @title = "All Areas in #{@areas.first.country}"
+      @description = "List of Areas in #{@areas.first.country}"
+    else
+      @areas = Area.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page])
+      @title = "All Areas"
+      @description = "List of Areas"
+    end
     set_meta_tags :description => @description
     set_meta_tags :title => @title
   end

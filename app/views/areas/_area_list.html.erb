@@ -1,6 +1,6 @@
 <%- model_class = areas.first.class -%>	
 <div id="area-list">
-	<h1 class="title"><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+	<h1 class="title"><%= @title %></h1>
 	<table class="table table-striped" id="area-list">
 	  <thead>
 	    <tr>
@@ -17,7 +17,7 @@
 	    <% @areas.each do |area| %>
 	      <tr>
 	        <td><%= link_to area.name, area_path(area) %></td>
-	        <td><%= area.country %></td>
+	        <td><%= link_to area.country, areas_path(:country => area.country) %></td>
 	        <td><span class="badge"><%= area.climbs_count %></span></td>
 	        <td><span class="badge"><%=  area.ascents_count %></span></td>
 	        <% if can? :edit, Ascent or can? :destroy, Ascent %>
