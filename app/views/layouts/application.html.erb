@@ -5,7 +5,7 @@
 	<%= display_meta_tags  :site => 'HardClimbs.info'%>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
-	
+	<link rel="shortcut icon" href="https://s3.amazonaws.com/hardclimbs/assets/favicon.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= analytics_init if Rails.env.production? && !user_signed_in? %>
