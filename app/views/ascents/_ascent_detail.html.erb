@@ -8,9 +8,14 @@
         <h4 class="title">Suggested Grade: <%= ascent.grade.name %></h4>
     </div>
 </div>
+
 <div class="row">
     <div class="span12">
-        <p class="pull-right hidden-phone">
+        <p class="pull-right">
+			<a href="http://www.hardclimbs.info<%= ascent_path(ascent) %>#disqus_thread" onclick="loadDisqus(jQuery($('#ascent-<%= ascent.id.to_s %>-comments')), 'ascent-<%= ascent.id.to_s %>', 'http://www.hardclimbs.info<%= ascent_path(ascent) %>'); return false;" data-disqus-identifier='ascent-<%= ascent.id.to_s %>'>
+			   Show Comments
+			</a>
+			|
         <a href="#top">Back to top</a> 
 		<% if can? :edit, Ascent %>
 			| <%= link_to "Edit", edit_ascent_path(ascent) %>
@@ -18,6 +23,14 @@
         </p>
     </div>
 </div>
+
+<div class="row">
+	<div class="offset2 span8">
+		<div id='ascent-<%= ascent.id.to_s %>-comments'>
+		</div>
+	</div>
+</div>
+
 <% ascent.medias.each do |media| %>
     <div class="row top-buffer">
         <div class="span2">

@@ -33,6 +33,7 @@ $(function(){
 		  if (typeof gon.area_climb_count[code] != "undefined") {
 	        label.html(
 				label.html()+
+				'<br>Areas - '+ gon.area_count[code] +
 				'<br>Climbs - '+ gon.area_climb_count[code] + 
 				'<br>Ascents - '+ gon.area_ascent_count[code] +
 				'<br>Click to explore'
