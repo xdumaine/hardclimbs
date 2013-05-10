@@ -14,7 +14,6 @@ class HomeController < ApplicationController
           @area_count[@c.code] += 1
           @area_climb_count[@c.code] += a.climbs_count
           @area_ascent_count[@c.code] += a.ascents_count
-          @area_ascent_count[@c.code] += a.ascents_count
         else
           @area_count[@c.code] = 1
           @area_climb_count[@c.code] = a.climbs_count
