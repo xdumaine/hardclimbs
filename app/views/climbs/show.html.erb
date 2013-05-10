@@ -7,7 +7,7 @@
             <dl class="dl-horizontal">
               <% if @first_ascent != nil %>
                 <dt><strong>First Ascent:</strong></dt>
-                <dd><%= link_to @first_ascent.climber.full_name, climber_path(@first_ascent.climber) %> on <%= link_to @first_ascent.ascent_date.strftime("%B %d, %Y"), :anchor => @first_ascent.id %></dd>
+                <dd><%= link_to @first_ascent.climber.full_name, climber_path(@first_ascent.climber) %> on <%= link_to @first_ascent.ascent_date, :anchor => @first_ascent.id %></dd>
               <% end %>
               <dt><strong><%= model_class.human_attribute_name(:area_id) %>:</strong></dt>
               <dd><%= link_to @climb.area.name, area_path(@climb.area) %></dd>
@@ -18,7 +18,7 @@
               <dt><strong>Repeated By:</strong></dt>
               <% @climb.ascents.where("ascent_number > 1").each do |ascent| %>
                 <dd>
-                    <%= link_to ascent.climber.full_name, climber_path(ascent.climber) %> on <%= link_to ascent.ascent_date.strftime("%B %d, %Y"), :anchor => ascent.id %>
+                    <%= link_to ascent.climber.full_name, climber_path(ascent.climber) %> on <%= link_to ascent.ascent_date, :anchor => ascent.id %>
                 </dd>
               <% end %>
 

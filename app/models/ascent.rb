@@ -69,7 +69,7 @@ class Ascent < ActiveRecord::Base
     if date == nil
       "Unknown"
     else
-      date
+      date.strftime("%B %d, %Y")
     end
   end
   
