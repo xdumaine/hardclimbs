@@ -1,6 +1,6 @@
 <div class="row" id="<%= ascent.id %>">
     <div class="span12">
-    <h2 class="title">Ascent <%= best_in_place_if (can? :edit, Ascent), ascent, :ascent_number, :type => :input %> of <%= ascent.climb.name %> by <%= ascent.climber.full_name %> on <%= best_in_place_if (can? :edit, Ascent), ascent, :ascent_date, :type => :date %></h2>
+		<h2 class="title">Ascent <%= best_in_place_if (can? :edit, Ascent), ascent, :ascent_number, :type => :input %> of <%= link_to ascent.climb.name, climb_path(ascent.climb) %> by <%= link_to ascent.climber.full_name, climber_path(ascent.climber) %> on <%= ascent.date.strftime("%B %d, %Y") %></h2>
 </div>
 </div>
 <div class="row">
