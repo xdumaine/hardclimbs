@@ -24,7 +24,7 @@ class Climber < ActiveRecord::Base
   include PgSearch
     multisearchable :against => [:first_name, :last_name]
     
-  attr_accessible :first_name, :last_name, :dob, :height, :sex, :slug#, :as => :admin
+  attr_accessible :first_name, :last_name, :dob, :height, :sex, :slug, :climbs_count
   
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -42,4 +42,14 @@ class Climber < ActiveRecord::Base
   
   has_many :climbs, :through => :ascents
   has_many :ascents
+  
+  def update_counters()
+    Climber.all.each do |a|
+      climb_count = a.climbs.count
+      if climb_count != a.climbs_count
+        puts "Updating #{a.full_name} from #{a.climbs_count} to #{climb_count} climbs"
+        a.update_attributes(:climbs_count => climb_count)
+      end
+    end
+  end
 end

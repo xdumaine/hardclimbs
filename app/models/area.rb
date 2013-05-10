@@ -20,7 +20,7 @@ class Area < ActiveRecord::Base
       multisearchable :against => [:name]
       
    validates_presence_of :slug, :name, :country
-   attr_accessible :name, :country
+   attr_accessible :name, :country, :ascents_count
    has_many :climbs
    has_many :ascents, :through => :climbs
    
@@ -35,5 +35,16 @@ class Area < ActiveRecord::Base
          joins(join_model.parameterize.underscore.to_sym).order("#{sort_column} #{sort_direction}")
        end
    end
+   
+   def update_counters()
+     Area.all.each do |a|
+       ascent_count = a.ascents.count
+       if ascent_count != a.ascents_count
+         puts "Updating #{a.name} from #{a.ascents_count} to #{ascent_count} ascents"
+         a.update_attributes(:ascents_count => ascent_count)
+       end
+     end
+   end
+   
    
 end

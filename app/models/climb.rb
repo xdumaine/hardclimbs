@@ -24,7 +24,7 @@ class Climb < ActiveRecord::Base
   include PgSearch
     multisearchable :against => [:name]
   
-  attr_accessible :name, :media_ids, :style_id, :still_hard, :area_id, :grade_id
+  attr_accessible :name, :media_ids, :style_id, :still_hard, :area_id, :grade_id, :medias_count
   has_many :climbers, :through => :ascents
   has_many :ascents
   has_and_belongs_to_many :medias, :class_name => 'Media'
@@ -57,6 +57,17 @@ class Climb < ActiveRecord::Base
       else
         joins(join_model.parameterize.underscore.to_sym).order("#{sort_column} #{sort_direction}")
       end
+  end
+  
+  def update_counters()
+    Climb.all.each do |a|
+      media_count = a.medias.count
+      if media_count != a.medias_count
+        puts "Updating #{a.climb_area_name} from #{a.medias_count} to #{media_count} medias"
+        a.update_attributes(:medias_count => media_count)
+      end
+    end
+      
   end
   
 end

@@ -25,7 +25,7 @@ class Ascent < ActiveRecord::Base
   
   ASCENT_NUMBER = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
   
-  attr_accessible :date, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number
+  attr_accessible :date, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number, :medias_count
   belongs_to :climber
   belongs_to :climb
   has_and_belongs_to_many :medias, :class_name => 'Media'
@@ -88,6 +88,16 @@ class Ascent < ActiveRecord::Base
       "FA"
     else
       "#{ascent_number.ordinalize}"
+    end
+  end
+  
+  def update_counters()
+    Ascent.all.each do |a|
+      media_count = a.medias.count
+      if media_count != a.medias_count
+        puts "Updating #{a.ascent_name_climber_climb} from #{a.medias_count} to #{media_count} medias"
+        a.update_attributes(:medias_count => media_count)
+      end
     end
   end
   
