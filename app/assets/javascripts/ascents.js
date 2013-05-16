@@ -12,4 +12,14 @@ $(function() {
 	   buttonImageOnly: true,
 	   buttonImage: 'calendar.gif',
 	   buttonText: 'Calendar' });*/
+	   
+	$('#ascent_date_2i').change(function() {
+		$('#ascent_date_end_2i').val($(this).val())
+	});
+	$('#ascent_date_3i').change(function() {
+		$('#ascent_date_end_3i').val($(this).val())
+	});
+	$('#ascent_date_1i').change(function() {
+		$('#ascent_date_end_1i').val($(this).val())
+	});
 });

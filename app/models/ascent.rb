@@ -25,7 +25,7 @@ class Ascent < ActiveRecord::Base
   
   ASCENT_NUMBER = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
   
-  attr_accessible :date, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number, :medias_count
+  attr_accessible :date, :date_end, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number, :medias_count
   belongs_to :climber
   belongs_to :climb
   has_and_belongs_to_many :medias, :class_name => 'Media'
@@ -68,8 +68,14 @@ class Ascent < ActiveRecord::Base
   def ascent_date
     if date == nil
       "Unknown"
-    else
+    elsif date == date_end
       date.strftime("%B %d, %Y")
+    else
+      if date.month == date_end.month
+        date.strftime("%B, %Y")
+      else
+        date.strftime("%Y")
+      end
     end
   end
   
