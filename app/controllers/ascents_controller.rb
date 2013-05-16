@@ -107,7 +107,7 @@ class AscentsController < ApplicationController
     end  
 
     def sort_direction  
-       %w[asc desc].include?(params[:sort_direction]) ?  params[:sort_direction] : "desc"  
+       %w[asc desc].include?(params[:sort_direction]) ?  params[:sort_direction] : "desc NULLS LAST"  
     end
     
     def join_on

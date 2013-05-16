@@ -20,7 +20,7 @@
 	        <td><%= link_to climber.full_name, climber_path(climber) %></td>
 	        <td><span class="badge"><%= climber.ascents_count %></span></td>
 	        <td><%= climber.sex %></td>
-	        <td><%= climber.dob %></td>
+	        <td><%= climber.friendly_dob %></td>
 	        <td><%= climber.height %></td>
 	        <% if can? :edit, Climber %>
 	          <td>
