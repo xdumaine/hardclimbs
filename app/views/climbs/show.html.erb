@@ -16,7 +16,7 @@
               <dd><%= @climb.style.name %></dd>
                           
               <dt><strong>Repeated By:</strong></dt>
-              <% @climb.ascents.where("ascent_number > 1").each do |ascent| %>
+              <% @climb.ascents.where("ascent_number > 1").order("ascent_number asc").each do |ascent| %>
                 <dd>
                     <%= link_to ascent.climber.full_name, climber_path(ascent.climber) %> - <%= link_to ascent.ascent_date, :anchor => ascent.id %>
                 </dd>
