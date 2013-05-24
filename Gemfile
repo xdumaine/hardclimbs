@@ -37,8 +37,7 @@ gem 'annotate', ">=2.5.0"
 gem "therubyracer"
 gem 'debugger', :group => [:development]
 gem "faker", "~> 1.1.2", :group => [:development, :test]
-gem 'pg'#, :group => [:production]
-#gem 'sqlite3', :group => [:development, :test]
+gem 'pg'
 gem "friendly_id", "~> 4.0.9"
 gem 'country-select'
 gem 'newrelic_rpm', :group => [:production]
