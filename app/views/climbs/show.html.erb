@@ -23,7 +23,7 @@
               <% end %>
 
             </dl>
-			<% if can? :edit, Climb or can? :destroy, Climb %>
+			<% if can? :edit, Climb or can? :destroy, Climb or can? :create, Ascent %>
 	            <div class="form-actions">
 	            <% if can? :edit, Climb %>
 	              <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -36,7 +36,9 @@
 	                          :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
 	                          :class => 'btn btn-danger' %>
 	            <% end %>
-
+				<% if can? :create, Ascent %>
+				<%= link_to "Add Ascent", new_climb_ascent_path(@climb), :class => 'btn' %>
+				<% end %>
 	            </div>
 			<% end %>
            </div>

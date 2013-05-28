@@ -7,6 +7,9 @@ class AscentsController < ApplicationController
 
   def new
    @ascent = Ascent.new
+   if params[:climb_id]
+     @ascent.climb = Climb.find(params[:climb_id])
+   end
   end
   
   def index

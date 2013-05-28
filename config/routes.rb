@@ -1,5 +1,7 @@
 Hardclimbs::Application.routes.draw do
-  resources :climbs
+  resources :climbs do
+    resources :ascents
+  end
   resources :media_types
   resources :styles
   resources :medias
