@@ -1,26 +1,50 @@
 <div class="row" id="<%= ascent.id %>">
     <div class="span12">
-		<h2 class="title">Ascent <%= best_in_place_if (can? :edit, Ascent), ascent, :ascent_number, :type => :input %> of <%= link_to ascent.climb.name, climb_path(ascent.climb) %> by <%= link_to ascent.climber.full_name, climber_path(ascent.climber) %> - <%= ascent.ascent_date %></h2>
+		<h2 class="title">Ascent <%= best_in_place_if (can? :edit, Ascent), ascent, :ascent_number, :type => :input %> of <%= link_to ascent.climb.name, climb_path(ascent.climb) %> by <%= link_to ascent.climber.full_name, climber_path(ascent.climber) %></h2>
 </div>
 </div>
 <div class="row">
     <div class="span12">
-        <h4 class="title">Suggested Grade: <%= ascent.grade.name %></h4>
+        <h4 class="title">Date of Ascent:</h4>
+		<p class="center"><%= ascent.ascent_date %></p>
     </div>
+    <div class="span12">
+        <h4 class="title">Suggested Grade:</h4>
+		<p class="center"><%= ascent.grade.name %></p>
+    </div>
+	<% if ascent.notes != nil %>
+		<div class="span12">
+			<h4 class="title">Notes:</h4>
+			<p class='center'><%= best_in_place_if (can? :edit, Ascent), ascent, :notes, :type=> :textarea %>
+		</div>
+	<% end %>
 </div>
 
 <div class="row">
     <div class="span12">
-        <p class="pull-right">
+		<ul class="nav nav-pills pull-right">
+		<li>
 			<a href="http://www.hardclimbs.info<%= ascent_path(ascent) %>#disqus_thread" onclick="loadDisqus(jQuery($('#ascent-<%= ascent.id.to_s %>-comments')), 'ascent-<%= ascent.id.to_s %>', 'http://www.hardclimbs.info<%= ascent_path(ascent) %>'); return false;" data-disqus-identifier='ascent-<%= ascent.id.to_s %>'>
-			   Show Comments
+		   Show Comments
 			</a>
-			|
-        <a href="#top">Back to top</a> 
-		<% if can? :edit, Ascent %>
-			| <%= link_to "Edit", edit_ascent_path(ascent) %>
+		</li>
+		<li>
+			<a href="#top">Back to top</a> 
+		</li>
+		<% if can? :edit, Ascent or can? :add, Media %>
+	  	<li class="dropdown">
+	    	<a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Admin <b class='caret'></b></a>
+	    	<ul class="dropdown-menu" role="menu" aria-labelledby="drop4">
+			<% if can? :edit, Ascent %>
+	       		<li><%= link_to "Edit", edit_ascent_path(ascent), :tabidex => "1" %></li>
+			<% end %>
+		  	<% if can? :create, Media %>
+		  		<li><%= link_to "Add Media", new_ascent_media_path(ascent), :tabindex => "2" %></li>
+		  	<% end %>
+	   	  	</ul>
+	 	 </li>
 		<% end %>
-        </p>
+		</ul>
     </div>
 </div>
 

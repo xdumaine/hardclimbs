@@ -27,7 +27,7 @@
 	          <td><%= ascent.ascent_number_format %></td>
 	          <td><%= ascent.ascent_date %></td>
 	          <td><%= ascent.grade.name %></td>
-	          <td><%= ascent.climb.style.name %></td>
+	          <td><%= link_to ascent.climb.style.name, climbs_path(:styles => ascent.climb.style.id) %></td>
 	          <% if can? :edit, Ascent %>
 	            <td>
 	              <%= link_to t('.edit', :default => t("helpers.links.edit")),

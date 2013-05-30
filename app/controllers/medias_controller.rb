@@ -6,6 +6,9 @@ class MediasController < ApplicationController
   
   def new
    @media = Media.new
+   if (params[:ascent_id])
+     @media.ascent << Ascent.find(params[:ascent_id])
+   end
   end
   
   def index

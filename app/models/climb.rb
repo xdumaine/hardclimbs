@@ -14,6 +14,7 @@
 #  ascents_count  :integer          default(0)
 #  medias_count   :integer          default(0)
 #  grade_id       :integer
+#  notes          :text
 #
 
 class Climb < ActiveRecord::Base
@@ -24,7 +25,7 @@ class Climb < ActiveRecord::Base
   include PgSearch
     multisearchable :against => [:name]
   
-  attr_accessible :name, :media_ids, :style_id, :still_hard, :area_id, :grade_id, :medias_count
+  attr_accessible :name, :media_ids, :style_id, :still_hard, :area_id, :grade_id, :medias_count, :notes
   has_many :climbers, :through => :ascents
   has_many :ascents
   has_and_belongs_to_many :medias, :class_name => 'Media'

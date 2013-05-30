@@ -1,11 +1,12 @@
 <%= simple_form_for @climb, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
-  <%= f.association :area, :collection => Area.all, prompt: 'Choose the area', 
+  <%= f.association :area, :collection => Area.order(:name), prompt: 'Choose the area', 
   	input_html: { :class => "chzn-select", :'data-placeholder' => "Select Area" } %>
 	
   <%= f.input :style_id, :collection => Style.all, prompt:  'Choose the style' %>
   <%= f.association :grade, prompt: 'Choose the grade', collection: Grade.order(:rank) %>
   <%= f.input :still_hard %>
+  <%= f.input :notes, :as => :text, :input_html => { :cols => 40, :rows => 10 } %>
   
   <%= render "medias/media_form", :f => f %>
   <div class="form-actions">

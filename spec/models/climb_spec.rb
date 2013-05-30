@@ -14,6 +14,7 @@
 #  ascents_count  :integer          default(0)
 #  medias_count   :integer          default(0)
 #  grade_id       :integer
+#  notes          :text
 #
 
 require 'spec_helper'

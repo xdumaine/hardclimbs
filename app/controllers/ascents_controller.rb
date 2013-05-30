@@ -10,6 +10,9 @@ class AscentsController < ApplicationController
    if params[:climb_id]
      @ascent.climb = Climb.find(params[:climb_id])
    end
+   if params[:climber_id]
+     @ascent.climber = Climber.find(params[:climber_id])
+   end
   end
   
   def index

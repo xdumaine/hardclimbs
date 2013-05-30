@@ -12,6 +12,8 @@
 #  grade_id      :integer
 #  ascent_number :integer
 #  medias_count  :integer          default(0)
+#  date_end      :date
+#  notes         :text
 #
 
 class Ascent < ActiveRecord::Base
@@ -25,7 +27,7 @@ class Ascent < ActiveRecord::Base
   
   ASCENT_NUMBER = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
   
-  attr_accessible :date, :date_end, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number, :medias_count
+  attr_accessible :date, :date_end, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number, :medias_count, :notes
   belongs_to :climber
   belongs_to :climb
   has_and_belongs_to_many :medias, :class_name => 'Media'

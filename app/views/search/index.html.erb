@@ -1,8 +1,7 @@
 <h1 class="title">Search Results</h1>
 <div class="row main-features">
   <div class="span6 offset3">
-<% if @pg_search_documents != nil %>
-
+<% if @pg_search_documents.count > 0 %>
 <table class="table table-striped">
     <% @pg_search_documents.each do |pg_search_document| %>
       <tr>
@@ -16,8 +15,33 @@
     <% end %>
 </table>
 <% else %>
-<p>No results found or you haven't searched yet.</p>
-<p>Use the search box in the upper right corner to try again.</p>
+	<p>No results found or you haven't searched yet.</p>
+	<p>Use the search box in the upper right corner to try again.</p>
+	<% if can? :create, Ascent or can? :create, Area or can? :create, Climb or can? :create, Climber %>
+		<p>
+		<h1 class="title">Add Something?</h1>
+		<% if can? :create, Ascent %>
+		<%= link_to t('.new', :default => t("helpers.links.new Ascent")),
+		            new_ascent_path,
+		            :class => 'btn btn-primary' %>
+		<% end %>
+		<% if can? :create, Area %>
+		<%= link_to t('.new', :default => t("helpers.links.new Area")),
+		            new_area_path,
+		            :class => 'btn btn-primary' %>
+		<% end %>
+		<% if can? :create, Climb %>
+		<%= link_to t('.new', :default => t("helpers.links.new Climb")),
+		            new_climb_path,
+		            :class => 'btn btn-primary' %>
+		<% end %>
+		<% if can? :create, Climber %>
+		<%= link_to t('.new', :default => t("helpers.links.new Climber")),
+		            new_climber_path,
+		            :class => 'btn btn-primary' %>
+		<% end %>
+		<p>
+	<% end %>
 <% end %>
 	</div>
 </div>

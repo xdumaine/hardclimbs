@@ -5,8 +5,13 @@ Hardclimbs::Application.routes.draw do
   resources :media_types
   resources :styles
   resources :medias
-  resources :ascents
-  resources :climbers
+  resources :ascents do
+    resources :medias
+  end
+  resources :climbers do
+    resources :ascents
+  end
+  
   resources :grades
   resources :areas do
     resources :climbs

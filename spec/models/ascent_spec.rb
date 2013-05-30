@@ -12,6 +12,8 @@
 #  grade_id      :integer
 #  ascent_number :integer
 #  medias_count  :integer          default(0)
+#  date_end      :date
+#  notes         :text
 #
 
 require 'spec_helper'

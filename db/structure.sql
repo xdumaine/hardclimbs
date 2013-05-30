@@ -120,7 +120,8 @@ CREATE TABLE ascents (
     grade_id integer,
     ascent_number integer,
     medias_count integer DEFAULT 0,
-    date_end date
+    date_end date,
+    notes text
 );
 
 
@@ -207,7 +208,8 @@ CREATE TABLE climbs (
     climbers_count integer DEFAULT 0,
     ascents_count integer DEFAULT 0,
     medias_count integer DEFAULT 0,
-    grade_id integer
+    grade_id integer,
+    notes text
 );
 
 
@@ -929,3 +931,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130419181328');
 INSERT INTO schema_migrations (version) VALUES ('20130419181557');
 
 INSERT INTO schema_migrations (version) VALUES ('20130516161542');
+
+INSERT INTO schema_migrations (version) VALUES ('20130530125415');
+
+INSERT INTO schema_migrations (version) VALUES ('20130530125440');

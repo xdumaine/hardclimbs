@@ -10,6 +10,7 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  ascents_count :integer          default(0)
+#  climbs_count  :integer          default(0)
 #
 
 class Grade < ActiveRecord::Base

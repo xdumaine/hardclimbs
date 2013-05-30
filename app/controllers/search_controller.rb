@@ -2,7 +2,6 @@ class SearchController < ApplicationController
   def index
     if params[:query]
       @pg_search_documents = PgSearch.multisearch(params[:query])
-      
       #go straight to result if only 1 is found
       if @pg_search_documents.count == 1
         @result = @pg_search_documents[0]

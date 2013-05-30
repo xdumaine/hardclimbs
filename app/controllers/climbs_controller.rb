@@ -7,6 +7,9 @@ class ClimbsController < ApplicationController
   
   def new
    @climb = Climb.new
+   if (params[:area_id])
+     @climb.area = Area.find(params[:area_id])
+   end
   end
   
   def index

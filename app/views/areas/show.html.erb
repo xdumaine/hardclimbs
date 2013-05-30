@@ -24,6 +24,9 @@
 	                  :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
 	                  :class => 'btn btn-danger' %>
 	    <% end %>
+		<% if can? :create, Media %>
+			<%= link_to "Add Climb", new_area_climb_path(@area), :class => 'btn' %>
+		<% end %>
 	  </div>
   <% end %>
 
