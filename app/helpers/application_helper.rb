@@ -13,13 +13,19 @@ module ApplicationHelper
   
   def sortable(column, title = nil, join_model = nil)  
     title ||= column.titleize  
-    css_class = (column == sort_column) ? "current #{sort_direction}" : nil 
+    #css_class = (column == sort_column) ? "current #{sort_direction}" : nil 
     
-    #css_class = (column == sort_column) ? content_tag(:i, title, :class => "icon-search") : nil
+    css_class = (column == sort_column) ? content_tag(:i, "", :class => (sort_direction == "asc" ? "icon-arrow-up" : "icon-arrow-down")) : nil
     direction = (column == sort_column && sort_direction == "asc") ? "desc" : "asc"  
-    #title = (column == sort_column) ? css_class : title
-    link_to title, {:join_model => join_model, :sort_column => column, :sort_direction => direction},
+    style_title = (column == sort_column) ? css_class + title : title
+    link_to style_title, {:join_model => join_model, :sort_column => column, :sort_direction => direction},
                     :rel => "tooltip", :title => "Sort by #{title}"
+    
+    # store sorting data in session objects                
+    #session[:direction] = direction
+    #session[:join_model] = join_model
+    #session[:colum] = column
+    # debugger
   end
   
 end
