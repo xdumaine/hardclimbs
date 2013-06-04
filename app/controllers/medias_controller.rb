@@ -1,5 +1,5 @@
 class MediasController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index]
   helper_method :join_on, :sort_column, :sort_direction
   
   add_breadcrumb "Media", :medias_path

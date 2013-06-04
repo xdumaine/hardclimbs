@@ -2,33 +2,83 @@
 		<img src="https://s3.amazonaws.com/hardclimbs/assets/HARDCLIMBS-LOGO.png" width="1170" height="280" alt="Welcome to HardClimbs.info">
 </div>
 <div class="row main-features">
-	<div class="span3">
+	<div class="span6">
 	  <div class="well">
-	    <h3>Ascents</h3>
-	    <p><p>Explore <%= Ascent.count %> ascents </p></p>
-	    <%= link_to "Ascents", ascents_path, :class => 'btn btn-info' %> 
+	    <h3>Latest Ascents</h3>
+		<table class="table table-striped" id="climber-list">
+		  <thead>
+		    <tr>
+		      <th>Climber</th>
+		      <th>Climb</th>
+			  <th>Date</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% @ascents.each do |ascent| %>
+		      <tr>
+		        <td><%= link_to ascent.climber.full_name, ascent_path(ascent) %></td>
+		        <td><%= ascent.climb.name %></td>
+				<td><%= ascent.ascent_date %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	    <%= link_to "View All #{ Ascent.count } Ascents", ascents_path, :class => 'btn btn-info' %> 
 	  </div>
 	</div>
-  <div class="span3">
+	<div class="span6">
+	  <div class="well">
+	    <h3>Climbers</h3>
+		<table class="table table-striped" id="climber-list">
+		  <thead>
+		    <tr>
+		      <th>Name</th>
+		      <th>Hard Sends</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% @climbers.each do |climber| %>
+		      <tr>
+		        <td><%= link_to climber.full_name, climber_path(climber) %></td>
+		        <td><%= climber.ascents_count %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	    <%= link_to "View All #{ Climber.count } Climbers", climbers_path, :class => 'btn btn-info' %> 
+	  </div>
+	</div>
+</div>
+<div class="row main-features">
+  <div class="span12">
     <div class="well">
-      <h3>Climbers</h3>
-      <p>Explore <%= Climber.count %> climbers </p>
-      <%= link_to "Climbers", climbers_path, :class => 'btn btn-info' %>  
-    </div>
-  </div>
-  <div class="span3">
-    <div class="well">
-      <h3>Climbs</h3>
-      <p>Explore <%= Climb.count %> climbs </p>
-      <%= link_to "Climbs", climbs_path, :class => 'btn btn-info' %> 
-    </div>
-  </div>
-
-  <div class="span3">
-    <div class="well">
-      <h3>Areas</h3>
-      <p><p>Explore <%= Area.count %> areas </p></p>
-      <%= link_to "Areas", areas_path, :class => 'btn btn-info' %> 
+      <h3>Latest Media</h3>
+	  <div id="mediaCarousel" class="carousel slide">
+	    <!-- Carousel items -->
+	    <div class="carousel-inner">
+			<% @i = 0 %>
+			<% @medias.each do |media| %>
+				<div class="item <%= @i == 0 ? 'active' : '' %>">
+					<div class="row">
+						<div class="span8 offset2">
+			  	  		  <div class="embed-container center">
+			  	 	 		 <%= media.url_html %>
+			   	 		  </div>
+				 	     <div class="carousel-caption">
+	               			<p><%= link_to media.ascent.first.ascent_name_climber_climb, ascent_path(media.ascent.first)%> |
+	               			 <%= link_to media.url, media.url, :target => '_blank' %></p>
+	             	     </div>
+			 		  </div>
+					</div>
+				</div>
+				<% @i = @i + 1 %>
+			<% end %>
+	    </div>
+	    <!-- Carousel nav -->
+	    <a class="carousel-control left" href="#mediaCarousel" data-slide="prev">&lsaquo;</a>
+	    <a class="carousel-control right" href="#mediaCarousel" data-slide="next">&rsaquo;</a>
+	  </div>
+      <%= link_to "View All #{ Media.count } Media", medias_path, :class => 'btn btn-info' %> 
     </div>
   </div>
 </div>

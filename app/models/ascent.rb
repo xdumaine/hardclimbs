@@ -83,7 +83,7 @@ class Ascent < ActiveRecord::Base
   
   def ascent_name_climber_climb
     if climber and climb
-      "#{climber.full_name} #{climb.name}"
+      "#{climber.full_name} - #{climb.name}"
     else
       ""
     end

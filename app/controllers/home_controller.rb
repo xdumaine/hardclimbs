@@ -26,5 +26,9 @@ class HomeController < ApplicationController
     gon.area_climb_count = @area_climb_count
     gon.area_links = @area_links
     gon.area_ascent_count = @area_ascent_count
+    
+    @ascents = Ascent.order('date desc NULLS LAST').limit(5)
+    @climbers = Climber.order('ascents_count desc').limit(5)
+    @medias = Media.where(:media_type_id => 2).order('created_at desc').limit(5)
   end
 end

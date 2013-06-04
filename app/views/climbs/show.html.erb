@@ -1,6 +1,10 @@
 <%= render_breadcrumbs :builder => ::BootstrapBreadcrumbsBuilder, :separator => ">" %>
 <%- model_class = @climb.class -%>
 <h1 class="title"><%=t '.title', :default => @climb.name %></h1>
+<div class="center">
+    <h4 class="title">FA Grade:</h4>
+	<p class="center"><%= @climb.proposed_grade %></p>
+</div>
 <div class="well">
     <div class="row">
         <div class="span8">
