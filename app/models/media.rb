@@ -12,6 +12,7 @@
 #
 
 class Media < ActiveRecord::Base
+  paginates_per 15
   attr_accessible :url, :description, :media_type_id, :climb_ids, :ascent_ids, :pull_quote
   belongs_to :media_type
   has_and_belongs_to_many :ascent
