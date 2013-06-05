@@ -37,7 +37,7 @@ $(function() {
 		  template: [
 		  	'<p class="ascents">{{sends}}</p>',
 		  	'<p class="name">{{name}} ({{grade}})</p>',
-			'<p class="detail">{{style}}'
+			'<p class="detail">{{style}} in {{area}}'
 		  	
 		  ].join(''),
 		  engine: Hogan

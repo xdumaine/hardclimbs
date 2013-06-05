@@ -85,7 +85,7 @@ class ClimbsController < ApplicationController
   def load_climb_list
     @climb_names = Array.new
     Climb.order(:name).each do |c|
-      @climb_names << { :name => c.name, :value => c.name, :style => c.style.name, :sends => TextHelper.pluralize(c.ascents_count, 'Ascent'), :grade => c.grade.name }
+      @climb_names << { :name => c.name, :value => c.name, :style => c.style.name, :sends => TextHelper.pluralize(c.ascents_count, 'Ascent'), :grade => c.grade.name, :area => c.area.name, :tokens => [c.area.name, c.area.country, c.name, c.style.name] }
     end
     render json: @climb_names
   end
