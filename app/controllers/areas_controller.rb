@@ -1,7 +1,7 @@
 class AreasController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :load_area_list]
   helper_method :join_on, :sort_column, :sort_direction 
-  
+  load_and_authorize_resource :except => [:load_area_list]
   add_breadcrumb "Areas", :areas_path
   
   def new
@@ -61,6 +61,14 @@ class AreasController < ApplicationController
     area = Area.find(params[:id])
     area.destroy
     redirect_to areas_path, :notice => "Area deleted."
+  end
+  
+  def load_area_list
+    @area_names = []
+    Area.order(:name).each do |a|
+      @area_names << { :name => a.name, :value => a.name, :country => a.country, :sends => TextHelper.pluralize(a.ascents_count, 'Ascent'), :tokens => [a.name, a.country] }
+    end
+    render json: @area_names
   end
   
   private  

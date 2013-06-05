@@ -13,6 +13,7 @@ group :assets do
   gem 'less-rails'
   gem 'less-rails-bootstrap'
   gem 'less-rails-bootswatch'
+  gem 'hogan_assets'
 end
 
 gem 'jquery-rails'
@@ -55,3 +56,4 @@ gem 'best_in_place'
 gem 'jbuilder', '~> 1.0.1'
 gem 'breadcrumbs_on_rails'
 gem 'carmen'
+gem 'twitter-typeahead-rails'

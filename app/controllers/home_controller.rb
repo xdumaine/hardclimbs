@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   include Carmen
   def index
+    
+    set_meta_tags :description => "HardClimbs.info seeks to catalog the hardest sport climbs and boulder problems in the world"
+    set_meta_tags :keywords => "rock climbing,bouldering,sport climbing"
+    
     #@climbers = Climber.all
     @areas = Area.all
     @area_count = {}

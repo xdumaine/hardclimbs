@@ -19,6 +19,10 @@ Hardclimbs::Application.routes.draw do
   end
 
   match 'search' => 'search#index'
+  match 'load_climbers' => 'climbers#load_climber_list'
+  match 'load_areas' => 'areas#load_area_list'
+  match 'load_climbs' => 'climbs#load_climb_list'
+  match 'load_ascents' => 'ascents#load_ascent_list'
   
   authenticated :user do
       root :to => 'home#index'

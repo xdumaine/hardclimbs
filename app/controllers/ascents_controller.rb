@@ -1,7 +1,7 @@
 class AscentsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :load_ascent_list]
   helper_method :join_on, :sort_column, :sort_direction  
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:load_ascent_list]
 
   add_breadcrumb "Ascents", :ascents_path
 
@@ -105,6 +105,14 @@ class AscentsController < ApplicationController
       format.html { redirect_to ascents_url, :notice => "Ascent deleted." }
       format.json { head :no_content }
     end
+  end
+  
+  def load_ascent_list
+    @ascent_names = []
+    Ascent.all.each do |a|
+      @ascent_names << a.ascent_name_climber_climb
+    end
+    render json: @ascent_names
   end
   
   private  

@@ -1,7 +1,7 @@
 class ClimbersController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :load_climber_list]
   helper_method :join_on, :sort_column, :sort_direction  
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:load_climber_list]
   
   add_breadcrumb "Climbers", :climbers_path
   
@@ -54,6 +54,14 @@ class ClimbersController < ApplicationController
     climber = Climber.find(params[:id])
     climber.destroy
     redirect_to climbers_path, :notice => "Climber deleted."
+  end
+  
+  def load_climber_list
+    @climber_names = Array.new
+    Climber.order(:last_name).each do |c|
+      @climber_names << { :name => c.full_name, :value => c.full_name, :sends => TextHelper.pluralize(c.ascents_count, 'Ascent'), :tokens => [c.first_name, c.last_name] }
+    end
+    render json: @climber_names
   end
   
   private  

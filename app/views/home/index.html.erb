@@ -16,9 +16,9 @@
 		  <tbody>
 		    <% @ascents.each do |ascent| %>
 		      <tr>
-		        <td><%= link_to ascent.climber.full_name, ascent_path(ascent) %></td>
-		        <td><%= ascent.climb.name %></td>
-				<td><%= ascent.ascent_date %></td>
+		        <td><%= link_to ascent.climber.full_name, climber_path(ascent.climber) %></td>
+		        <td><%= link_to ascent.climb.name, climb_path(ascent.climb) %></td>
+				<td><%= link_to ascent.ascent_date, ascent_path(ascent) %></td>
 		      </tr>
 		    <% end %>
 		  </tbody>
