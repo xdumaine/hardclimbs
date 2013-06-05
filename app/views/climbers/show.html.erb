@@ -3,7 +3,7 @@
 <h1 class="title"><%=t '.title', :default => @climber.full_name %></h1>
 <div class="row">
 	<center>
-		<a href="http://www.hardclimbs.info<%= climber_path(@climber) %>#disqus_thread" onclick="loadDisqus(jQuery($('#climber-<%= @climber.id.to_s %>-comments')), 'ascent-<%= @climber.id.to_s %>', 'http://www.hardclimbs.info<%= climber_path(@climber) %>'); return false;" data-disqus-identifier='climber-<%= @climber.id.to_s %>'>
+		<a href="http://www.hardclimbs.info<%= climber_path(@climber) %>#disqus_thread" onclick="loadDisqus(jQuery($('#climber-<%= @climber.id.to_s %>-comments')), 'climber-<%= @climber.id.to_s %>', 'http://www.hardclimbs.info<%= climber_path(@climber) %>'); return false;" data-disqus-identifier='climber-<%= @climber.id.to_s %>'>
 		   Show Comments
 		</a>
 	</center>
