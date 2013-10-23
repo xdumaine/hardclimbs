@@ -1,0 +1,8 @@
+ADMIN_NAME: HardClimbs
+ADMIN_EMAIL: hardclimbsinfo@gmail.com
+ADMIN_PASSWORD: pleasechangeme
+ROLES: [admin, editor, guest]
+BGRADES: ["8A", "8A+", "8B", "8B+", "8C", "8C+", "9A"]
+RGRADES: ["8c+", "9a", "9a+", "9b", "9b+", "9c", "9c+"]
+STYLES: ["Bouldering", "Sport Climbing", "Trad Climbing"]
+MEDIA: ["Link", "Media"]
