@@ -13,3 +13,4 @@ Site dependencies include but are not limited to:
 * Hogan.js - http://twitter.github.io/hogan.js/
 * Chosen - http://harvesthq.github.io/chosen/
 * jVectorMap - http://jvectormap.com/
+* pg_search - https://github.com/Casecommons/pg_search
