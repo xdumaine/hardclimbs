@@ -2,7 +2,7 @@
   <%= f.input :url %>
   <%= f.input :description %>
   <%= f.input :pull_quote, :as => :text, :input_html => { :cols => 20, :rows => 5 } %>
-  <%= render "climbs/climb_form", :f => f, :multi => true %>
+ <!-- <%= render "climbs/climb_form", :f => f, :multi => true %> -->
   <%= render "ascents/ascent_form", :f => f, :multi => true %>
   <%= f.association :media_type , prompt:  'Choose the media type' %>
   <div class="form-actions">
