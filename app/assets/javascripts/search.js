@@ -4,7 +4,7 @@ $(function() {
 	       name: 'climbers',
 	       prefetch: {
 			   url: '/load_climbers.json',
-			   ttl: 500
+			   ttl: 86400000
 		   },
 		   header: '<h3>Climbers</h3>',
 		   template: [                                                                 
@@ -17,7 +17,7 @@ $(function() {
 	       name: 'areas',
 	       prefetch: {
 			   url: '/load_areas.json',
-			   ttl: 500
+			   ttl: 86400000
 		   },
 	       header: '<h3>Areas</h3>',
  		  template: [
