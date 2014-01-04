@@ -3,7 +3,7 @@ $(function() {
 	    {
 	       name: 'climbers',
 	       prefetch: {
-			   url: '../load_climbers.json',
+			   url: '/load_climbers.json',
 			   ttl: 500
 		   },
 		   header: '<h3>Climbers</h3>',
@@ -16,7 +16,7 @@ $(function() {
 	    {
 	       name: 'areas',
 	       prefetch: {
-			   url: '../load_areas.json',
+			   url: '/load_areas.json',
 			   ttl: 500
 		   },
 	       header: '<h3>Areas</h3>',
@@ -30,7 +30,7 @@ $(function() {
 	   {
 	      name: 'climbs',
 	      prefetch: {
-			  url: '../load_climbs.json',
+			  url: '/load_climbs.json',
 			  ttl: 86400000
 		  },
 	      header: '<h3>Climbs</h3>',
