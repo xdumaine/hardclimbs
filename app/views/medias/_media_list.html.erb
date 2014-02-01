@@ -23,7 +23,7 @@
 		     </div>
 			 <div class="span10">
 				<% if media.media_type.id == 2 %>
-				<div class="embed-container">
+				<div class="embed-container <%= if media.is_square? then 'square' end %>">
 		            <%= media.url_html %>
 				</div>
 				<% else %>

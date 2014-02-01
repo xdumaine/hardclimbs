@@ -29,9 +29,18 @@ class Media < ActiveRecord::Base
     html_escape
     vimeo(:width => 0, :height => 0)
     youtube(:width => 0, :height => 0)
-    instagram(:size => 'large', :link_options => { :add_link => 'true', :target => '_blank' })
+    instagram
     link :target => "_blank"
     simple_format
+  end
+
+  def is_square?
+    regex = %r{https?:\/\/(www.)?instagr(am\.com|\.am)/p/.+}
+    if self.url.gsub(regex).count == 1
+      return true
+    else
+      return false
+    end
   end
   
   private

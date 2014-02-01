@@ -14,6 +14,20 @@ body {
 	color:black;
 }
 
+.embed-container.square{
+    position: relative; 
+    padding-bottom: 120%; 
+    height: 0; 
+    overflow: hidden;
+}
+
+@media (min-width:1000px) {
+	.embed-container.square{
+		padding-bottom: 75%; 
+	}
+}
+
+
 .embed-container {
     position: relative;
     padding-bottom: 56.25%; /* 16/9 ratio */

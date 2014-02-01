@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/Dhaulagiri/auto_html.git
-  revision: c4ddeff3ce31d8e8867140866b755fd403f3ad9d
+  revision: 29869a3c239d78caefdd931a698596115668f58c
   specs:
-    auto_html (1.6.0)
+    auto_html (1.6.1)
       redcarpet (~> 2.0)
       rinku (~> 1.5.0)
 
