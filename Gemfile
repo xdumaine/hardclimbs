@@ -36,7 +36,7 @@ gem 'debugger', :group => [:development]
 gem "faker", "~> 1.1.2", :group => [:development, :test]
 gem 'pg'
 gem 'friendly_id', '~> 5.0.0'
-gem 'country-select'
+gem 'country_select', :git => 'git://github.com/stefanpenner/country_select'
 gem 'newrelic_rpm', :group => [:production]
 gem 'kaminari'
 gem 'kaminari-bootstrap'
