@@ -86,7 +86,6 @@ class AscentsController < ApplicationController
     end
 
   def create
-    debugger
     @ascent = Ascent.new(ascent_params)
     respond_to do |format|
       if @ascent.save
