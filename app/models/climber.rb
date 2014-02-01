@@ -17,15 +17,13 @@
 
 class Climber < ActiveRecord::Base
   extend FriendlyId
-    friendly_id :full_name, :use => :slugged
+    friendly_id :full_name, use: [:slugged, :finders]
   validates_presence_of :slug
   SEX = ['M', 'F']
   
   include PgSearch
     multisearchable :against => [:first_name, :last_name]
     
-  attr_accessible :first_name, :last_name, :dob, :height, :sex, :slug, :climbs_count
-  
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates_inclusion_of :sex, :in => SEX, :message => "must select a gender"

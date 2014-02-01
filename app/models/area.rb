@@ -14,13 +14,12 @@
 
 class Area < ActiveRecord::Base
   extend FriendlyId
-    friendly_id :area_country, :use => :slugged
+    friendly_id :area_country, use: [:slugged, :finders]
     
     include PgSearch
       multisearchable :against => [:name]
       
    validates_presence_of :slug, :name, :country
-   attr_accessible :name, :country, :ascents_count
    has_many :climbs
    has_many :ascents, :through => :climbs
    

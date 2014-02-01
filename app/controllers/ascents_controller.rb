@@ -75,7 +75,7 @@ class AscentsController < ApplicationController
       ascent_number = params[:ascent][:ascent_number]
       @ascent = Ascent.find(params[:id])
       respond_to do |format|
-        if @ascent.update_attributes(params[:ascent])
+        if @ascent.update(ascent_params)
           format.html { redirect_to @ascent, notice: 'Ascent was successfully updated.' }
           format.json { head :no_content }
         else
@@ -86,7 +86,8 @@ class AscentsController < ApplicationController
     end
 
   def create
-    @ascent = Ascent.new(params[:ascent])
+    debugger
+    @ascent = Ascent.new(ascent_params)
     respond_to do |format|
       if @ascent.save
         format.html { redirect_to @ascent, notice: 'Ascent was successfully created.' }
@@ -126,5 +127,10 @@ class AscentsController < ApplicationController
     
     def join_on
       params[:join_on] || nil
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def ascent_params
+      params.require(:ascent).permit(:date, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number)
     end
 end

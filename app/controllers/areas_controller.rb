@@ -39,8 +39,8 @@ class AreasController < ApplicationController
   end
   
   def update
-      @area = Area.find(params[:id])
-      if @area.update_attributes(params[:area])
+      @area = Area.find(area_params)
+      if @area.update(params[:area])
         redirect_to @area, :notice => "Area updated."
       else
         redirect_to @area, :alert => "Unable to update area."
@@ -48,7 +48,7 @@ class AreasController < ApplicationController
     end
 
   def create
-    @area = Area.new(params[:area])
+    @area = Area.new(area_params)
     if @area.save
       flash[:success] = "Thanks for adding an area!"
       redirect_to @area
@@ -82,5 +82,10 @@ class AreasController < ApplicationController
     
     def join_on
       params[:join_on] || nil
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def area_params
+      params.require(:area).permit(:name, :country)
     end
 end

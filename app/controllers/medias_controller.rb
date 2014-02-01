@@ -28,7 +28,7 @@ class MediasController < ApplicationController
   
   def update
       @media = Media.find(params[:id])
-      if @media.update_attributes(params[:media])
+      if @media.update(media_params)
         redirect_to @media, :notice => "Media updated."
       else
         redirect_to @media, :alert => "Unable to update media."
@@ -36,7 +36,7 @@ class MediasController < ApplicationController
     end
 
   def create
-    @media = Media.new(params[:media])
+    @media = Media.new(media_params)
     if @media.save
       flash[:success] = "Thanks for adding media!"
       redirect_to @media
@@ -64,4 +64,8 @@ class MediasController < ApplicationController
       params[:join_on] || nil
     end
     
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def media_params
+      params.require(:media).permit(:url, :description, :media_type_id, :climb_ids, :ascent_ids, :pull_quote)
+    end
 end

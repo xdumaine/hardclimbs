@@ -43,4 +43,10 @@ class GradesController < ApplicationController
     grade.destroy
     redirect_to grades_path, :notice => "Grade deleted."
   end
+
+  private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def grade_params
+      params.require(:grade).permit(:name, :style_id, :rank)
+    end
 end
