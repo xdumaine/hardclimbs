@@ -67,7 +67,7 @@ class Ascent < ActiveRecord::Base
   end
     
   def ascent_date
-    if date == nil
+    if date == nil || date_end == nil
       "Unknown"
     elsif date == date_end
       date.strftime("%B %d, %Y")
