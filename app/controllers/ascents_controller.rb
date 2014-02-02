@@ -130,6 +130,7 @@ class AscentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ascent_params
-      params.require(:ascent).permit(:date, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number)
+      params.require(:ascent).permit(:date, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number, 
+                                      :notes, :date_end, :media_ids => [])
     end
 end
