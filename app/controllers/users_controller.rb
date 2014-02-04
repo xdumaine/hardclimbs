@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def update
       authorize! :update, @user, :message => 'Not authorized as an administrator.'
       @user = User.find(params[:id])
-      if @user.update_attributes(params[:user])
+      if @user.update(user_params)
         redirect_to users_path, :notice => "User updated."
       else
         redirect_to users_path, :alert => "Unable to update user."
@@ -30,4 +30,10 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+
+  private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
 end

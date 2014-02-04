@@ -59,7 +59,7 @@ class ClimbsController < ApplicationController
   
   def update
       @climb = Climb.find(params[:id])
-      if @climb.update_attributes(params[:climb])
+      if @climb.update(climb_params)
         redirect_to @climb, :notice => "Climb updated."
       else
         redirect_to @climb, :alert => "Unable to update climb."
@@ -67,7 +67,7 @@ class ClimbsController < ApplicationController
     end
 
   def create
-    @climb = Climb.new(params[:climb])
+    @climb = Climb.new(climb_params)
     if @climb.save
       flash[:success] = "Thanks for adding a climb!"
       redirect_to @climb
@@ -101,5 +101,10 @@ class ClimbsController < ApplicationController
     
     def join_on
       params[:join_on] || nil
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def climb_params
+      params.require(:climb).permit(:name, :media_ids, :style_id, :still_hard, :area_id, :grade_id)
     end
 end

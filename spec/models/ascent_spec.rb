@@ -44,7 +44,7 @@ describe Ascent do
   
   it "returns a ascent's climber-climb as a string" do
     ascent = FactoryGirl.build(:ascent)
-    ascent.ascent_name_climber_climb.should == "#{ascent.climber.full_name} #{ascent.climb.name}"
+    ascent.ascent_name_climber_climb.should == "#{ascent.climber.full_name} - #{ascent.climb.name}"
   end
   
 end

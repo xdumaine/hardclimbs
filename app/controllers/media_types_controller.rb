@@ -20,7 +20,7 @@ class MediaTypesController < ApplicationController
   def update
       authorize! :update, @media_type, :message => 'Not authorized as an administrator.'
       @media_type = MediaType.find(params[:id])
-      if @media_type.update_attributes(params[:media_type])
+      if @media_type.update(media_types_params)
         redirect_to @media_type, :notice => "Media Type updated."
       else
         redirect_to @media_type, :alert => "Unable to update Media Type."
@@ -29,7 +29,7 @@ class MediaTypesController < ApplicationController
 
   def create
     authorize! :create, @media_type, :message => 'Not authorized as an administrator.'
-    @media_type = MediaType.new(params[:media_type])
+    @media_type = MediaType.new(media_types_params)
     if @media_type.save
       flash[:success] = "Thanks for adding a media type!"
       redirect_to @media_type
@@ -44,4 +44,10 @@ class MediaTypesController < ApplicationController
     media_type.destroy
     redirect_to media_types_path, :notice => "MediaType deleted."
   end
+
+  private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def media_types_params
+      params.require(:media_type).permit(:name)
+    end
 end

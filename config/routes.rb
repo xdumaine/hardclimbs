@@ -18,15 +18,16 @@ Hardclimbs::Application.routes.draw do
     resources :ascents
   end
 
-  match 'search' => 'search#index'
-  match 'load_climbers' => 'climbers#load_climber_list'
-  match 'load_areas' => 'areas#load_area_list'
-  match 'load_climbs' => 'climbs#load_climb_list'
-  match 'load_ascents' => 'ascents#load_ascent_list'
+  get 'search', to: 'search#index'
+  get 'load_climbers', to: 'climbers#load_climber_list'
+  get 'search', to: 'search#index'
+  get 'load_areas', to: 'areas#load_area_list'
+  get 'load_climbs', to: 'climbs#load_climb_list'
+  get 'load_ascents', to: 'ascents#load_ascent_list'
   
-  authenticated :user do
-      root :to => 'home#index'
-  end
+  #authenticated :user do
+  #    root :to => 'home#index'
+  #end
   root :to => "home#index"
   #devise_for :users
   devise_for :users#, :skip => [:registrations] 
@@ -44,6 +45,6 @@ Hardclimbs::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   # Any routes that aren't defined above here go to the 404
-  match "*aasdfas", :to => "application#routing_error"
+  get '*aasdfas', :to => "application#routing_error"
   
 end

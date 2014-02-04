@@ -23,9 +23,11 @@ describe ClimbsController do
   # This should return the minimal set of attributes required to create a valid
   # Climb. As you add validations to Climb, be sure to
   # update the return value of this method accordingly.
-  def valid_attributes
-    { "name" => "MyString" }
-  end
+  let(:valid_attributes) {     
+    style = create(:style)
+    area = create(:area)
+    attributes_for(:climb, style_id: style.id, area_id: area.id, name: "MyString") 
+  }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

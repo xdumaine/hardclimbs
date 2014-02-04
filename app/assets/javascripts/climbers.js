@@ -3,11 +3,11 @@ $(function() {
 	$("a[rel=popover]").popover()
 	$("a[rel=tooltip]").tooltip()
 	
-    $("#climber-list .table th a, .pagination a").live("click", function() {
+    $("#climber-list .table th a, .pagination a").on("click", function() {
       $.getScript(this.href);
       return false;
     });
-    $("#ascent-list .table th a, .pagination a").live("click", function() {
+    $("#ascent-list .table th a, .pagination a").on("click", function() {
       $.getScript(this.href);
       return false;
     });

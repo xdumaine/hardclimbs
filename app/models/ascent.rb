@@ -18,7 +18,7 @@
 
 class Ascent < ActiveRecord::Base
   extend FriendlyId
-    friendly_id :ascent_name_climber_climb, :use => :slugged
+    friendly_id :ascent_name_climber_climb, use: [:slugged, :finders]
   validates_presence_of :slug
     
   before_create :ascent_numbering
@@ -27,7 +27,6 @@ class Ascent < ActiveRecord::Base
   
   ASCENT_NUMBER = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
   
-  attr_accessible :date, :date_end, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number, :medias_count, :notes
   belongs_to :climber
   belongs_to :climb
   has_and_belongs_to_many :medias, :class_name => 'Media'
@@ -40,10 +39,10 @@ class Ascent < ActiveRecord::Base
   validates :climber_id, :uniqueness => {:scope => :climb_id, :message => "That climber already sent that climb!"}
   validates_presence_of :climber, :climb, :grade;
     
-  scope :by_area_order_asc, joins(:climb => :area).order("areas.name asc")
-  scope :by_area_order_desc, joins(:climb => :area).order("areas.name desc")
-  scope :by_style_order_asc, joins(:climb => :style).order("styles.name asc")
-  scope :by_style_order_desc, joins(:climb => :style).order("styles.name desc")
+  scope :by_area_order_asc, -> { joins(:climb => :area).order("areas.name asc") }
+  scope :by_area_order_desc, -> { joins(:climb => :area).order("areas.name desc") }
+  scope :by_style_order_asc, -> { joins(:climb => :style).order("styles.name asc") }
+  scope :by_style_order_desc, -> { joins(:climb => :style).order("styles.name desc") }
   
   def self.order_by_join(join_model, sort_column, sort_direction = 'asc')
       if join_model == nil
@@ -68,7 +67,7 @@ class Ascent < ActiveRecord::Base
   end
     
   def ascent_date
-    if date == nil
+    if date == nil || date_end == nil
       "Unknown"
     elsif date == date_end
       date.strftime("%B %d, %Y")

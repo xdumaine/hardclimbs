@@ -9,7 +9,6 @@
 #
 
 class Style < ActiveRecord::Base
-  attr_accessible :name, :style_id
   has_one :climb
   has_many :grades
   validates_presence_of :name

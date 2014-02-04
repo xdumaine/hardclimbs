@@ -40,7 +40,7 @@ class StylesController < ApplicationController
   # POST /styles
   # POST /styles.json
   def create
-    @style = Style.new(params[:style])
+    @style = Style.new(style_params)
 
     respond_to do |format|
       if @style.save
@@ -59,7 +59,7 @@ class StylesController < ApplicationController
     @style = Style.find(params[:id])
 
     respond_to do |format|
-      if @style.update_attributes(params[:style])
+      if @style.update(style_params)
         format.html { redirect_to @style, notice: 'Style was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,4 +80,10 @@ class StylesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private 
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def style_params
+      params.require(:style).permit(:name, :style_id)
+    end
 end

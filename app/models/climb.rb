@@ -19,13 +19,12 @@
 
 class Climb < ActiveRecord::Base
   extend FriendlyId
-    friendly_id :name, :use => :slugged
+    friendly_id :name, use: [:slugged, :finders]
   validates_presence_of :slug  
   
   include PgSearch
     multisearchable :against => [:name]
   
-  attr_accessible :name, :media_ids, :style_id, :still_hard, :area_id, :grade_id, :medias_count, :notes
   has_many :climbers, :through => :ascents
   has_many :ascents
   has_and_belongs_to_many :medias, :class_name => 'Media'

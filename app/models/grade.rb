@@ -14,7 +14,6 @@
 #
 
 class Grade < ActiveRecord::Base
-  attr_accessible :name, :style_id, :rank#, :as => :admin
   has_many :ascents
   has_many :climbs
   belongs_to :style
