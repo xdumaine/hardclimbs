@@ -39,7 +39,7 @@ class AreasController < ApplicationController
   end
   
   def update
-      @area = Area.find(area_params)
+      @area = Area.find(params[:id])
       if @area.update(params[:area])
         redirect_to @area, :notice => "Area updated."
       else
