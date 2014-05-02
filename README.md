@@ -10,7 +10,7 @@ You will need to use PostgreSQL to do your local development.  The code as it ex
 Site dependencies include but are not limited to:
 
 * Twitter Bootstrap 2.3 - http://getbootstrap.com/2.3.2/
-* Rails 3.2.13
+* Rails 4.0.2
 * Ruby 2.0
 * Twitter Typeahead - https://github.com/twitter/typeahead.js/
 * Hogan.js - http://twitter.github.io/hogan.js/
