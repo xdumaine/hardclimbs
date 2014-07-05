@@ -54,3 +54,4 @@ gem 'breadcrumbs_on_rails'
 gem 'carmen'
 gem 'twitter-typeahead-rails'
 gem 'rails_12factor', group: :production
+gem 'humanize_boolean'

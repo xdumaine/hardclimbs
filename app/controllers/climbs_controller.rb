@@ -1,17 +1,17 @@
 class ClimbsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show, :load_climb_list]
-  helper_method :join_on, :sort_column, :sort_direction 
+  helper_method :join_on, :sort_column, :sort_direction
   load_and_authorize_resource :except => [:load_climb_list]
-  
+
   add_breadcrumb "Climbs", :climbs_path
-  
+
   def new
    @climb = Climb.new
    if (params[:area_id])
      @climb.area = Area.find(params[:area_id])
    end
   end
-  
+
   def index
     if params[:styles]
       @climbs = Climb.order_by_join(params[:join_model], sort_column, sort_direction).page(params[:page]).where(:style_id => params[:styles])
@@ -40,7 +40,7 @@ class ClimbsController < ApplicationController
     set_meta_tags :keywords => @keywords
     set_meta_tags :title => @title
   end
-  
+
   def edit
     @climb = Climb.find(params[:id])
   end
@@ -56,7 +56,7 @@ class ClimbsController < ApplicationController
     set_meta_tags :keywords => @keywords
     set_meta_tags :title => @title
   end
-  
+
   def update
       @climb = Climb.find(params[:id])
       if @climb.update(climb_params)
@@ -75,13 +75,13 @@ class ClimbsController < ApplicationController
       render 'new'
     end
   end
-    
+
   def destroy
     climb = Climb.find(params[:id])
     climb.destroy
     redirect_to climbs_path, :notice => "Climb deleted."
   end
-  
+
   def load_climb_list
     @climb_names = Array.new
     Climb.order(:name).each do |c|
@@ -89,16 +89,16 @@ class ClimbsController < ApplicationController
     end
     render json: @climb_names
   end
-  
-  private  
-    def sort_column  
-      params[:sort_column] || "name"  
-    end  
 
-    def sort_direction  
-       %w[asc desc].include?(params[:sort_direction]) ?  params[:sort_direction] : "asc"  
+  private
+    def sort_column
+      params[:sort_column] || "name"
     end
-    
+
+    def sort_direction
+       %w[asc desc].include?(params[:sort_direction]) ?  params[:sort_direction] : "asc"
+    end
+
     def join_on
       params[:join_on] || nil
     end

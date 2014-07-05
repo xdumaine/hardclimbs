@@ -9,6 +9,7 @@
 	      <th><%= sortable "styles.name", "Style", "style" %></th>
 	      <th><%= sortable "grades.rank", "Proposed Grade", "grade" %></th>
 	      <th><%= sortable "ascents_count", "Ascents" %></th>
+	      <th><%= sortable "still_hard", "Still Hard" %></th>
 	      <% if can? :edit, Climb or can? :destroy, Climb %>
 	        <th><%=t '.actions', :default => t("helpers.actions") %></th>
 	      <% end %>
@@ -22,6 +23,7 @@
 	        <td><%= link_to climb.style.name, climbs_path(:styles => climb.style.id) %></td>
 			<td><%= climb.proposed_grade %></td>
 	        <td><span class="badge"><%= climb.ascents_count %></span></td>
+	        <td><%= climb.still_hard.humanize %></td>
 	        <% if can? :edit, Climb %>
 	          <td>
 	            <%= link_to t('.edit', :default => t("helpers.links.edit")),
