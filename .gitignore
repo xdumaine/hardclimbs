@@ -18,7 +18,7 @@
 # minimal Rails specific artifacts
 db/*.sqlite3
 /log/*
-/tmp/*
+rails/tmp/*
 
 # various artifacts
 **.war
