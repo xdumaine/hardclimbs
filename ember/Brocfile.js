@@ -18,3 +18,6 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 module.exports = app.toTree();
+
+app.import('vendor/bootstrap/dist/js/bootstrap.js');
+app.import('vendor/bootstrap/dist/css/bootstrap.css');
