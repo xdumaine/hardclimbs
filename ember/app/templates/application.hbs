@@ -1,3 +1,11 @@
-<h2 id='title'>Welcome to Ember.js</h2>
-
-{{outlet}}
+  {{render "navbar"}}
+  <div id="main" role="main">
+    <div class="container">
+        {{outlet}}
+        <footer>
+          {{render "footer"}}
+        </footer>
+      </div>
+    </div> <!--! end of .container -->
+  </div> <!--! end of #main -->
+</body>

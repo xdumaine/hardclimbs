@@ -3,10 +3,7 @@ ruby "2.0.0"
 gem 'rails', '4.0.2'
 
 gem 'uglifier', '>= 1.0.3'
-gem 'sass-rails'
-gem "chosen-rails", "~> 1.0.0"
 gem "compass-rails", "~> 1.1.2"
-gem 'hogan_assets'
 
 gem "thin", ">= 1.5.0", :group => :production
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
@@ -19,13 +16,7 @@ gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
 gem "devise", :git => "git://github.com/plataformatec/devise.git"
 gem "cancan", :git => 'git://github.com/ryanb/cancan'
 gem "rolify", :git => 'git://github.com/EppO/rolify'
-gem 'less-rails'
-gem 'less-rails-bootstrap'
-gem 'less-rails-bootswatch'
-gem "simple_form", :git => 'git://github.com/plataformatec/simple_form'
-gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "figaro", ">= 0.5.0"
-gem "better_errors", ">= 0.3.2", :group => :development
 gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem 'annotate', ">=2.5.0"
@@ -36,18 +27,12 @@ gem 'pg'
 gem 'friendly_id', '~> 5.0.0'
 gem 'country_select', :git => 'git://github.com/stefanpenner/country_select'
 gem 'newrelic_rpm', :group => [:production]
-gem 'kaminari'
-gem 'kaminari-bootstrap'
 gem 'google-analytics-rails'
 gem 'auto_html', :git => 'git://github.com/Dhaulagiri/auto_html.git'
 gem 'counter_culture', '~> 0.1.7'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'gon'
-gem "high_voltage"
 gem 'pg_search'
-gem "best_in_place", :git => 'git://github.com/bernat/best_in_place.git'
-gem 'breadcrumbs_on_rails'
 gem 'carmen'
-gem 'twitter-typeahead-rails'
 gem 'rails_12factor', group: :production
 gem 'active_model_serializers'

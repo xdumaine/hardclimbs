@@ -51,11 +51,11 @@ module Hardclimbs
     config.active_record.schema_format = :sql
 
     # Enable the asset pipeline
-    config.assets.enabled = true
-
+    config.assets.enabled = false
+    config.serve_static_assets = false
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = false
-    
+
     config.assets.initialize_on_precompile = false
     config.filter_parameters += [:password, :password_confirmation]
     config.generators do |g|
