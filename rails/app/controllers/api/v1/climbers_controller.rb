@@ -5,8 +5,7 @@ class Api::V1::ClimbersController < ApplicationController
 
   # GET /climbers
   def index
-    render json: Climber.all
-    #respond_with Climber.all
+    respond_with Climber.all
   end
 
   # GET /climbers/1
@@ -49,6 +48,6 @@ class Api::V1::ClimbersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def climber_params
-      params.require(:climber).permit(:first_name, :last_name, :dob, :height, :sex, :slug)
+      params.require(:climber).permit(:first_name, :last_name, :dob, :height, :sex)
     end
 end

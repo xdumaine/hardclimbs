@@ -5,6 +5,11 @@ Hardclimbs::Application.routes.draw do
     namespace :v1 do
       resources :climbers, except: [:new, :edit]
       resources :ascents, except: [:new, :edit]
+      resources :climbs, except: [:new, :edit]
+      resources :grades, except: [:new, :edit]
+      resources :media_types, except: [:new, :edit]
+      resources :medias, except: [:new, :edit]
+      resources :areas, except: [:new, :edit]
     end
   end
 

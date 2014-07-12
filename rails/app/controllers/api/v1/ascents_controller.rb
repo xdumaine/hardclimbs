@@ -5,8 +5,7 @@ class Api::V1::AscentsController < ApplicationController
 
   # GET /ascents
   def index
-    render json: Ascent.all
-    #respond_with Ascent.all
+    respond_with Ascent.all
   end
 
   # GET /ascents/1
@@ -49,7 +48,7 @@ class Api::V1::AscentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ascent_params
-      params.require(:ascent).permit(:date, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number, 
+      params.require(:ascent).permit(:date, :climber_id, :climb_id, :media_ids, :grade_id, :ascent_number,
                                       :notes, :date_end, :media_ids => [])
     end
 end

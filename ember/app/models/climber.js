@@ -8,11 +8,11 @@ export default DS.Model.extend({
   full_name: attr('string'),
   sex: attr('string'),
   dob: attr('date'),
-  height: attr(),
+  height: attr('number'),
   created_at: attr('date'),
   updated_at: attr('date'),
   slug: attr('string'),
-  climbs_count: attr(),
-  ascents_count: attr(),
+  climbs_count: attr('number'),
+  ascents_count: attr('number'),
   ascents: DS.hasMany('ascent')
 });

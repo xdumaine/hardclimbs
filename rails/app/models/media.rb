@@ -12,12 +12,11 @@
 #
 
 class Media < ActiveRecord::Base
-  paginates_per 15
-  
+
   belongs_to :media_type
   has_and_belongs_to_many :ascent
   has_and_belongs_to_many :climb
-  
+
   validates_presence_of :url
   validates_presence_of :media_type
   validates_presence_of :description
@@ -42,7 +41,7 @@ class Media < ActiveRecord::Base
       return false
     end
   end
-  
+
   private
     def at_least_one_climb_ascent
       if self.climb.compact.size + self.ascent.compact.size == 0
