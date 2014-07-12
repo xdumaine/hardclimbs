@@ -3,7 +3,7 @@ import Ember from 'ember';
 
 var App;
 
-module('Integration - Speaker Page', {
+module('Integration - Climber Page', {
   setup: function() {
     App = startApp();
     // var speakers = [

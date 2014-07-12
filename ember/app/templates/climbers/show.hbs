@@ -1,1 +1,5 @@
 <h4>{{first_name}}</h4>
+
+{{#each ascents}}
+  {{link-to slug 'ascents.show' this}}
+{{/each}}

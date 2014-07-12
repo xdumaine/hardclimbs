@@ -4,6 +4,7 @@ Hardclimbs::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :climbers, except: [:new, :edit]
+      resources :ascents, except: [:new, :edit]
     end
   end
 
