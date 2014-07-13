@@ -9,8 +9,8 @@ You will need to use PostgreSQL to do your local development.  The code as it ex
 
 Site dependencies include but are not limited to:
 
-* Twitter Bootstrap 2.3 - http://getbootstrap.com/2.3.2/
-* Rails 3.2.13
+* Twitter Bootstrap 3.2 - http://getbootstrap.com/
+* Rails 4.0.0
 * Ruby 2.0
 * Twitter Typeahead - https://github.com/twitter/typeahead.js/
 * Hogan.js - http://twitter.github.io/hogan.js/
@@ -53,10 +53,10 @@ HardClimbs.info is hosted with Heroku. These instructions use Virtualbox, Vagran
           password:
 
 6. Start and log in to the Vagrant VM:
-        
+
         $ vagrant up
         $ vagrant ssh
-        
+
 7. Upgrade Ruby to v2.0.0:
 
         vagrant@heroku:~$ \curl -L https://get.rvm.io | bash
