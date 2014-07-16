@@ -5,7 +5,7 @@ var App;
 
 module('Integration - Ascent Page', {
   setup: function() {
-
+    App = startApp();
   },
   teardown: function() {
     Ember.run(App, 'destroy');
