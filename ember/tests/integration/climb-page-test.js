@@ -3,7 +3,7 @@ import Ember from 'ember';
 
 var App;
 
-module('Integration - Climber Page', {
+module('Integration - Climb Page', {
   setup: function() {
     App = startApp();
   },
@@ -12,7 +12,7 @@ module('Integration - Climber Page', {
   }
 });
 
-test('Should allow navigation to the climbers page from the landing page', function() {
+test('Should allow navigation to the climb page from the landing page', function() {
   visit('/').then(function() {
     click('a:contains("Climbs")').then(function() {
       equal(find('h1').text(), 'Climbs');
@@ -20,8 +20,8 @@ test('Should allow navigation to the climbers page from the landing page', funct
   });
 });
 
-test('Should list all climbers', function() {
-  visit('/climbers').then(function() {
+test('Should list all climbs', function() {
+  visit('/climbs').then(function() {
     ok(true);
   });
 });
@@ -34,8 +34,8 @@ test('Should list all climbers', function() {
 //   });
 // });
 
-test('Should be able to visit a climber page', function() {
-  visit('/climbers/1').then(function() {
+test('Should be able to visit a climb page', function() {
+  visit('/climbs/1').then(function() {
     ok(true);
   });
 });
