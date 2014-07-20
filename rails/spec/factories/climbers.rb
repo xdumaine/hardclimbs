@@ -8,5 +8,7 @@ FactoryGirl.define do
     height  100
     sex 'M'
     dob '01-01-1990'
+    ascents_count 0
+    climbs_count 0
   end
 end
