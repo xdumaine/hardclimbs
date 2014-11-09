@@ -6,7 +6,9 @@ export default DS.Model.extend({
   name: attr('string'),
   still_hard: attr('boolean'),
   notes: attr('string'),
+  slug: attr('string'),
   style: DS.belongsTo('style'),
   area: DS.belongsTo('area'),
-  grade: DS.belongsTo('grade')
+  grade: DS.belongsTo('grade'),
+  ascents: DS.hasMany('ascent', {async: true})
 });

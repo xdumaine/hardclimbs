@@ -13,6 +13,7 @@ export default DS.Model.extend({
   updated_at: attr('date'),
   slug: attr('string'),
   climbs_count: attr('number'),
-  ascents_count: attr('number'),
-  ascents: DS.hasMany('ascent')
+  ascents_count: attr('number')//,
+  
+  //ascents: DS.hasMany('ascent', {async: true})
 });

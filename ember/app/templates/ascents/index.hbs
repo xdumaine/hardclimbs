@@ -1,3 +1,30 @@
-{{#each}}
-  {{link-to id 'ascents.show' this}}
-{{/each}}
+<div id="ascent-list">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Climb</th>
+          <th>Area</th>
+          <th>Climber</th>
+          <th>Ascent</th>
+          <th>Date</th>
+          <th>Proposed Grade</th>
+          <th>Style</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each}}
+          <tr>
+            <td>{{link-to 'View Details' 'ascents.show' this}}</td>
+            <td>{{link-to this.climb.name 'climbs.show' this.climb}}</td>
+            <td>{{link-to this.climb.area.name 'areas.show' this.climb.area}}</td>
+            <td>{{link-to this.climber.full_name 'climbers.show' this.climber}}</td>
+            <td>{{ascent_number}}</td>
+            <td>{{ascent_date}}</td>
+            <td>{{this.grade.name}}</td>
+            <td>{{this.climb.style.name}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+</div>

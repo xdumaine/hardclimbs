@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
-ruby "2.0.0"
-gem 'rails', '4.0.2'
+ruby "2.1.2"
+
+gem 'rails', '4.1.7'
 
 gem 'uglifier', '>= 1.0.3'
 gem "compass-rails", "~> 1.1.2"
@@ -19,10 +20,10 @@ gem "binding_of_caller", ">= 0.6.8", :group => :development
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem 'annotate', ">=2.5.0"
 gem "therubyracer"
-gem 'debugger', :group => [:development]
+gem 'byebug', :group => [:development]
 gem "faker", "~> 1.1.2", :group => [:development, :test]
 gem 'pg'
-gem 'friendly_id', '~> 5.0.0'
+gem 'friendly_id', '~> 5.0.2'
 gem 'country_select', :git => 'git://github.com/stefanpenner/country_select'
 gem 'newrelic_rpm', :group => [:production]
 gem 'auto_html', :git => 'git://github.com/Dhaulagiri/auto_html.git'

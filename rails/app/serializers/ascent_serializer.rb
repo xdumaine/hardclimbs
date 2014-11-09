@@ -8,5 +8,4 @@ class AscentSerializer < ActiveModel::Serializer
   has_one :climb
   #has_many :medias
   has_one :grade
-  has_one :climb
 end

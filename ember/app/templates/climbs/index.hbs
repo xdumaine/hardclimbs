@@ -1,0 +1,24 @@
+<div id="climb-list">
+  <table class="table table-striped" id="climb-list">
+    <thead>
+      <tr>
+        <th>Climb</th>
+        <th>Area</th>
+        <th>Style</th>
+        <th>Proposed Grade</th>
+        <th>Ascent</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each}}
+        <tr>
+          <td>{{link-to name 'climbs.show' this}}</td>
+          <td>{{link-to this.area.name 'areas.show' this.area}}</td>
+          <td>{{this.style.name}}</td>
+          <td>{{this.grade.name}}</td>
+          <td>{{link-to this.ascents_count}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

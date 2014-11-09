@@ -1,7 +1,7 @@
 class ClimbSerializer < ActiveModel::Serializer
   embed :ids, include: true
 
-  attributes :id, :name, :still_hard, :notes
+  attributes :id, :name, :still_hard, :notes, :slug
 
   has_many :ascents
   has_many :climbers

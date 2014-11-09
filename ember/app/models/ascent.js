@@ -9,6 +9,7 @@ export default DS.Model.extend({
   slug: attr('string'),
   notes: attr('string'),
   medias_count: attr('number'),
+  ascent_number: attr('number'),
 
   climber: DS.belongsTo('climber'),
   climb: DS.belongsTo('climb'),
