@@ -19,5 +19,4 @@ var app = new EmberApp();
 
 module.exports = app.toTree();
 
-app.import('vendor/bootstrap/dist/js/bootstrap.js');
-//app.import('vendor/bootstrap/dist/css/bootstrap.css');
+app.import('bower_components/bootstrap/dist/js/bootstrap.js');
